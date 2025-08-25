@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Timing Functions & Date</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript Timing Functions & Date</h1>
+        
+        <section id="current-time">
+            <h2>Current Date & Time</h2>
+            <div class="display-box" id="date-display">Loading date...</div>
+            <p class="explanation">
+                Using <code>new Date()</code> to get and display the current date and time.
+            </p>
+        </section>
+
+        <section id="setTimeout-demo">
+            <h2>setTimeout() Example</h2>
+            <div class="display-box" id="timeout-display">Waiting for timeout...</div>
+            <button id="timeout-btn">Start 3s Timeout</button>
+            <p class="explanation">
+                <code>setTimeout()</code> executes a function once after a specified delay.
+            </p>
+        </section>
+
+        <section id="setInterval-demo">
+            <h2>setInterval() Example</h2>
+            <div class="display-box" id="interval-display">Counter: 0</div>
+            <div class="btn-group">
+                <button id="start-interval">Start Counter</button>
+                <button id="stop-interval" disabled>Stop Counter</button>
+            </div>
+            <p class="explanation">
+                <code>setInterval()</code> repeatedly executes a function with a fixed time delay between each call.
+            </p>
+        </section>
+
+        <section id="digital-clock">
+            <h2>Digital Clock</h2>
+            <div class="display-box clock" id="clock-display">00:00:00</div>
+            <p class="explanation">
+                Combining <code>setInterval()</code> and <code>new Date()</code> to create a live digital clock.
+            </p>
+        </section>
+
+        <section id="countdown-timer">
+            <h2>Countdown Timer</h2>
+            <div class="display-box" id="countdown-display">00:00</div>
+            <div class="input-group">
+                <input type="number" id="minutes-input" min="0" max="60" value="1" placeholder="Minutes">
+                <button id="start-countdown">Start Countdown</button>
+                <button id="reset-countdown">Reset</button>
+            </div>
+            <p class="explanation">
+                Using <code>setInterval()</code> to create a countdown timer with controls.
+            </p>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

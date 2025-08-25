@@ -1,0 +1,117 @@
+/* Main styles for timing examples */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+h2 {
+    color: #3498db;
+    margin-bottom: 15px;
+}
+
+.display-box {
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    min-height: 24px;
+    text-align: center;
+}
+
+.clock {
+    font-family: monospace;
+    font-size: 32px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.explanation {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+code {
+    background-color: #f8f9fa;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: monospace;
+    color: #e74c3c;
+}
+
+.input-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+input[type="number"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 80px;
+}
+
+/* Highlight active states */
+.active {
+    background-color: #2ecc71;
+}
+
+.expired {
+    color: #e74c3c;
+}
