@@ -1,0 +1,240 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+    background-color: #e0e0e0;
+}
+
+.tab-button.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.example-container {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.example-element {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    min-height: 60px;
+}
+
+.controls {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+}
+
+.controls > div {
+    margin-bottom: 15px;
+}
+
+.controls label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.controls input[type="text"],
+.controls select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.explanation {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.explanation h3 {
+    margin-bottom: 10px;
+}
+
+dl {
+    margin: 0;
+}
+
+dt {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+dd {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.style-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.style-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.style-control label {
+    margin-bottom: 5px;
+}
+
+.style-control input {
+    padding: 5px;
+}
+
+.style-control span {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+#element-playground {
+    min-height: 200px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.playground-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#element-container {
+    min-height: 150px;
+    padding: 10px;
+}
+
+.new-element {
+    margin: 5px;
+    padding: 10px;
+    background-color: #e9e9e9;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.selected {
+    outline: 2px solid #4CAF50;
+}
+
+/* Specific styles for the style manipulation example */
+#style-example {
+    transition: all 0.3s;
+    border: 1px solid #000;
+}
+
+/* Styling for class toggle demo */
+.styled-box {
+    background-color: #f0f8ff !important;
+    border: 2px solid #4682b4 !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+    color: #4682b4 !important;
+    font-weight: bold !important;
+    transition: all 0.3s !important;
+}

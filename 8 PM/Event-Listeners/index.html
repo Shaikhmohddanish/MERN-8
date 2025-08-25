@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event Listeners</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>JavaScript Event Listeners</h1>
+        <p>Learn how to work with events in JavaScript</p>
+    </header>
+
+    <main>
+        <section id="event-basics">
+            <h2>Event Basics</h2>
+            <div class="demo-box" id="click-box">
+                <p>Click me!</p>
+                <div class="event-log">Events: <span id="click-log"></span></div>
+            </div>
+            <div class="code-example">
+                <h3>Code Example:</h3>
+                <pre><code>element.addEventListener('click', function(event) {
+    console.log('Element was clicked!');
+});</code></pre>
+                <button id="clear-click-log">Clear Log</button>
+            </div>
+        </section>
+
+        <section id="common-events">
+            <h2>Common Events</h2>
+            <div class="events-grid">
+                <div class="event-card" id="mouse-events">
+                    <h3>Mouse Events</h3>
+                    <div class="event-demo-area">
+                        <p>Interact with this area</p>
+                    </div>
+                    <div class="event-log">Events: <span id="mouse-log"></span></div>
+                    <div class="event-buttons">
+                        <button data-event="click">click</button>
+                        <button data-event="dblclick">dblclick</button>
+                        <button data-event="mousedown">mousedown</button>
+                        <button data-event="mouseup">mouseup</button>
+                        <button data-event="mousemove">mousemove</button>
+                        <button data-event="mouseenter">mouseenter</button>
+                        <button data-event="mouseleave">mouseleave</button>
+                    </div>
+                </div>
+
+                <div class="event-card" id="keyboard-events">
+                    <h3>Keyboard Events</h3>
+                    <div class="event-demo-area">
+                        <input type="text" id="keyboard-input" placeholder="Type here...">
+                    </div>
+                    <div class="event-log">Events: <span id="keyboard-log"></span></div>
+                    <div class="event-buttons">
+                        <button data-event="keydown">keydown</button>
+                        <button data-event="keyup">keyup</button>
+                        <button data-event="keypress">keypress</button>
+                    </div>
+                </div>
+
+                <div class="event-card" id="form-events">
+                    <h3>Form Events</h3>
+                    <div class="event-demo-area">
+                        <form id="demo-form">
+                            <input type="text" id="form-name" placeholder="Name">
+                            <select id="form-selection">
+                                <option value="">Choose an option</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                            </select>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                    <div class="event-log">Events: <span id="form-log"></span></div>
+                    <div class="event-buttons">
+                        <button data-event="focus">focus</button>
+                        <button data-event="blur">blur</button>
+                        <button data-event="change">change</button>
+                        <button data-event="submit">submit</button>
+                    </div>
+                </div>
+
+                <div class="event-card" id="document-events">
+                    <h3>Document/Window Events</h3>
+                    <div class="event-demo-area">
+                        <div id="resize-demo">Resize your window</div>
+                        <button id="trigger-scroll">Trigger scroll</button>
+                    </div>
+                    <div class="event-log">Events: <span id="document-log"></span></div>
+                    <div class="event-buttons">
+                        <button data-event="load">load</button>
+                        <button data-event="resize">resize</button>
+                        <button data-event="scroll">scroll</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="event-propagation">
+            <h2>Event Propagation</h2>
+            <div class="propagation-demo">
+                <div class="outer-box" id="outer">
+                    <div class="middle-box" id="middle">
+                        <div class="inner-box" id="inner">
+                            Click me
+                        </div>
+                    </div>
+                </div>
+                <div class="propagation-controls">
+                    <div>
+                        <label for="propagation-phase">Display events during:</label>
+                        <select id="propagation-phase">
+                            <option value="both">Both phases (bubbling and capturing)</option>
+                            <option value="bubbling">Bubbling phase only</option>
+                            <option value="capturing">Capturing phase only</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="stop-propagation">
+                        <label for="stop-propagation">Stop propagation at inner box</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="prevent-default">
+                        <label for="prevent-default">Prevent default (no effect in this demo)</label>
+                    </div>
+                </div>
+                <div class="event-log">Propagation Log: <div id="propagation-log"></div></div>
+            </div>
+        </section>
+
+        <section id="event-delegation">
+            <h2>Event Delegation</h2>
+            <div class="delegation-demo">
+                <h3>Task List <button id="add-task">Add Task</button></h3>
+                <ul id="task-list">
+                    <li class="task-item">Task 1 <span class="delete-btn">×</span></li>
+                    <li class="task-item">Task 2 <span class="delete-btn">×</span></li>
+                    <li class="task-item">Task 3 <span class="delete-btn">×</span></li>
+                </ul>
+                <div class="explanation">
+                    <p>Event delegation allows you to attach a single event listener to a parent element that will fire for all descendants matching a selector, whether those descendants exist now or are added in the future.</p>
+                    <pre><code>// Instead of adding listeners to each delete button
+document.getElementById('task-list').addEventListener('click', function(event) {
+    // Check if the clicked element is a delete button
+    if (event.target.classList.contains('delete-btn')) {
+        // Delete the parent li element
+        event.target.parentElement.remove();
+    }
+});</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="custom-events">
+            <h2>Custom Events</h2>
+            <div class="custom-events-demo">
+                <div class="notification-center">
+                    <h3>Notification Center</h3>
+                    <div id="notification-container"></div>
+                    <div class="controls">
+                        <button id="trigger-info">Info Event</button>
+                        <button id="trigger-warning">Warning Event</button>
+                        <button id="trigger-error">Error Event</button>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h3>Creating Custom Events:</h3>
+                    <pre><code>// Create a custom event
+const customEvent = new CustomEvent('notification', {
+    detail: {
+        type: 'info',
+        message: 'This is an info message'
+    },
+    bubbles: true,
+    cancelable: true
+});
+
+// Dispatch the event
+element.dispatchEvent(customEvent);</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Event Listeners Tutorial</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

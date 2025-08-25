@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Selection in JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>JavaScript Element Selection Methods</h1>
+        <p>Learn the various ways to select DOM elements with JavaScript</p>
+    </header>
+
+    <main>
+        <section id="selection-methods">
+            <h2>Selection Methods Overview</h2>
+            <div class="method-cards">
+                <div class="method-card">
+                    <h3>getElementById</h3>
+                    <p>Selects a single element by its ID attribute</p>
+                    <code>document.getElementById('uniqueId')</code>
+                </div>
+                <div class="method-card">
+                    <h3>getElementsByClassName</h3>
+                    <p>Selects multiple elements by their class name</p>
+                    <code>document.getElementsByClassName('className')</code>
+                </div>
+                <div class="method-card">
+                    <h3>getElementsByTagName</h3>
+                    <p>Selects multiple elements by their tag name</p>
+                    <code>document.getElementsByTagName('div')</code>
+                </div>
+                <div class="method-card">
+                    <h3>querySelector</h3>
+                    <p>Selects the first element that matches a CSS selector</p>
+                    <code>document.querySelector('.class #id')</code>
+                </div>
+                <div class="method-card">
+                    <h3>querySelectorAll</h3>
+                    <p>Selects all elements that match a CSS selector</p>
+                    <code>document.querySelectorAll('div.className')</code>
+                </div>
+            </div>
+        </section>
+
+        <section id="practice-area">
+            <h2>Practice Area</h2>
+            <div class="target-container">
+                <div id="unique-element" class="special-class common-class">
+                    Element with ID "unique-element" and classes "special-class" and "common-class"
+                </div>
+                <p class="common-class">Paragraph with class "common-class"</p>
+                <p class="common-class">Another paragraph with class "common-class"</p>
+                <div class="common-class nested-container">
+                    <span class="nested-element">Nested span element</span>
+                    <span class="nested-element special-class">Nested span with multiple classes</span>
+                </div>
+                <ul id="list-container">
+                    <li class="list-item">First item</li>
+                    <li class="list-item selected">Second item (selected)</li>
+                    <li class="list-item">Third item</li>
+                </ul>
+            </div>
+            <div class="controls">
+                <div class="selector-input">
+                    <label for="selector-method">Selection Method:</label>
+                    <select id="selector-method">
+                        <option value="getElementById">getElementById</option>
+                        <option value="getElementsByClassName">getElementsByClassName</option>
+                        <option value="getElementsByTagName">getElementsByTagName</option>
+                        <option value="querySelector">querySelector</option>
+                        <option value="querySelectorAll">querySelectorAll</option>
+                    </select>
+                </div>
+                <div class="selector-input">
+                    <label for="selector-value">Selector Value:</label>
+                    <input type="text" id="selector-value" placeholder="e.g., unique-element or common-class">
+                </div>
+                <button id="select-button">Select Elements</button>
+            </div>
+            <div class="results">
+                <h3>Selection Results:</h3>
+                <pre id="selection-output">Select elements to see results here</pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Element Selection Tutorial</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

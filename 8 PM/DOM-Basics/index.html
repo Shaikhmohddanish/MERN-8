@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Basics</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Understanding the DOM</h1>
+        <p>The Document Object Model (DOM) is a programming interface for HTML documents</p>
+    </header>
+
+    <main>
+        <section id="dom-structure">
+            <h2>DOM Structure</h2>
+            <p>The DOM represents an HTML document as a tree of nodes:</p>
+            <div class="dom-tree">
+                <div class="node document">document
+                    <div class="node html">html
+                        <div class="node head">head
+                            <div class="node title">title</div>
+                        </div>
+                        <div class="node body">body
+                            <div class="node header">header
+                                <div class="node h1">h1</div>
+                                <div class="node p">p</div>
+                            </div>
+                            <div class="node section">section</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="accessing-dom">
+            <h2>Accessing the DOM</h2>
+            <p>The entry point to the DOM is the <code>document</code> object</p>
+            <div class="console-example">
+                <p>Open the browser console and try:</p>
+                <pre><code>console.log(document);</code></pre>
+            </div>
+        </section>
+
+        <section id="dom-exercise">
+            <h2>Interactive Example</h2>
+            <div id="demo-box">
+                <p>This is an interactive demo element</p>
+                <button id="inspect-btn">Inspect in Console</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>DOM Basics Tutorial</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

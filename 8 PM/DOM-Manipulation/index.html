@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation in JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>DOM Manipulation Techniques</h1>
+        <p>Learn how to modify, create, and delete DOM elements with JavaScript</p>
+    </header>
+
+    <main>
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="content">Content Manipulation</button>
+            <button class="tab-button" data-tab="attributes">Attribute Manipulation</button>
+            <button class="tab-button" data-tab="style">Style Manipulation</button>
+            <button class="tab-button" data-tab="create">Create & Delete</button>
+        </nav>
+
+        <section id="content" class="tab-content active">
+            <h2>Content Manipulation</h2>
+            <div class="example-container">
+                <div class="example-element" id="content-example">This is sample text content</div>
+                <div class="controls">
+                    <div>
+                        <label for="text-content">Text Content:</label>
+                        <input type="text" id="text-content" value="This is sample text content">
+                        <button id="set-text-content">Set textContent</button>
+                    </div>
+                    <div>
+                        <label for="inner-html">HTML Content:</label>
+                        <input type="text" id="inner-html" value="This is <strong>sample</strong> text content">
+                        <button id="set-inner-html">Set innerHTML</button>
+                    </div>
+                    <div>
+                        <label for="inner-text">Inner Text:</label>
+                        <input type="text" id="inner-text" value="This is sample text content">
+                        <button id="set-inner-text">Set innerText</button>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h3>Methods Explained:</h3>
+                    <dl>
+                        <dt>textContent</dt>
+                        <dd>Gets or sets the text content of an element and all its descendants</dd>
+                        <dt>innerHTML</dt>
+                        <dd>Gets or sets the HTML content inside the element (parses HTML)</dd>
+                        <dt>innerText</dt>
+                        <dd>Gets or sets the visible text content of an element (affected by CSS)</dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <section id="attributes" class="tab-content">
+            <h2>Attribute Manipulation</h2>
+            <div class="example-container">
+                <div class="example-element" id="attribute-example" title="Original tooltip" data-custom="original-value">
+                    Hover over me to see the title attribute
+                </div>
+                <div class="controls">
+                    <div>
+                        <label for="attribute-name">Attribute Name:</label>
+                        <select id="attribute-name">
+                            <option value="title">title</option>
+                            <option value="data-custom">data-custom</option>
+                            <option value="class">class</option>
+                            <option value="id">id</option>
+                            <option value="custom">custom attribute...</option>
+                        </select>
+                        <input type="text" id="custom-attribute-name" placeholder="Custom attribute name" style="display: none;">
+                    </div>
+                    <div>
+                        <label for="attribute-value">Attribute Value:</label>
+                        <input type="text" id="attribute-value" value="Modified tooltip">
+                    </div>
+                    <div class="button-group">
+                        <button id="get-attribute">Get Attribute</button>
+                        <button id="set-attribute">Set Attribute</button>
+                        <button id="remove-attribute">Remove Attribute</button>
+                    </div>
+                    <div>
+                        <label for="attribute-result">Result:</label>
+                        <input type="text" id="attribute-result" readonly>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h3>Methods Explained:</h3>
+                    <dl>
+                        <dt>getAttribute(name)</dt>
+                        <dd>Gets the value of the specified attribute</dd>
+                        <dt>setAttribute(name, value)</dt>
+                        <dd>Sets the value of the specified attribute</dd>
+                        <dt>removeAttribute(name)</dt>
+                        <dd>Removes the specified attribute</dd>
+                        <dt>hasAttribute(name)</dt>
+                        <dd>Returns true if the element has the specified attribute</dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <section id="style" class="tab-content">
+            <h2>Style Manipulation</h2>
+            <div class="example-container">
+                <div class="example-element" id="style-example">Style manipulation example</div>
+                <div class="controls">
+                    <div class="style-controls">
+                        <div class="style-control">
+                            <label for="background-color">Background Color:</label>
+                            <input type="color" id="background-color" value="#ffffff">
+                        </div>
+                        <div class="style-control">
+                            <label for="text-color">Text Color:</label>
+                            <input type="color" id="text-color" value="#000000">
+                        </div>
+                        <div class="style-control">
+                            <label for="font-size">Font Size:</label>
+                            <input type="range" id="font-size" min="10" max="32" value="16">
+                            <span id="font-size-value">16px</span>
+                        </div>
+                        <div class="style-control">
+                            <label for="border-width">Border Width:</label>
+                            <input type="range" id="border-width" min="0" max="10" value="1">
+                            <span id="border-width-value">1px</span>
+                        </div>
+                        <div class="style-control">
+                            <label for="border-radius">Border Radius:</label>
+                            <input type="range" id="border-radius" min="0" max="50" value="0">
+                            <span id="border-radius-value">0px</span>
+                        </div>
+                        <div class="style-control">
+                            <label for="padding">Padding:</label>
+                            <input type="range" id="padding" min="0" max="50" value="10">
+                            <span id="padding-value">10px</span>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button id="reset-styles">Reset Styles</button>
+                        <button id="add-class">Add Class</button>
+                        <button id="remove-class">Remove Class</button>
+                        <button id="toggle-class">Toggle Class</button>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h3>Methods Explained:</h3>
+                    <dl>
+                        <dt>element.style.property</dt>
+                        <dd>Sets inline CSS styles directly</dd>
+                        <dt>element.classList.add()</dt>
+                        <dd>Adds a CSS class to an element</dd>
+                        <dt>element.classList.remove()</dt>
+                        <dd>Removes a CSS class from an element</dd>
+                        <dt>element.classList.toggle()</dt>
+                        <dd>Toggles a CSS class (adds if not present, removes if present)</dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <section id="create" class="tab-content">
+            <h2>Create & Delete Elements</h2>
+            <div class="example-container">
+                <div id="element-playground">
+                    <div class="playground-header">Element Playground</div>
+                    <div id="element-container"></div>
+                </div>
+                <div class="controls">
+                    <div>
+                        <label for="element-type">Element Type:</label>
+                        <select id="element-type">
+                            <option value="div">div</option>
+                            <option value="p">p</option>
+                            <option value="span">span</option>
+                            <option value="button">button</option>
+                            <option value="h3">h3</option>
+                            <option value="img">img</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="element-content">Element Content:</label>
+                        <input type="text" id="element-content" value="New element">
+                    </div>
+                    <div>
+                        <label for="element-class">Element Class:</label>
+                        <input type="text" id="element-class" value="new-element">
+                    </div>
+                    <div class="button-group">
+                        <button id="create-element">Create Element</button>
+                        <button id="append-element">Append Element</button>
+                        <button id="prepend-element">Prepend Element</button>
+                        <button id="insert-before">Insert Before</button>
+                        <button id="replace-element">Replace Element</button>
+                        <button id="clone-element">Clone Element</button>
+                        <button id="remove-element">Remove Element</button>
+                    </div>
+                </div>
+                <div class="explanation">
+                    <h3>Methods Explained:</h3>
+                    <dl>
+                        <dt>document.createElement()</dt>
+                        <dd>Creates a new element node</dd>
+                        <dt>parent.appendChild()</dt>
+                        <dd>Adds a node as the last child of a parent</dd>
+                        <dt>parent.prepend()</dt>
+                        <dd>Adds a node as the first child of a parent</dd>
+                        <dt>parent.insertBefore()</dt>
+                        <dd>Inserts a node before a reference node</dd>
+                        <dt>parent.replaceChild()</dt>
+                        <dd>Replaces a child node with a new node</dd>
+                        <dt>node.cloneNode()</dt>
+                        <dd>Creates a copy of a node</dd>
+                        <dt>node.remove()</dt>
+                        <dd>Removes a node from the DOM</dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>DOM Manipulation Tutorial</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+code {
+    background-color: #f8f8f8;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+pre {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 15px 0;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+.dom-tree {
+    margin: 20px 0;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.node {
+    margin-left: 20px;
+    padding: 5px;
+    position: relative;
+}
+
+.node::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    width: 10px;
+    height: 1px;
+    background-color: #999;
+}
+
+.document {
+    margin-left: 0;
+}
+
+.document::before {
+    display: none;
+}
+
+.console-example {
+    margin: 20px 0;
+}
+
+#demo-box {
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    background-color: #f9f9f9;
+}
+
+.highlight {
+    background-color: yellow;
+    transition: background-color 0.5s;
+}
