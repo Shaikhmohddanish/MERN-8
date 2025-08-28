@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM Basics</title>
+    <title>DOM Basics - Interactive Learning</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,48 +14,483 @@
 
     <main>
         <section id="dom-structure">
-            <h2>DOM Structure</h2>
-            <p>The DOM represents an HTML document as a tree of nodes:</p>
+            <h2>DOM Structure Visualization</h2>
+            <p>The DOM represents an HTML document as a tree of nodes (think of a family tree):</p>
             <div class="dom-tree">
                 <div class="node document">document
                     <div class="node html">html
                         <div class="node head">head
                             <div class="node title">title</div>
+                            <div class="node meta">meta</div>
+                            <div class="node link">link</div>
                         </div>
                         <div class="node body">body
                             <div class="node header">header
                                 <div class="node h1">h1</div>
                                 <div class="node p">p</div>
                             </div>
-                            <div class="node section">section</div>
+                            <div class="node main">main
+                                <div class="node section">section</div>
+                                <div class="node section">section</div>
+                            </div>
+                            <div class="node footer">footer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="dom-explanation">
+                <p><strong>Parent nodes</strong> contain <strong>child nodes</strong>, which can be <strong>siblings</strong> to each other.</p>
+                <p>The <code>document</code> is the root of your webpage's family tree!</p>
+            </div>
+        </section>
+
+        <section id="element-selection">
+            <h2>Selecting DOM Elements</h2>
+            <div class="section-intro">
+                <p>There are multiple ways to select elements from the DOM. Each method has specific use cases and performance characteristics:</p>
+            </div>
+            
+            <div class="selection-methods">
+                <div class="method-card" id="method-byId">
+                    <h3>getElementById</h3>
+                    <p>Select a single element by its unique ID</p>
+                    <div class="example-element" id="unique-element">Element with ID "unique-element"</div>
+                    <button class="try-button" data-method="byId">Try It</button>
+                    <div class="result-display"></div>
+                </div>
+                
+                <div class="method-card" id="method-byClass">
+                    <h3>getElementsByClassName</h3>
+                    <p>Select multiple elements by their class name</p>
+                    <div class="example-class">First element with class "example-class"</div>
+                    <div class="example-class">Second element with class "example-class"</div>
+                    <button class="try-button" data-method="byClass">Try It</button>
+                    <div class="result-display"></div>
+                </div>
+                
+                <div class="method-card" id="method-byTag">
+                    <h3>getElementsByTagName</h3>
+                    <p>Select elements by their HTML tag</p>
+                    <p class="tag-example">Paragraph 1</p>
+                    <p class="tag-example">Paragraph 2</p>
+                    <button class="try-button" data-method="byTag">Try It</button>
+                    <div class="result-display"></div>
+                </div>
+                
+                <div class="method-card" id="method-querySelector">
+                    <h3>querySelector/All</h3>
+                    <p>Select elements using CSS selector syntax</p>
+                    <div class="query-test" data-test="first">First div with class "query-test"</div>
+                    <div class="query-test" data-test="second">Second div with class "query-test"</div>
+                    <button class="try-button" data-method="querySelector">Try It</button>
+                    <div class="result-display"></div>
+                </div>
+            </div>
+            
+            <div class="selection-playground">
+                <h3>Selection Playground</h3>
+                <p>Practice different selection methods on these elements:</p>
+                <div class="playground-container">
+                    <div id="playground-item1" class="playground-item red-item">Item 1</div>
+                    <div id="playground-item2" class="playground-item blue-item">Item 2</div>
+                    <div id="playground-item3" class="playground-item green-item" data-special="true">Item 3</div>
+                    <div id="playground-item4" class="playground-item red-item">Item 4</div>
+                    <p class="playground-paragraph">Paragraph in playground</p>
+                </div>
+                <div class="selection-challenge">
+                    <h4>Selection Challenges</h4>
+                    <div class="challenge-list">
+                        <div class="challenge-item">
+                            <p>Select all red items</p>
+                            <input type="text" id="challenge1" placeholder="Enter your selector">
+                            <button class="check-button" data-challenge="1">Check</button>
+                            <span class="challenge-result"></span>
+                        </div>
+                        <div class="challenge-item">
+                            <p>Select the element with data-special="true"</p>
+                            <input type="text" id="challenge2" placeholder="Enter your selector">
+                            <button class="check-button" data-challenge="2">Check</button>
+                            <span class="challenge-result"></span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="accessing-dom">
-            <h2>Accessing the DOM</h2>
-            <p>The entry point to the DOM is the <code>document</code> object</p>
-            <div class="console-example">
-                <p>Open the browser console and try:</p>
-                <pre><code>console.log(document);</code></pre>
+        <section id="dom-traversal">
+            <h2>DOM Traversal</h2>
+            <p>Moving around the DOM tree:</p>
+            <div id="family-tree">
+                <div id="parent">Parent Node
+                    <div id="first-child" class="child">First Child
+                        <div class="grandchild">Grandchild 1</div>
+                    </div>
+                    <div id="second-child" class="child">Second Child
+                        <div class="grandchild">Grandchild 2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="traversal-buttons">
+                <button id="show-parent">Show Parent</button>
+                <button id="show-children">Show Children</button>
+                <button id="show-siblings">Show Siblings</button>
+                <button id="show-descendants">Show All Descendants</button>
+            </div>
+            <div id="traversal-result" class="result-box">Results will appear here...</div>
+        </section>
+                <button id="show-parent">Show Parent</button>
+                <button id="show-children">Show Children</button>
+                <button id="show-siblings">Show Siblings</button>
+                <button id="show-descendants">Show All Descendants</button>
+            </div>
+            <div id="traversal-result" class="result-box">Results will appear here...</div>
+        </section>
+
+        <section id="dom-manipulation">
+            <h2>Live DOM Manipulation</h2>
+            <div class="section-intro">
+                <p>DOM manipulation allows you to dynamically change the content, structure, and appearance of a webpage after it has loaded:</p>
+            </div>
+            
+            <div class="manipulation-tabs">
+                <button class="tab-button active" data-tab="basic">Basic Manipulation</button>
+                <button class="tab-button" data-tab="create">Creating Elements</button>
+                <button class="tab-button" data-tab="attributes">Attributes & Properties</button>
+                <button class="tab-button" data-tab="styles">Styles & Classes</button>
+            </div>
+            
+            <div class="manipulation-content">
+                <!-- Basic Manipulation Tab Content -->
+                <div class="tab-content active" id="basic-tab">
+                    <div id="manipulation-playground">
+                        <div id="target-element">This element will be modified</div>
+                        <div class="control-panel">
+                            <button id="change-text">Change Text</button>
+                            <button id="change-style">Change Style</button>
+                            <button id="add-class">Add Class</button>
+                            <button id="create-element">Create New Element</button>
+                            <button id="remove-element">Remove Element</button>
+                            <button id="reset-playground">Reset</button>
+                        </div>
+                    </div>
+                    <div class="code-display">
+                        <h3>Last Operation:</h3>
+                        <pre><code id="operation-code">// Code will appear here after you perform an action</code></pre>
+                    </div>
+                </div>
+                
+                <!-- Creating Elements Tab Content -->
+                <div class="tab-content" id="create-tab">
+                    <div class="element-creation-demo">
+                        <h3>Creating & Adding Elements</h3>
+                        <div class="creation-container" id="creation-container">
+                            <p>This is the container where new elements will be added</p>
+                        </div>
+                        <div class="creation-controls">
+                            <div class="control-group">
+                                <label for="element-type">Element Type:</label>
+                                <select id="element-type">
+                                    <option value="div">div</option>
+                                    <option value="p">p</option>
+                                    <option value="button">button</option>
+                                    <option value="span">span</option>
+                                    <option value="h3">h3</option>
+                                    <option value="img">img</option>
+                                </select>
+                            </div>
+                            <div class="control-group">
+                                <label for="element-content">Content:</label>
+                                <input type="text" id="element-content" placeholder="Element content">
+                            </div>
+                            <div class="control-group">
+                                <label for="element-class">Class:</label>
+                                <input type="text" id="element-class" placeholder="Optional class name">
+                            </div>
+                            <div class="control-group">
+                                <label>Insert Method:</label>
+                                <select id="insert-method">
+                                    <option value="appendChild">appendChild</option>
+                                    <option value="prepend">prepend</option>
+                                    <option value="insertBefore">insertBefore first child</option>
+                                    <option value="insertAdjacentHTML">insertAdjacentHTML</option>
+                                </select>
+                            </div>
+                            <button id="create-new-element">Create Element</button>
+                            <button id="clear-container">Clear Container</button>
+                        </div>
+                        <div class="code-display">
+                            <h3>Generated Code:</h3>
+                            <pre><code id="creation-code">// Code will appear here after you create an element</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Attributes & Properties Tab Content -->
+                <div class="tab-content" id="attributes-tab">
+                    <div class="attributes-demo">
+                        <h3>Working with Attributes & Properties</h3>
+                        <div class="attribute-playground">
+                            <img id="attr-image" src="https://via.placeholder.com/150" alt="Demo image" width="150">
+                            <div id="attr-div" class="attr-example" data-custom="initial-value" title="Hover to see title">
+                                Element with attributes
+                            </div>
+                            <input id="attr-input" type="text" placeholder="Text input" value="Initial value">
+                        </div>
+                        <div class="attribute-controls">
+                            <div class="control-row">
+                                <label for="attribute-name">Attribute:</label>
+                                <input type="text" id="attribute-name" placeholder="e.g., src, class, data-custom">
+                                <input type="text" id="attribute-value" placeholder="New attribute value">
+                                <button id="set-attribute">Set Attribute</button>
+                                <button id="get-attribute">Get Attribute</button>
+                                <button id="remove-attribute">Remove Attribute</button>
+                            </div>
+                            <div class="target-selector">
+                                <label>Target:</label>
+                                <select id="attribute-target">
+                                    <option value="image">Image</option>
+                                    <option value="div">Div</option>
+                                    <option value="input">Input</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="attribute-result">
+                            <h4>Result:</h4>
+                            <div id="attribute-result">Results will appear here</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Styles & Classes Tab Content -->
+                <div class="tab-content" id="styles-tab">
+                    <div class="styles-demo">
+                        <h3>Styling with JavaScript</h3>
+                        <div id="style-playground" class="style-playground">
+                            Style me!
+                        </div>
+                        <div class="styles-controls">
+                            <div class="style-control">
+                                <h4>Inline Styles (element.style)</h4>
+                                <div class="style-properties">
+                                    <div class="property-row">
+                                        <label for="color-property">Color:</label>
+                                        <input type="color" id="color-property" value="#333333">
+                                    </div>
+                                    <div class="property-row">
+                                        <label for="bg-color-property">Background:</label>
+                                        <input type="color" id="bg-color-property" value="#ffffff">
+                                    </div>
+                                    <div class="property-row">
+                                        <label for="font-size-property">Font Size:</label>
+                                        <input type="range" id="font-size-property" min="10" max="32" value="16">
+                                        <span id="font-size-value">16px</span>
+                                    </div>
+                                    <div class="property-row">
+                                        <label for="border-radius-property">Border Radius:</label>
+                                        <input type="range" id="border-radius-property" min="0" max="50" value="0">
+                                        <span id="border-radius-value">0px</span>
+                                    </div>
+                                    <button id="apply-styles">Apply Styles</button>
+                                </div>
+                            </div>
+                            
+                            <div class="class-control">
+                                <h4>CSS Classes (classList)</h4>
+                                <div class="class-buttons">
+                                    <button id="add-highlight-class">Add .highlight</button>
+                                    <button id="add-large-class">Add .large</button>
+                                    <button id="add-border-class">Add .border</button>
+                                    <button id="toggle-rounded-class">Toggle .rounded</button>
+                                    <button id="remove-all-classes">Remove All Classes</button>
+                                </div>
+                                <div class="current-classes">
+                                    <h4>Current Classes:</h4>
+                                    <div id="class-list-display"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="code-display">
+                            <h3>Generated Code:</h3>
+                            <pre><code id="style-code">// Code will appear here after you apply styles</code></pre>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="dom-exercise">
-            <h2>Interactive Example</h2>
-            <div id="demo-box">
-                <p>This is an interactive demo element</p>
-                <button id="inspect-btn">Inspect in Console</button>
+        <section id="dom-events">
+            <h2>DOM Events</h2>
+            <div class="event-tabs">
+                <button class="event-tab-button active" data-tab="basic-events">Basic Events</button>
+                <button class="event-tab-button" data-tab="event-propagation">Event Propagation</button>
+                <button class="event-tab-button" data-tab="event-delegation">Event Delegation</button>
+                <button class="event-tab-button" data-tab="custom-events">Custom Events</button>
+            </div>
+            
+            <div class="event-content">
+                <!-- Basic Events Tab -->
+                <div class="event-tab-content active" id="basic-events-tab">
+                    <div id="event-demo">
+                        <div id="event-box">Interact with me!</div>
+                        <div id="event-log">Event log will appear here...</div>
+                    </div>
+                    <div class="event-code">
+                        <h3>Event Listener Code:</h3>
+                        <pre><code class="event-code-display">
+// Adding an event listener
+element.addEventListener('event', function(e) {
+    // event handler code
+});
+
+// Common events: click, mouseenter, mouseleave, 
+// keydown, focus, blur, submit, load
+                        </code></pre>
+                    </div>
+                </div>
+                
+                <!-- Event Propagation Tab -->
+                <div class="event-tab-content" id="event-propagation-tab">
+                    <div class="propagation-demo">
+                        <h3>Event Bubbling & Capturing</h3>
+                        <p>Click on any box to see how events propagate through the DOM tree:</p>
+                        
+                        <div class="event-flow-controls">
+                            <label>
+                                <input type="checkbox" id="use-capture"> Use Capture Phase
+                            </label>
+                            <label>
+                                <input type="checkbox" id="stop-propagation"> Stop Propagation
+                            </label>
+                            <button id="reset-propagation">Reset Log</button>
+                        </div>
+                        
+                        <div id="propagation-container" class="propagation-container">
+                            <div id="outer-box" class="propagation-box">Outer
+                                <div id="middle-box" class="propagation-box">Middle
+                                    <div id="inner-box" class="propagation-box">Inner</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="propagation-log" class="propagation-log">
+                            <p>Event propagation log will appear here...</p>
+                        </div>
+                        
+                        <div class="propagation-diagram">
+                            <h4>Event Flow Phases:</h4>
+                            <ol>
+                                <li><strong>Capture Phase</strong>: Events travel from window down to the target</li>
+                                <li><strong>Target Phase</strong>: Event reaches the target element</li>
+                                <li><strong>Bubble Phase</strong>: Events bubble up from the target back to window</li>
+                            </ol>
+                            <img src="https://www.w3.org/TR/DOM-Level-3-Events/images/eventflow.svg" alt="Event flow diagram" class="event-flow-diagram">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event Delegation Tab -->
+                <div class="event-tab-content" id="event-delegation-tab">
+                    <div class="delegation-demo">
+                        <h3>Event Delegation</h3>
+                        <p>Event delegation uses event bubbling to handle events at a higher level in the DOM tree:</p>
+                        
+                        <div class="delegation-example">
+                            <h4>Todo List Example</h4>
+                            <div class="todo-container">
+                                <div id="todo-list" class="todo-list">
+                                    <div class="todo-item">
+                                        <span class="todo-text">Learn DOM basics</span>
+                                        <button class="delete-btn">Delete</button>
+                                    </div>
+                                    <div class="todo-item">
+                                        <span class="todo-text">Practice event handling</span>
+                                        <button class="delete-btn">Delete</button>
+                                    </div>
+                                    <div class="todo-item">
+                                        <span class="todo-text">Master event delegation</span>
+                                        <button class="delete-btn">Delete</button>
+                                    </div>
+                                </div>
+                                <div class="todo-controls">
+                                    <input type="text" id="new-todo-input" placeholder="Add a new todo">
+                                    <button id="add-todo-btn">Add Todo</button>
+                                </div>
+                            </div>
+                            
+                            <div class="delegation-explanation">
+                                <h4>How Event Delegation Works:</h4>
+                                <ol>
+                                    <li>We attach <strong>one</strong> event listener to the parent container</li>
+                                    <li>When events occur on children, they bubble up to the parent</li>
+                                    <li>We check which child triggered the event using <code>event.target</code></li>
+                                    <li>We can handle events for existing and future elements with a single listener</li>
+                                </ol>
+                                <pre><code class="delegation-code">
+// Instead of adding listeners to each button
+todoList.addEventListener('click', function(e) {
+    // Check if the clicked element is a delete button
+    if (e.target.classList.contains('delete-btn')) {
+        // Remove the parent todo item
+        e.target.closest('.todo-item').remove();
+    }
+});
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Custom Events Tab -->
+                <div class="event-tab-content" id="custom-events-tab">
+                    <div class="custom-events-demo">
+                        <h3>Custom Events</h3>
+                        <p>Create and dispatch your own events for component communication:</p>
+                        
+                        <div class="custom-event-container">
+                            <div class="component" id="component-1">
+                                <h4>Component 1</h4>
+                                <button id="send-message-btn">Send Message</button>
+                                <input type="text" id="message-input" placeholder="Enter message">
+                            </div>
+                            
+                            <div class="component" id="component-2">
+                                <h4>Component 2</h4>
+                                <div id="message-log" class="message-log">
+                                    <p>Waiting for messages...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="custom-event-code">
+                            <h4>Custom Event Code:</h4>
+                            <pre><code class="custom-event-code-display">
+// Creating a custom event
+const messageEvent = new CustomEvent('message', {
+    bubbles: true,
+    detail: { text: 'Hello from Component 1!', time: new Date() }
+});
+
+// Dispatching the event
+document.getElementById('component-1').dispatchEvent(messageEvent);
+
+// Listening for the custom event
+document.getElementById('component-2').addEventListener('message', function(e) {
+    console.log('Message received:', e.detail.text);
+});
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>DOM Basics Tutorial</p>
+        <p>DOM Basics Interactive Tutorial</p>
+        <p><small>Open the console (F12) to see additional information as you interact with the page.</small></p>
     </footer>
 
     <script src="script.js"></script>
+    <script src="advanced.js"></script>
 </body>
 </html>
