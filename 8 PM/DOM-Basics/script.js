@@ -956,7 +956,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add the custom event button after the event box
         eventBox.parentNode.insertBefore(customEventButton, eventBox.nextSibling);
     }
-    
     // Function to log events
     function logEvent(eventName, event, description) {
         const time = new Date().toLocaleTimeString();
