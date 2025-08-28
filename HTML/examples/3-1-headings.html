@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Headings (h1-h6)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        /* Styling for headings */
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #2980b9;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        h3 {
+            color: #3498db;
+        }
+        
+        h4 {
+            color: #2c3e50;
+            text-decoration: underline;
+            text-decoration-color: #3498db;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 5px;
+        }
+        
+        h5 {
+            color: #34495e;
+            font-style: italic;
+        }
+        
+        h6 {
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Demo sections */
+        .demo-section {
+            margin: 40px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+        
+        .code-example {
+            background-color: #f0f0f0;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        
+        .note {
+            background-color: #e7f4ff;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        The h1 element: Main heading for the entire page
+        - Should be used only once per page
+        - Represents the most important heading
+        - Critical for SEO and document outline
+    -->
+    <h1>HTML Headings: h1 to h6 Elements</h1>
+    
+    <p>This page demonstrates the different heading levels in HTML and explains when and how to use them effectively.</p>
+    
+    <!-- First main section using h2 -->
+    <div class="demo-section">
+        <!-- 
+            The h2 element: Major section heading
+            - Divides content into main sections
+            - Subordinate to the h1 heading
+            - Should contain related h3 headings if used
+        -->
+        <h2>Understanding HTML Heading Elements</h2>
+        
+        <p>HTML provides six levels of headings, from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>, which are used to structure content in a hierarchical manner.</p>
+        
+        <div class="code-example">
+            &lt;h1&gt;Main Title of the Page&lt;/h1&gt;<br>
+            &lt;h2&gt;Major Section Heading&lt;/h2&gt;<br>
+            &lt;h3&gt;Subsection Heading&lt;/h3&gt;<br>
+            &lt;h4&gt;Sub-subsection Heading&lt;/h4&gt;<br>
+            &lt;h5&gt;Minor Heading&lt;/h5&gt;<br>
+            &lt;h6&gt;Lowest-level Heading&lt;/h6&gt;
+        </div>
+        
+        <!-- Subordinate h3 heading within the h2 section -->
+        <h3>Visual Hierarchy of Headings</h3>
+        
+        <p>By default, browsers render headings with the following characteristics:</p>
+        
+        <table>
+            <tr>
+                <th>Heading</th>
+                <th>Default Size</th>
+                <th>Default Style</th>
+                <th>Importance</th>
+            </tr>
+            <tr>
+                <td><code>&lt;h1&gt;</code></td>
+                <td>2em (32px)</td>
+                <td>Bold</td>
+                <td>Highest</td>
+            </tr>
+            <tr>
+                <td><code>&lt;h2&gt;</code></td>
+                <td>1.5em (24px)</td>
+                <td>Bold</td>
+                <td>Very High</td>
+            </tr>
+            <tr>
+                <td><code>&lt;h3&gt;</code></td>
+                <td>1.17em (18.72px)</td>
+                <td>Bold</td>
+                <td>High</td>
+            </tr>
+            <tr>
+                <td><code>&lt;h4&gt;</code></td>
+                <td>1em (16px)</td>
+                <td>Bold</td>
+                <td>Medium</td>
+            </tr>
+            <tr>
+                <td><code>&lt;h5&gt;</code></td>
+                <td>0.83em (13.28px)</td>
+                <td>Bold</td>
+                <td>Low</td>
+            </tr>
+            <tr>
+                <td><code>&lt;h6&gt;</code></td>
+                <td>0.67em (10.72px)</td>
+                <td>Bold</td>
+                <td>Lowest</td>
+            </tr>
+        </table>
+        
+        <div class="note">
+            <p><strong>Note:</strong> While headings have default visual styles, their primary purpose is to create a semantic structure. Always use CSS to modify the appearance of headings, not to determine which heading level to use.</p>
+        </div>
+        
+        <!-- Another h3 heading in the same section -->
+        <h3>The Document Outline</h3>
+        
+        <p>Headings create a document outline or table of contents for your page. This outline is used by:</p>
+        
+        <ul>
+            <li>Screen readers to help visually impaired users navigate the page</li>
+            <li>Search engines to understand the structure and importance of content</li>
+            <li>Browser features like "Reader Mode" to identify important sections</li>
+            <li>Browser extensions that generate tables of contents</li>
+        </ul>
+        
+        <!-- h4 heading - a subsection of the h3 section -->
+        <h4>Proper Heading Hierarchy</h4>
+        
+        <p>Always maintain a proper hierarchy in your headings. Don't skip levels (like going from <code>&lt;h2&gt;</code> directly to <code>&lt;h4&gt;</code>) as this breaks the logical structure of your document.</p>
+        
+        <!-- h5 heading - a subsection of the h4 section -->
+        <h5>Common Heading Mistakes</h5>
+        
+        <ul>
+            <li>Using headings for styling purposes rather than structure</li>
+            <li>Skipping heading levels (e.g., h1 → h3 → h5)</li>
+            <li>Using multiple h1 elements on a single page</li>
+            <li>Not using headings at all for major sections</li>
+        </ul>
+        
+        <!-- h6 heading - the lowest level in the hierarchy -->
+        <h6>Additional Resources</h6>
+        
+        <p>For more information on proper heading usage, consult the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">MDN Web Docs</a>.</p>
+    </div>
+    
+    <!-- Second main section using h2 -->
+    <div class="demo-section">
+        <h2>Practical Examples of Heading Structures</h2>
+        
+        <p>Below are examples of how headings might be structured in different types of content.</p>
+        
+        <h3>Blog Post Structure</h3>
+        
+        <div class="code-example">
+            &lt;h1&gt;10 Essential HTML Tips for Beginners&lt;/h1&gt;<br>
+            &lt;h2&gt;1. Start with the Basics&lt;/h2&gt;<br>
+            &lt;h3&gt;Understanding HTML Elements&lt;/h3&gt;<br>
+            &lt;h3&gt;The Role of Attributes&lt;/h3&gt;<br>
+            &lt;h2&gt;2. Master Document Structure&lt;/h2&gt;<br>
+            &lt;h3&gt;The Importance of Semantic HTML&lt;/h3&gt;<br>
+            &lt;h3&gt;Using Headings Effectively&lt;/h3&gt;
+        </div>
+        
+        <h3>E-commerce Product Page</h3>
+        
+        <div class="code-example">
+            &lt;h1&gt;Professional DSLR Camera Model X200&lt;/h1&gt;<br>
+            &lt;h2&gt;Product Specifications&lt;/h2&gt;<br>
+            &lt;h2&gt;Customer Reviews&lt;/h2&gt;<br>
+            &lt;h3&gt;5-Star Reviews&lt;/h3&gt;<br>
+            &lt;h3&gt;Critical Reviews&lt;/h3&gt;<br>
+            &lt;h2&gt;Related Products&lt;/h2&gt;
+        </div>
+        
+        <h3>Documentation Page</h3>
+        
+        <div class="code-example">
+            &lt;h1&gt;API Documentation&lt;/h1&gt;<br>
+            &lt;h2&gt;Getting Started&lt;/h2&gt;<br>
+            &lt;h3&gt;Installation&lt;/h3&gt;<br>
+            &lt;h4&gt;Prerequisites&lt;/h4&gt;<br>
+            &lt;h4&gt;Installation Steps&lt;/h4&gt;<br>
+            &lt;h3&gt;Authentication&lt;/h3&gt;<br>
+            &lt;h2&gt;Endpoints&lt;/h2&gt;<br>
+            &lt;h3&gt;User Endpoints&lt;/h3&gt;<br>
+            &lt;h4&gt;Create User&lt;/h4&gt;<br>
+            &lt;h5&gt;Request Parameters&lt;/h5&gt;<br>
+            &lt;h5&gt;Response Format&lt;/h5&gt;
+        </div>
+    </div>
+    
+    <!-- Third main section using h2 -->
+    <div class="demo-section">
+        <h2>Headings and SEO</h2>
+        
+        <p>Headings play a crucial role in search engine optimization (SEO) as they help search engines understand the content and structure of your page.</p>
+        
+        <h3>SEO Best Practices for Headings</h3>
+        
+        <ol>
+            <li><strong>Use keywords strategically</strong> in your headings, especially in h1 and h2 elements</li>
+            <li><strong>Keep headings descriptive but concise</strong> - aim for under 60 characters</li>
+            <li><strong>Ensure heading text accurately reflects</strong> the content that follows</li>
+            <li><strong>Use only one h1 element</strong> per page, typically containing your primary keyword</li>
+            <li><strong>Structure headings hierarchically</strong> to create a logical outline</li>
+        </ol>
+        
+        <div class="note">
+            <p><strong>SEO Tip:</strong> While it's important to include keywords in headings, avoid "keyword stuffing" which can negatively impact your search ranking. Always prioritize readability and user experience.</p>
+        </div>
+    </div>
+    
+    <!-- Fourth main section using h2 -->
+    <div class="demo-section">
+        <h2>Styling Headings with CSS</h2>
+        
+        <p>While headings have default styles in browsers, you can customize their appearance using CSS.</p>
+        
+        <h3>Basic Heading Styles</h3>
+        
+        <div class="code-example">
+            h1 {<br>
+            &nbsp;&nbsp;color: #2c3e50;<br>
+            &nbsp;&nbsp;font-size: 2.5em;<br>
+            &nbsp;&nbsp;font-weight: 700;<br>
+            &nbsp;&nbsp;text-align: center;<br>
+            &nbsp;&nbsp;margin-bottom: 30px;<br>
+            }<br><br>
+            
+            h2 {<br>
+            &nbsp;&nbsp;color: #3498db;<br>
+            &nbsp;&nbsp;font-size: 1.8em;<br>
+            &nbsp;&nbsp;border-bottom: 2px solid #3498db;<br>
+            &nbsp;&nbsp;padding-bottom: 10px;<br>
+            }
+        </div>
+        
+        <h3>Advanced Styling Techniques</h3>
+        
+        <p>You can create more distinctive headings using CSS features like:</p>
+        
+        <ul>
+            <li>Gradients</li>
+            <li>Text shadows</li>
+            <li>Letter spacing</li>
+            <li>Custom fonts</li>
+            <li>Decorative underlines</li>
+            <li>Pseudo-elements for additional visual effects</li>
+        </ul>
+        
+        <div class="note">
+            <p><strong>Accessibility Reminder:</strong> When styling headings, ensure there is sufficient contrast between the text and background colors. The WCAG recommends a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text.</p>
+        </div>
+    </div>
+    
+    <!-- Fifth main section using h2 -->
+    <div class="demo-section">
+        <h2>Accessibility Considerations</h2>
+        
+        <p>Properly structured headings are essential for accessibility, particularly for users of screen readers and other assistive technologies.</p>
+        
+        <h3>How Screen Readers Use Headings</h3>
+        
+        <p>Screen reader users often navigate pages by jumping from heading to heading. Many screen readers provide shortcuts to:</p>
+        
+        <ul>
+            <li>Jump to the next/previous heading</li>
+            <li>Jump to headings of a specific level</li>
+            <li>Generate a list of all headings on the page</li>
+        </ul>
+        
+        <p>This makes proper heading structure crucial for providing an accessible experience.</p>
+        
+        <h3>ARIA Roles for Headings</h3>
+        
+        <p>In some cases, you might need to use ARIA roles to clarify heading levels:</p>
+        
+        <div class="code-example">
+            &lt;div role="heading" aria-level="2"&gt;This acts as an h2 heading&lt;/div&gt;
+        </div>
+        
+        <p>However, it's always better to use native heading elements (<code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>) when possible.</p>
+    </div>
+    
+    <footer>
+        <p>This document demonstrates the proper use of HTML heading elements h1-h6.</p>
+        <p><small>&copy; 2025 HTML Tutorial</small></p>
+    </footer>
+</body>
+</html>

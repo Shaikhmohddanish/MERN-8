@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Quotes and Citations</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        .demo-section {
+            margin: 20px 0 40px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+        
+        .code-example {
+            background-color: #f0f0f0;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        .output {
+            background-color: #fff;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .note {
+            background-color: #e7f4ff;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        blockquote {
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            font-style: italic;
+        }
+        
+        /* Custom styles for demonstration purposes */
+        .fancy-blockquote {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-left: 5px solid #2980b9;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .fancy-blockquote::before {
+            content: '"';
+            font-family: Georgia, serif;
+            font-size: 60px;
+            color: #2980b9;
+            opacity: 0.3;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+        
+        .fancy-blockquote p {
+            margin-left: 30px;
+            font-style: italic;
+        }
+        
+        .fancy-blockquote footer {
+            margin-top: 10px;
+            font-style: normal;
+            text-align: right;
+            font-weight: bold;
+            color: #2980b9;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Quotes and Citations</h1>
+    
+    <p>HTML provides specialized elements for quoting content from other sources. These elements not only help format the content visually but also add semantic meaning to the quoted text.</p>
+    
+    <!-- Blockquote Section -->
+    <div class="demo-section">
+        <h2>Blockquotes (<code>&lt;blockquote&gt;</code>)</h2>
+        
+        <p>The <code>&lt;blockquote&gt;</code> element is used for extended quotations that form a separate paragraph or section.</p>
+        
+        <h3>Basic Blockquote</h3>
+        
+        <div class="code-example">
+&lt;blockquote&gt;
+    &lt;p&gt;The only way to learn a new programming language is by writing programs in it.&lt;/p&gt;
+&lt;/blockquote&gt;
+        </div>
+        
+        <div class="output">
+            <blockquote>
+                <p>The only way to learn a new programming language is by writing programs in it.</p>
+            </blockquote>
+        </div>
+        
+        <h3>Blockquote with Citation Source</h3>
+        
+        <p>The <code>cite</code> attribute provides a URL to the source of the quotation:</p>
+        
+        <div class="code-example">
+&lt;blockquote cite="https://www.goodreads.com/quotes/9168-the-only-way-to-learn-a-new-programming-language-is"&gt;
+    &lt;p&gt;The only way to learn a new programming language is by writing programs in it.&lt;/p&gt;
+    &lt;footer&gt;— Dennis Ritchie&lt;/footer&gt;
+&lt;/blockquote&gt;
+        </div>
+        
+        <div class="output">
+            <blockquote cite="https://www.goodreads.com/quotes/9168-the-only-way-to-learn-a-new-programming-language-is">
+                <p>The only way to learn a new programming language is by writing programs in it.</p>
+                <footer>— Dennis Ritchie</footer>
+            </blockquote>
+        </div>
+        
+        <div class="note">
+            <p><strong>Note:</strong> The <code>cite</code> attribute is not visible to users but provides semantic information for browsers, search engines, and assistive technologies. The actual citation source should be included in the content if you want it to be visible.</p>
+        </div>
+        
+        <h3>Styling Blockquotes with CSS</h3>
+        
+        <p>Blockquotes can be styled in various ways to make them stand out:</p>
+        
+        <div class="fancy-blockquote">
+            <p>The only way to learn a new programming language is by writing programs in it.</p>
+            <footer>— Dennis Ritchie</footer>
+        </div>
+        
+        <h3>Nested Blockquotes</h3>
+        
+        <p>Blockquotes can be nested to show multiple levels of quotation:</p>
+        
+        <div class="code-example">
+&lt;blockquote&gt;
+    &lt;p&gt;My favorite quote about programming is this:&lt;/p&gt;
+    &lt;blockquote&gt;
+        &lt;p&gt;The only way to learn a new programming language is by writing programs in it.&lt;/p&gt;
+        &lt;footer&gt;— Dennis Ritchie&lt;/footer&gt;
+    &lt;/blockquote&gt;
+    &lt;p&gt;I've found this to be very true in my experience.&lt;/p&gt;
+&lt;/blockquote&gt;
+        </div>
+        
+        <div class="output">
+            <blockquote>
+                <p>My favorite quote about programming is this:</p>
+                <blockquote>
+                    <p>The only way to learn a new programming language is by writing programs in it.</p>
+                    <footer>— Dennis Ritchie</footer>
+                </blockquote>
+                <p>I've found this to be very true in my experience.</p>
+            </blockquote>
+        </div>
+    </div>
+    
+    <!-- Inline Quotes Section -->
+    <div class="demo-section">
+        <h2>Inline Quotes (<code>&lt;q&gt;</code>)</h2>
+        
+        <p>The <code>&lt;q&gt;</code> element is used for shorter, inline quotations.</p>
+        
+        <h3>Basic Inline Quote</h3>
+        
+        <div class="code-example">
+&lt;p&gt;As Steve Jobs said, &lt;q&gt;Design is not just what it looks like and feels like. Design is how it works.&lt;/q&gt;&lt;/p&gt;
+        </div>
+        
+        <div class="output">
+            <p>As Steve Jobs said, <q>Design is not just what it looks like and feels like. Design is how it works.</q></p>
+        </div>
+        
+        <p>Browsers typically render <code>&lt;q&gt;</code> elements with quotation marks. The style of quotation marks depends on the language set in the <code>lang</code> attribute of the HTML element:</p>
+        
+        <div class="output">
+            <p lang="en"><q>English quotes</q></p>
+            <p lang="fr"><q>French quotes</q></p>
+            <p lang="de"><q>German quotes</q></p>
+        </div>
+        
+        <h3>Inline Quote with Citation</h3>
+        
+        <div class="code-example">
+&lt;p&gt;Steve Jobs once said, &lt;q cite="https://www.brainyquote.com/quotes/steve_jobs_416927"&gt;Design is not just what it looks like and feels like. Design is how it works.&lt;/q&gt;&lt;/p&gt;
+        </div>
+        
+        <div class="note">
+            <p><strong>Note:</strong> Like with <code>blockquote</code>, the <code>cite</code> attribute on <code>&lt;q&gt;</code> is not visible to users.</p>
+        </div>
+        
+        <h3>When to Use <code>&lt;q&gt;</code> vs. Manual Quotation Marks</h3>
+        
+        <p>While you could simply type quotation marks manually, using the <code>&lt;q&gt;</code> element provides these advantages:</p>
+        
+        <ul>
+            <li>Adds semantic meaning to the quote</li>
+            <li>Automatically uses the appropriate quotation mark style for the document's language</li>
+            <li>Allows for the inclusion of the citation source via the <code>cite</code> attribute</li>
+            <li>Makes it easier to style all quotes consistently via CSS</li>
+        </ul>
+    </div>
+    
+    <!-- Citations Section -->
+    <div class="demo-section">
+        <h2>Citations (<code>&lt;cite&gt;</code>)</h2>
+        
+        <p>The <code>&lt;cite&gt;</code> element is used to represent the title of a creative work (e.g., a book, movie, article, poem, etc.).</p>
+        
+        <h3>Basic Citation Example</h3>
+        
+        <div class="code-example">
+&lt;p&gt;My favorite book is &lt;cite&gt;The Lord of the Rings&lt;/cite&gt; by J.R.R. Tolkien.&lt;/p&gt;
+        </div>
+        
+        <div class="output">
+            <p>My favorite book is <cite>The Lord of the Rings</cite> by J.R.R. Tolkien.</p>
+        </div>
+        
+        <p>Browsers typically render <code>&lt;cite&gt;</code> elements in italics.</p>
+        
+        <h3>Citations in Blockquotes</h3>
+        
+        <p>The <code>&lt;cite&gt;</code> element can be used together with <code>&lt;blockquote&gt;</code> to properly attribute a quote:</p>
+        
+        <div class="code-example">
+&lt;blockquote&gt;
+    &lt;p&gt;In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to eat: it was a hobbit-hole, and that means comfort.&lt;/p&gt;
+    &lt;footer&gt;— &lt;cite&gt;The Hobbit&lt;/cite&gt; by J.R.R. Tolkien&lt;/footer&gt;
+&lt;/blockquote&gt;
+        </div>
+        
+        <div class="output">
+            <blockquote>
+                <p>In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to eat: it was a hobbit-hole, and that means comfort.</p>
+                <footer>— <cite>The Hobbit</cite> by J.R.R. Tolkien</footer>
+            </blockquote>
+        </div>
+        
+        <h3>What Should Be Cited</h3>
+        
+        <p>According to the HTML specification, the <code>&lt;cite&gt;</code> element should be used for titles of:</p>
+        
+        <ul>
+            <li>Books</li>
+            <li>Movies and TV shows</li>
+            <li>Plays and musicals</li>
+            <li>Artworks</li>
+            <li>Articles and papers</li>
+            <li>Websites and web pages</li>
+            <li>Video games</li>
+            <li>Songs and albums</li>
+            <li>Other creative works</li>
+        </ul>
+        
+        <div class="note">
+            <p><strong>Common Misconception:</strong> The <code>&lt;cite&gt;</code> element is not meant for citing people's names (although some earlier HTML specifications suggested this use). It should be used for the titles of works, not the creators of those works.</p>
+        </div>
+    </div>
+    
+    <!-- Related Elements Section -->
+    <div class="demo-section">
+        <h2>Related HTML Elements</h2>
+        
+        <h3>The <code>&lt;address&gt;</code> Element</h3>
+        
+        <p>While not strictly a quotation element, <code>&lt;address&gt;</code> is often used in conjunction with citations to provide contact information for the author of a section or article:</p>
+        
+        <div class="code-example">
+&lt;article&gt;
+    &lt;h2&gt;The Future of Web Development&lt;/h2&gt;
+    &lt;p&gt;...article content...&lt;/p&gt;
+    &lt;address&gt;
+        Written by &lt;a href="mailto:john@example.com"&gt;John Doe&lt;/a&gt;.&lt;br&gt;
+        Visit us at: Example.com&lt;br&gt;
+        123 Main St.&lt;br&gt;
+        New York, NY 10001&lt;br&gt;
+        USA
+    &lt;/address&gt;
+&lt;/article&gt;
+        </div>
+        
+        <div class="output">
+            <article>
+                <h2>The Future of Web Development</h2>
+                <p>...article content...</p>
+                <address>
+                    Written by <a href="mailto:john@example.com">John Doe</a>.<br>
+                    Visit us at: Example.com<br>
+                    123 Main St.<br>
+                    New York, NY 10001<br>
+                    USA
+                </address>
+            </article>
+        </div>
+        
+        <h3>The <code>&lt;dfn&gt;</code> Element</h3>
+        
+        <p>The <code>&lt;dfn&gt;</code> element is used to mark the defining instance of a term:</p>
+        
+        <div class="code-example">
+&lt;p&gt;&lt;dfn&gt;HTML&lt;/dfn&gt; (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser.&lt;/p&gt;
+        </div>
+        
+        <div class="output">
+            <p><dfn>HTML</dfn> (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser.</p>
+        </div>
+    </div>
+    
+    <!-- Accessibility and SEO Section -->
+    <div class="demo-section">
+        <h2>Accessibility and SEO Considerations</h2>
+        
+        <h3>Accessibility Benefits</h3>
+        
+        <ul>
+            <li><strong>Semantic Meaning:</strong> Screen readers can identify quotes and citations, providing context to users</li>
+            <li><strong>Proper Attribution:</strong> Clearly identifies the source of quoted material</li>
+            <li><strong>Navigational Aids:</strong> Some assistive technologies allow users to navigate between different types of content, including quotes</li>
+        </ul>
+        
+        <h3>SEO Benefits</h3>
+        
+        <ul>
+            <li><strong>Content Structure:</strong> Proper use of quotation elements helps search engines understand the structure of your content</li>
+            <li><strong>Citation Context:</strong> The <code>cite</code> attribute can help establish relationships between your content and the cited sources</li>
+            <li><strong>Rich Snippets:</strong> In some cases, search engines may use blockquote content in search results</li>
+        </ul>
+    </div>
+    
+    <!-- Practical Examples Section -->
+    <div class="demo-section">
+        <h2>Practical Examples</h2>
+        
+        <h3>Testimonial</h3>
+        
+        <div class="output" style="padding: 30px;">
+            <blockquote style="background-color: #f5f5f5; border-left: 5px solid #e74c3c; padding: 20px; margin: 20px 0; border-radius: 5px;">
+                <p>This HTML course has completely transformed my understanding of web development. The clear explanations and practical examples made it easy to grasp even the most complex concepts.</p>
+                <footer style="text-align: right; margin-top: 10px;">— Sarah Johnson, <cite>Web Design Today</cite> Magazine</footer>
+            </blockquote>
+        </div>
+        
+        <h3>Academic Citation</h3>
+        
+        <div class="output">
+            <p>According to recent research on web accessibility:</p>
+            <blockquote cite="https://example.com/web-accessibility-study">
+                <p>Websites that follow WCAG 2.1 guidelines not only serve users with disabilities better but also see an average of 25% higher user engagement across all demographics.</p>
+                <footer>— <cite>Journal of Web Accessibility</cite>, Volume 12, Issue 3</footer>
+            </blockquote>
+            <p>This finding emphasizes the importance of designing with accessibility in mind from the start.</p>
+        </div>
+        
+        <h3>Book Review</h3>
+        
+        <div class="output">
+            <h3>Review: <cite>HTML5: The Missing Manual</cite></h3>
+            <p>This comprehensive guide to HTML5 covers everything from basic syntax to advanced features. As the author states in the introduction:</p>
+            <blockquote>
+                <p>HTML5 isn't just a replacement for old HTML; it's a comprehensive platform for web applications.</p>
+            </blockquote>
+            <p>I found this perspective particularly insightful, as it frames HTML5 not just as a markup language but as a foundation for modern web development.</p>
+        </div>
+    </div>
+    
+    <!-- Best Practices Section -->
+    <div class="demo-section">
+        <h2>Best Practices</h2>
+        
+        <ol>
+            <li><strong>Use <code>&lt;blockquote&gt;</code> for extended quotes</strong> that form a separate paragraph or section</li>
+            <li><strong>Use <code>&lt;q&gt;</code> for short, inline quotes</strong> rather than typing quotation marks manually</li>
+            <li><strong>Use <code>&lt;cite&gt;</code> for titles of works</strong>, not for people's names</li>
+            <li><strong>Include the <code>cite</code> attribute</strong> when the source URL is available</li>
+            <li><strong>Make the citation visible</strong> in the content (usually in a footer) if users need to see it</li>
+            <li><strong>Nest quotes properly</strong> when quoting someone who is quoting someone else</li>
+            <li><strong>Style quotes to make them stand out</strong> from the surrounding text</li>
+            <li><strong>Don't use quotation elements</strong> just for their visual effects (like indentation)</li>
+            <li><strong>Consider internationalization</strong> - the <code>&lt;q&gt;</code> element adapts to the document language</li>
+            <li><strong>Combine with other semantic elements</strong> when appropriate (<code>&lt;footer&gt;</code>, <code>&lt;address&gt;</code>, etc.)</li>
+        </ol>
+    </div>
+    
+    <footer>
+        <p>This document demonstrates HTML quotes and citations.</p>
+        <p><small>&copy; 2025 HTML Tutorial</small></p>
+    </footer>
+</body>
+</html>

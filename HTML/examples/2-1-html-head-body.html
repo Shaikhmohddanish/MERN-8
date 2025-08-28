@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    The <html> element is the root element of an HTML page.
+    The lang attribute specifies the language of the document.
+    This helps screen readers and search engines.
+-->
+
+<head>
+    <!--
+        The <head> element contains meta-information about the document.
+        This content is not displayed on the page itself.
+    -->
+    
+    <!-- Character encoding declaration - always include this -->
+    <meta charset="UTF-8">
+    <!-- UTF-8 supports almost all characters and symbols in the world -->
+    
+    <!-- Viewport settings for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This tag is crucial for making websites look good on all devices -->
+    
+    <!-- The title appears in the browser tab and search results -->
+    <title>HTML, Head, and Body Elements</title>
+    
+    <!-- Internal CSS styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #3498db;
+        }
+        
+        .highlight {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+    </style>
+    
+    <!-- A link to an external stylesheet (not actually used in this example) -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    
+    <!-- External JavaScript file (deferred loading) -->
+    <!-- <script src="script.js" defer></script> -->
+    
+    <!-- Internal JavaScript -->
+    <script>
+        // This function will run after the page has loaded
+        window.onload = function() {
+            // Get the current year for the copyright
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Add a click event to the button
+            document.getElementById('toggle-info').addEventListener('click', function() {
+                var info = document.getElementById('additional-info');
+                if (info.style.display === 'none' || info.style.display === '') {
+                    info.style.display = 'block';
+                    this.textContent = 'Hide Additional Information';
+                } else {
+                    info.style.display = 'none';
+                    this.textContent = 'Show Additional Information';
+                }
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <!--
+        The <body> element contains all the content that is visible to users.
+        Everything that appears on the page goes inside the body element.
+    -->
+    
+    <header>
+        <!-- The header typically contains introductory content or navigation -->
+        <h1>Understanding HTML Document Structure</h1>
+        <p class="highlight">This example demonstrates the three main structural elements of an HTML document: <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code>.</p>
+    </header>
+    
+    <main>
+        <!-- The main element contains the primary content of the document -->
+        
+        <section>
+            <h2>The &lt;html&gt; Element</h2>
+            <p>The <code>&lt;html&gt;</code> element is the root element of an HTML page. All other elements must be descendants of this element.</p>
+            <ul>
+                <li><strong>Key attributes:</strong></li>
+                <li><code>lang</code>: Specifies the language of the document (e.g., "en" for English)</li>
+                <li><code>dir</code>: Specifies the text direction ("ltr" for left-to-right, "rtl" for right-to-left)</li>
+                <li><code>xmlns</code>: In XHTML, defines the XML namespace</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>The &lt;head&gt; Element</h2>
+            <p>The <code>&lt;head&gt;</code> element is a container for metadata and is placed between the <code>&lt;html&gt;</code> tag and the <code>&lt;body&gt;</code> tag.</p>
+            <p>The <code>&lt;head&gt;</code> section typically contains:</p>
+            <ul>
+                <li>Document title (<code>&lt;title&gt;</code>)</li>
+                <li>Character encoding (<code>&lt;meta charset="..."&gt;</code>)</li>
+                <li>Viewport settings (<code>&lt;meta name="viewport" ...&gt;</code>)</li>
+                <li>CSS stylesheets (<code>&lt;link&gt;</code> or <code>&lt;style&gt;</code>)</li>
+                <li>JavaScript code (<code>&lt;script&gt;</code>)</li>
+                <li>Other meta information</li>
+                <li>Favicon links</li>
+            </ul>
+            <p>None of these elements are visible on the page itself, but they control how the page looks and behaves.</p>
+        </section>
+        
+        <section>
+            <h2>The &lt;body&gt; Element</h2>
+            <p>The <code>&lt;body&gt;</code> element contains all the content that is visible to users when they visit the page.</p>
+            <p>The <code>&lt;body&gt;</code> can include:</p>
+            <ul>
+                <li>Text content</li>
+                <li>Images and multimedia</li>
+                <li>Links</li>
+                <li>Tables</li>
+                <li>Forms</li>
+                <li>And many other visible elements</li>
+            </ul>
+            
+            <button id="toggle-info">Show Additional Information</button>
+            <div id="additional-info" style="display: none;" class="highlight">
+                <h3>More About Document Structure</h3>
+                <p>A well-structured HTML document provides these benefits:</p>
+                <ol>
+                    <li>Better browser compatibility</li>
+                    <li>Improved SEO (Search Engine Optimization)</li>
+                    <li>Enhanced accessibility for screen readers and assistive technologies</li>
+                    <li>Easier maintenance and debugging</li>
+                    <li>Proper rendering across different devices and screen sizes</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <!-- The footer typically contains concluding information -->
+        <p>This example demonstrates the basic structure of an HTML document with <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code> elements.</p>
+        <p>&copy; <span id="current-year">2025</span> HTML Tutorial</p>
+    </footer>
+    
+    <!-- Scripts that need to be loaded at the end can go here -->
+    <!-- <script src="end-scripts.js"></script> -->
+</body>
+</html>

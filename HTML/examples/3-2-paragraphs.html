@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraphs and Text Formatting in HTML</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        .demo-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+        
+        .code-example {
+            background-color: #f0f0f0;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        
+        .output {
+            background-color: #fff;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .note {
+            background-color: #e7f4ff;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Custom styles for specific demonstrations */
+        .text-spacing-demo p {
+            margin-top: 0;
+        }
+        
+        .text-alignment-demo p:nth-child(1) {
+            text-align: left;
+        }
+        
+        .text-alignment-demo p:nth-child(2) {
+            text-align: center;
+        }
+        
+        .text-alignment-demo p:nth-child(3) {
+            text-align: right;
+        }
+        
+        .text-alignment-demo p:nth-child(4) {
+            text-align: justify;
+        }
+        
+        .hr-demo hr:nth-child(1) {
+            border: 1px solid #3498db;
+        }
+        
+        .hr-demo hr:nth-child(3) {
+            border: 2px dashed #e74c3c;
+        }
+        
+        .hr-demo hr:nth-child(5) {
+            border: 3px dotted #2ecc71;
+        }
+        
+        /* Example of a custom paragraph style */
+        .custom-paragraph {
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Paragraphs and Text Formatting in HTML</h1>
+    
+    <p>This page demonstrates how to work with paragraphs and apply various text formatting in HTML. Paragraphs are the basic building blocks of text content on the web.</p>
+    
+    <!-- Basic Paragraphs Section -->
+    <div class="demo-section">
+        <h2>Basic Paragraphs</h2>
+        
+        <p>The paragraph element (<code>&lt;p&gt;</code>) is the most fundamental text container in HTML. Browsers automatically add some margin space before and after paragraphs.</p>
+        
+        <h3>HTML Code Example</h3>
+        <div class="code-example">
+&lt;p&gt;This is the first paragraph. HTML paragraphs are defined with the p tag. Browsers automatically add some space (margin) before and after each paragraph.&lt;/p&gt;
+
+&lt;p&gt;This is the second paragraph. Notice how there is space between this paragraph and the previous one. This happens automatically.&lt;/p&gt;
+        </div>
+        
+        <h3>Output</h3>
+        <div class="output">
+            <p>This is the first paragraph. HTML paragraphs are defined with the p tag. Browsers automatically add some space (margin) before and after each paragraph.</p>
+            
+            <p>This is the second paragraph. Notice how there is space between this paragraph and the previous one. This happens automatically.</p>
+        </div>
+        
+        <div class="note">
+            <p><strong>Note:</strong> Browsers automatically wrap text within paragraphs to fit the available space. They also collapse multiple spaces into a single space.</p>
+        </div>
+    </div>
+    
+    <!-- Line Breaks Section -->
+    <div class="demo-section">
+        <h2>Line Breaks</h2>
+        
+        <p>When you need to create a line break without starting a new paragraph, use the <code>&lt;br&gt;</code> element. Unlike paragraphs, line breaks don't add extra spacing.</p>
+        
+        <h3>HTML Code Example</h3>
+        <div class="code-example">
+&lt;p&gt;This is the first line.&lt;br&gt;
+This is the second line.&lt;br&gt;
+This is the third line.&lt;/p&gt;
+        </div>
+        
+        <h3>Output</h3>
+        <div class="output">
+            <p>This is the first line.<br>
+            This is the second line.<br>
+            This is the third line.</p>
+        </div>
+        
+        <h3>Address Example with Line Breaks</h3>
+        <div class="code-example">
+&lt;p&gt;
+John Doe&lt;br&gt;
+123 Main Street&lt;br&gt;
+Anytown, CA 12345&lt;br&gt;
+United States
+&lt;/p&gt;
+        </div>
+        
+        <h3>Output</h3>
+        <div class="output">
+            <p>
+            John Doe<br>
+            123 Main Street<br>
+            Anytown, CA 12345<br>
+            United States
+            </p>
+        </div>
+        
+        <div class="note">
+            <p><strong>Best Practice:</strong> Use <code>&lt;br&gt;</code> only when a line break is actually part of the content (like in addresses or poetry). Don't use it to create space between elements - use CSS margins for that purpose.</p>
+        </div>
+    </div>
+    
+    <!-- Horizontal Rules Section -->
+    <div class="demo-section">
+        <h2>Horizontal Rules</h2>
+        
+        <p>The <code>&lt;hr&gt;</code> element creates a horizontal rule (line) that represents a thematic break between paragraph-level elements.</p>
+        
+        <h3>HTML Code Example</h3>
+        <div class="code-example">
+&lt;p&gt;This is the content above the horizontal rule.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;This is the content below the horizontal rule.&lt;/p&gt;
+        </div>
+        
+        <h3>Output</h3>
+        <div class="output">
+            <p>This is the content above the horizontal rule.</p>
+            <hr>
+            <p>This is the content below the horizontal rule.</p>
+        </div>
+        
+        <h3>Styled Horizontal Rules with CSS</h3>
+        <div class="hr-demo output">
+            <p>Default horizontal rule:</p>
+            <hr>
+            <p>Solid blue horizontal rule:</p>
+            <hr>
+            <p>Dashed red horizontal rule:</p>
+            <hr>
+            <p>Dotted green horizontal rule:</p>
+            <hr>
+        </div>
+        
+        <div class="note">
+            <p><strong>Semantic Meaning:</strong> The <code>&lt;hr&gt;</code> element represents a thematic break, not just a visual divider. Use it when there's a clear shift in topic or section.</p>
+        </div>
+    </div>
+    
+    <!-- Text Formatting Elements Section -->
+    <div class="demo-section">
+        <h2>Text Formatting Elements</h2>
+        
+        <p>HTML provides several elements for basic text formatting, each with its own semantic meaning.</p>
+        
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>Description</th>
+                <th>Example</th>
+                <th>Output</th>
+            </tr>
+            <tr>
+                <td><code>&lt;strong&gt;</code></td>
+                <td>Indicates strong importance</td>
+                <td><code>&lt;strong&gt;Important text&lt;/strong&gt;</code></td>
+                <td><strong>Important text</strong></td>
+            </tr>
+            <tr>
+                <td><code>&lt;em&gt;</code></td>
+                <td>Emphasizes text</td>
+                <td><code>&lt;em&gt;Emphasized text&lt;/em&gt;</code></td>
+                <td><em>Emphasized text</em></td>
+            </tr>
+            <tr>
+                <td><code>&lt;mark&gt;</code></td>
+                <td>Highlights text</td>
+                <td><code>&lt;mark&gt;Highlighted text&lt;/mark&gt;</code></td>
+                <td><mark>Highlighted text</mark></td>
+            </tr>
+            <tr>
+                <td><code>&lt;small&gt;</code></td>
+                <td>Represents small text</td>
+                <td><code>&lt;small&gt;Small text&lt;/small&gt;</code></td>
+                <td><small>Small text</small></td>
+            </tr>
+            <tr>
+                <td><code>&lt;del&gt;</code></td>
+                <td>Represents deleted text</td>
+                <td><code>&lt;del&gt;Deleted text&lt;/del&gt;</code></td>
+                <td><del>Deleted text</del></td>
+            </tr>
+            <tr>
+                <td><code>&lt;ins&gt;</code></td>
+                <td>Represents inserted text</td>
+                <td><code>&lt;ins&gt;Inserted text&lt;/ins&gt;</code></td>
+                <td><ins>Inserted text</ins></td>
+            </tr>
+            <tr>
+                <td><code>&lt;sub&gt;</code></td>
+                <td>Defines subscript text</td>
+                <td><code>H&lt;sub&gt;2&lt;/sub&gt;O</code></td>
+                <td>H<sub>2</sub>O</td>
+            </tr>
+            <tr>
+                <td><code>&lt;sup&gt;</code></td>
+                <td>Defines superscript text</td>
+                <td><code>E=mc&lt;sup&gt;2&lt;/sup&gt;</code></td>
+                <td>E=mc<sup>2</sup></td>
+            </tr>
+            <tr>
+                <td><code>&lt;u&gt;</code></td>
+                <td>Represents text with non-textual annotation</td>
+                <td><code>&lt;u&gt;Underlined text&lt;/u&gt;</code></td>
+                <td><u>Underlined text</u></td>
+            </tr>
+            <tr>
+                <td><code>&lt;i&gt;</code></td>
+                <td>Represents text in an alternate voice or mood</td>
+                <td><code>&lt;i&gt;Italic text&lt;/i&gt;</code></td>
+                <td><i>Italic text</i></td>
+            </tr>
+            <tr>
+                <td><code>&lt;b&gt;</code></td>
+                <td>Draws attention to text without added importance</td>
+                <td><code>&lt;b&gt;Bold text&lt;/b&gt;</code></td>
+                <td><b>Bold text</b></td>
+            </tr>
+            <tr>
+                <td><code>&lt;s&gt;</code></td>
+                <td>Represents text that is no longer accurate</td>
+                <td><code>&lt;s&gt;$99.99&lt;/s&gt; $79.99</code></td>
+                <td><s>$99.99</s> $79.99</td>
+            </tr>
+        </table>
+        
+        <h3>Combined Text Formatting</h3>
+        <div class="code-example">
+&lt;p&gt;The water molecule consists of two &lt;strong&gt;&lt;em&gt;hydrogen&lt;/em&gt;&lt;/strong&gt; atoms and one &lt;strong&gt;&lt;em&gt;oxygen&lt;/em&gt;&lt;/strong&gt; atom: H&lt;sub&gt;2&lt;/sub&gt;O.&lt;/p&gt;
+        </div>
+        
+        <div class="output">
+            <p>The water molecule consists of two <strong><em>hydrogen</em></strong> atoms and one <strong><em>oxygen</em></strong> atom: H<sub>2</sub>O.</p>
+        </div>
+        
+        <div class="note">
+            <p><strong>Semantic Meaning vs. Styling:</strong> Use these elements for their semantic meaning, not just for their visual effect. For example, use <code>&lt;strong&gt;</code> for important text, not just to make text bold. Use CSS for purely visual styling.</p>
+        </div>
+    </div>
+    
+    <!-- Whitespace Handling Section -->
+    <div class="demo-section">
+        <h2>Whitespace Handling</h2>
+        
+        <p>HTML collapses multiple spaces, tabs, and line breaks into a single space. This behavior is called "whitespace collapsing".</p>
+        
+        <h3>HTML Code Example</h3>
+        <div class="code-example">
+&lt;p&gt;This    text    has    many    spaces    but    will    display    with    single    spaces.&lt;/p&gt;
+        </div>
+        
+        <h3>Output</h3>
+        <div class="output">
+            <p>This    text    has    many    spaces    but    will    display    with    single    spaces.</p>
+        </div>
+        
+        <h3>Preserving Whitespace with CSS</h3>
+        <div class="code-example">
+&lt;p style="white-space: pre;"&gt;This    text    will    preserve    all    spaces
+and
+line
+breaks.&lt;/p&gt;
+        </div>
+        
+        <h3>Output</h3>
+        <div class="output">
+            <p style="white-space: pre;">This    text    will    preserve    all    spaces
+and
+line
+breaks.</p>
+        </div>
+        
+        <div class="note">
+            <p><strong>Alternative:</strong> For preserving whitespace, you can also use the <code>&lt;pre&gt;</code> element, which is designed specifically for preformatted text.</p>
+        </div>
+    </div>
+    
+    <!-- Text Alignment and Spacing Section -->
+    <div class="demo-section">
+        <h2>Text Alignment and Spacing</h2>
+        
+        <p>While HTML is about structure, CSS can be used to control the appearance of text, including alignment and spacing.</p>
+        
+        <h3>Text Alignment</h3>
+        <div class="text-alignment-demo output">
+            <p>This text is aligned to the left (default).</p>
+            <p>This text is centered.</p>
+            <p>This text is aligned to the right.</p>
+            <p>This text is justified, which means it stretches to align with both the left and right margins. This is often used in printed materials like books and newspapers to create clean, straight edges on both sides of the text.</p>
+        </div>
+        
+        <h3>Line Height (Leading)</h3>
+        <div class="code-example">
+&lt;p style="line-height: 1;"&gt;This paragraph has tight line spacing (line-height: 1). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
+
+&lt;p style="line-height: 2;"&gt;This paragraph has loose line spacing (line-height: 2). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
+        </div>
+        
+        <div class="output">
+            <p style="line-height: 1;">This paragraph has tight line spacing (line-height: 1). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            
+            <p style="line-height: 2;">This paragraph has loose line spacing (line-height: 2). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        
+        <h3>Paragraph Spacing</h3>
+        <div class="text-spacing-demo output">
+            <p>This is the first paragraph with default spacing.</p>
+            <p>This is the second paragraph with default spacing.</p>
+            <p>This is the third paragraph with default spacing.</p>
+        </div>
+        
+        <div class="note">
+            <p><strong>Best Practice:</strong> Use CSS for styling text, not HTML. This keeps your content (HTML) separate from its presentation (CSS).</p>
+        </div>
+    </div>
+    
+    <!-- Non-Breaking Space Section -->
+    <div class="demo-section">
+        <h2>Non-Breaking Space</h2>
+        
+        <p>The non-breaking space (<code>&amp;nbsp;</code>) is a special character that creates a space without allowing a line break at that position.</p>
+        
+        <h3>HTML Code Example</h3>
+        <div class="code-example">
+&lt;p&gt;Normal spaces allow line breaks between words.&lt;/p&gt;
+
+&lt;p&gt;Non-breaking&amp;nbsp;spaces&amp;nbsp;keep&amp;nbsp;words&amp;nbsp;together.&lt;/p&gt;
+        </div>
+        
+        <h3>Output (resize window to see the effect)</h3>
+        <div class="output">
+            <p>Normal spaces allow line breaks between words.</p>
+            
+            <p>Non-breaking&nbsp;spaces&nbsp;keep&nbsp;words&nbsp;together.</p>
+        </div>
+        
+        <h3>Common Uses for Non-Breaking Spaces</h3>
+        <ul>
+            <li>Preventing line breaks in phrases that should stay together (e.g., proper names, dates)</li>
+            <li>Creating indentation (though CSS is better for this)</li>
+            <li>Ensuring multiple spaces are displayed (since HTML collapses multiple regular spaces)</li>
+            <li>Preventing empty elements from collapsing</li>
+        </ul>
+    </div>
+    
+    <!-- Practical Examples Section -->
+    <div class="demo-section">
+        <h2>Practical Examples</h2>
+        
+        <h3>Article Excerpt</h3>
+        <div class="output">
+            <h3>The Future of Web Development</h3>
+            
+            <p><strong>Web development</strong> continues to evolve at a rapid pace. As we enter 2025, several <mark>key trends</mark> are emerging that will shape the industry for years to come.</p>
+            
+            <p>According to recent studies, <em>progressive web apps</em> are gaining significant traction, with adoption rates increasing by 45% since last year. These applications combine the best features of websites and native apps, providing users with a seamless experience across all devices.</p>
+            
+            <hr>
+            
+            <p><small>Published on August 28, 2025 | Author: Jane Smith</small></p>
+        </div>
+        
+        <h3>Product Description</h3>
+        <div class="output">
+            <h3>Ultra HD Smart Television</h3>
+            
+            <p>Experience stunning visuals with our 65" Ultra HD Smart TV featuring:</p>
+            
+            <p><strong>Resolution:</strong> 3840 × 2160 (4K)<br>
+            <strong>HDR:</strong> Dolby Vision, HDR10+<br>
+            <strong>Refresh Rate:</strong> 120Hz<br>
+            <strong>Smart Features:</strong> Voice control, AI-powered recommendations</p>
+            
+            <p><s>$1,299.99</s> <strong>$999.99</strong> <small>(Limited time offer)</small></p>
+        </div>
+        
+        <h3>Recipe Instructions</h3>
+        <div class="output">
+            <h3>Classic Chocolate Chip Cookies</h3>
+            
+            <p><em>Prep time: 15 minutes</em><br>
+            <em>Cook time: 12 minutes</em><br>
+            <em>Total time: 27 minutes</em></p>
+            
+            <p>Follow these simple steps to make delicious chocolate chip cookies:</p>
+            
+            <p>1. Preheat oven to 375°F (190°C).<br>
+            2. Mix butter and sugars until creamy.<br>
+            3. Beat in eggs and vanilla.<br>
+            4. Add flour, baking soda, and salt.<br>
+            5. Stir in chocolate chips.<br>
+            6. Drop rounded tablespoons onto baking sheets.<br>
+            7. Bake for 9-12 minutes or until golden brown.</p>
+            
+            <p><strong>Tip:</strong> For <mark>extra soft cookies</mark>, remove from the oven when the edges are golden but the centers still look slightly underbaked.</p>
+        </div>
+    </div>
+    
+    <!-- Best Practices Section -->
+    <div class="demo-section">
+        <h2>Best Practices for Text Content</h2>
+        
+        <ol>
+            <li><strong>Use semantic elements</strong> that accurately describe the content's purpose</li>
+            <li><strong>Keep paragraphs focused</strong> on a single idea or topic</li>
+            <li><strong>Use formatting elements for their semantic meaning</strong>, not just for visual effects</li>
+            <li><strong>Keep line length manageable</strong> - ideally 50-75 characters per line for optimal readability</li>
+            <li><strong>Use CSS for styling</strong> rather than deprecated HTML attributes</li>
+            <li><strong>Consider readability</strong> - break up long text with headings, lists, and short paragraphs</li>
+            <li><strong>Ensure sufficient contrast</strong> between text and background colors</li>
+            <li><strong>Be consistent</strong> in formatting throughout your document</li>
+            <li><strong>Use proper punctuation and grammar</strong> to enhance readability</li>
+            <li><strong>Test content on various screen sizes</strong> to ensure it remains readable</li>
+        </ol>
+    </div>
+    
+    <footer>
+        <p>This document demonstrates paragraphs and text formatting in HTML.</p>
+        <p><small>&copy; 2025 HTML Tutorial</small></p>
+    </footer>
+</body>
+</html>

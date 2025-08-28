@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        The <title> element:
+        - Defines the title of the document that appears in browser tabs
+        - Used as the default name when bookmarking a page
+        - Important for SEO - search engines display this in search results
+        - Should be descriptive but concise (50-60 characters recommended)
+    -->
+    <title>Title, Link, and Script Elements | HTML Guide</title>
+    
+    <!-- 
+        Character encoding - always include this
+        Not related to title/link/script but essential for any HTML document
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 
+        The <link> element:
+        Used to define relationships between the current document and external resources
+        Most commonly used to link to stylesheets, but has many other uses
+    -->
+    
+    <!-- External CSS Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- For this example, we'll include an internal stylesheet instead -->
+    <style>
+        /* Base styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        .code-example {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        .note {
+            background-color: #e7f4ff;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        /* Demo styles for showing script effects */
+        #demo-area {
+            padding: 15px;
+            border: 2px dashed #3498db;
+            margin-top: 20px;
+        }
+        
+        #time-display {
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    
+    <!-- 
+        Favicon - small icon shown in browser tabs and bookmarks
+        Another common use of the link element
+    -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- 
+        Alternative stylesheets - allows users to select different styles
+        Not supported by all browsers
+    -->
+    <link rel="alternate stylesheet" href="dark.css" title="Dark Mode">
+    
+    <!-- 
+        Preconnect - establishes early connections to important third-party origins
+        Improves performance by doing DNS lookups, TLS negotiation in advance
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- 
+        Web font - loads a font file
+        This is a common way to use custom fonts
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    
+    <!-- 
+        The <script> element:
+        Used to embed or reference JavaScript code
+        Can be placed in <head> or <body>, with different implications
+    -->
+    
+    <!-- 
+        External JavaScript file - regular loading
+        This blocks HTML parsing until the script is loaded and executed
+        For this reason, scripts are often placed at the end of <body>
+    -->
+    <!-- <script src="regular-script.js"></script> -->
+    
+    <!-- 
+        External JavaScript with defer attribute
+        This downloads the script while HTML is being parsed and executes it after parsing
+        Good for scripts that operate on the DOM and aren't needed immediately
+    -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    
+    <!-- 
+        External JavaScript with async attribute
+        This downloads the script asynchronously and executes as soon as it's available
+        Good for scripts that don't depend on other scripts or DOM structure
+    -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y" async></script>
+    
+    <!-- 
+        Inline JavaScript in the head
+        For this example, we're defining some functions that will be used later
+    -->
+    <script>
+        // This function will update the time display
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('time-display').textContent = timeString;
+        }
+        
+        // This function will be called when the DOM is fully loaded
+        function initPage() {
+            // Set up a timer to update the time every second
+            setInterval(updateTime, 1000);
+            
+            // Initialize the time display immediately
+            updateTime();
+            
+            // Add event listener to the button
+            document.getElementById('toggle-button').addEventListener('click', function() {
+                const demoBox = document.getElementById('toggle-content');
+                if (demoBox.style.display === 'none' || demoBox.style.display === '') {
+                    demoBox.style.display = 'block';
+                    this.textContent = 'Hide Content';
+                } else {
+                    demoBox.style.display = 'none';
+                    this.textContent = 'Show Content';
+                }
+            });
+        }
+        
+        // Add an event listener for when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Title, Link, and Script Elements</h1>
+        <p>This example demonstrates the three important head elements: title, link, and script.</p>
+    </header>
+
+    <main>
+        <section id="title-section">
+            <h2>The &lt;title&gt; Element</h2>
+            <p>The <code>&lt;title&gt;</code> element defines the title of the HTML document, which appears in:</p>
+            <ul>
+                <li>Browser tabs</li>
+                <li>Bookmarks/favorites</li>
+                <li>Search engine results</li>
+                <li>Browser history</li>
+            </ul>
+            
+            <div class="code-example">
+                &lt;title&gt;Title, Link, and Script Elements | HTML Guide&lt;/title&gt;
+            </div>
+            
+            <div class="note">
+                <p><strong>Best Practices for Titles:</strong></p>
+                <ul>
+                    <li>Keep them concise but descriptive (50-60 characters)</li>
+                    <li>Include important keywords near the beginning</li>
+                    <li>Make each page's title unique</li>
+                    <li>Consider using a pattern (e.g., "Page Name | Site Name")</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="link-section">
+            <h2>The &lt;link&gt; Element</h2>
+            <p>The <code>&lt;link&gt;</code> element defines the relationship between the current document and an external resource. It's most commonly used to link to stylesheets.</p>
+            
+            <h3>Common Uses of the Link Element</h3>
+            <table>
+                <tr>
+                    <th>Purpose</th>
+                    <th>Code Example</th>
+                </tr>
+                <tr>
+                    <td>External CSS</td>
+                    <td><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></td>
+                </tr>
+                <tr>
+                    <td>Favicon</td>
+                    <td><code>&lt;link rel="icon" href="favicon.ico" type="image/x-icon"&gt;</code></td>
+                </tr>
+                <tr>
+                    <td>Web Fonts</td>
+                    <td><code>&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"&gt;</code></td>
+                </tr>
+                <tr>
+                    <td>Preconnect</td>
+                    <td><code>&lt;link rel="preconnect" href="https://example.com"&gt;</code></td>
+                </tr>
+                <tr>
+                    <td>Canonical URL</td>
+                    <td><code>&lt;link rel="canonical" href="https://example.com/page"&gt;</code></td>
+                </tr>
+                <tr>
+                    <td>Alternate Format</td>
+                    <td><code>&lt;link rel="alternate" type="application/rss+xml" href="rss.xml"&gt;</code></td>
+                </tr>
+                <tr>
+                    <td>Preload Resources</td>
+                    <td><code>&lt;link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin&gt;</code></td>
+                </tr>
+            </table>
+            
+            <h3>Key Attributes of the Link Element</h3>
+            <ul>
+                <li><code>rel</code>: Specifies the relationship between the current document and the linked resource</li>
+                <li><code>href</code>: Specifies the location (URL) of the linked resource</li>
+                <li><code>type</code>: Specifies the MIME type of the linked resource</li>
+                <li><code>media</code>: Specifies which media/device the linked resource is optimized for</li>
+                <li><code>sizes</code>: Specifies the size of icons for visual media</li>
+                <li><code>crossorigin</code>: Specifies how the element handles crossorigin requests</li>
+            </ul>
+            
+            <div class="note">
+                <p><strong>Performance Tip:</strong> Use <code>rel="preload"</code> for critical resources like fonts and hero images to prioritize their loading.</p>
+            </div>
+        </section>
+
+        <section id="script-section">
+            <h2>The &lt;script&gt; Element</h2>
+            <p>The <code>&lt;script&gt;</code> element is used to embed or reference executable code, typically JavaScript.</p>
+            
+            <h3>Ways to Include JavaScript</h3>
+            
+            <h4>1. External JavaScript File</h4>
+            <div class="code-example">
+                &lt;script src="script.js"&gt;&lt;/script&gt;
+            </div>
+            
+            <h4>2. Inline JavaScript</h4>
+            <div class="code-example">
+                &lt;script&gt;
+                  function greet() {
+                    alert("Hello, world!");
+                  }
+                &lt;/script&gt;
+            </div>
+            
+            <h3>Script Loading Strategies</h3>
+            <table>
+                <tr>
+                    <th>Strategy</th>
+                    <th>Code Example</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Regular</td>
+                    <td><code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></td>
+                    <td>Blocks HTML parsing until the script is loaded and executed</td>
+                </tr>
+                <tr>
+                    <td>Defer</td>
+                    <td><code>&lt;script src="script.js" defer&gt;&lt;/script&gt;</code></td>
+                    <td>Downloads during HTML parsing, executes after parsing completes</td>
+                </tr>
+                <tr>
+                    <td>Async</td>
+                    <td><code>&lt;script src="script.js" async&gt;&lt;/script&gt;</code></td>
+                    <td>Downloads asynchronously, executes as soon as available</td>
+                </tr>
+                <tr>
+                    <td>Module</td>
+                    <td><code>&lt;script type="module" src="module.js"&gt;&lt;/script&gt;</code></td>
+                    <td>Treated as a JavaScript module with its own scope</td>
+                </tr>
+            </table>
+            
+            <h3>Key Attributes of the Script Element</h3>
+            <ul>
+                <li><code>src</code>: Specifies the URL of an external script file</li>
+                <li><code>type</code>: Specifies the MIME type of the script</li>
+                <li><code>defer</code>: Script executes after the document has been parsed</li>
+                <li><code>async</code>: Script executes asynchronously as soon as it's available</li>
+                <li><code>integrity</code>: Contains inline metadata used to verify the resource</li>
+                <li><code>crossorigin</code>: Specifies how the element handles crossorigin requests</li>
+                <li><code>nomodule</code>: Script should not be executed in browsers that support ES modules</li>
+            </ul>
+            
+            <div class="note">
+                <p><strong>Best Practice:</strong> Place scripts at the end of the <code>&lt;body&gt;</code> element or use <code>defer</code> attribute for better page loading performance.</p>
+            </div>
+        </section>
+
+        <section id="demo-section">
+            <h2>Live Demonstration</h2>
+            <p>This section demonstrates the effects of the JavaScript code included in this page.</p>
+            
+            <div id="demo-area">
+                <h3>Current Time</h3>
+                <p>The current time is: <span id="time-display">Loading...</span></p>
+                <p>This time display is updated every second using JavaScript.</p>
+                
+                <button id="toggle-button">Show Content</button>
+                <div id="toggle-content" style="display: none; margin-top: 15px;">
+                    <p>This content was hidden and is now shown thanks to JavaScript!</p>
+                    <p>The button above uses an event listener to toggle this content's visibility.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>This example demonstrates the <code>&lt;title&gt;</code>, <code>&lt;link&gt;</code>, and <code>&lt;script&gt;</code> elements of HTML.</p>
+        <p>&copy; 2025 HTML Tutorial</p>
+    </footer>
+
+    <!-- 
+        Scripts at the end of the body
+        This is a common practice for better page loading performance
+        Scripts here execute after the DOM is fully parsed
+    -->
+    <script>
+        // This script will execute when the page is fully loaded
+        console.log("Page fully loaded!");
+        
+        // You could also include analytics or other non-critical scripts here
+    </script>
+</body>
+</html>

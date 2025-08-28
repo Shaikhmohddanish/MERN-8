@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic Text Tags in HTML</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        section {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #eee;
+        }
+        
+        .example {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .code {
+            background-color: #f5f5f5;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+        }
+        
+        .comparison {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .comparison-item {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .tag-highlight {
+            display: inline-block;
+            padding: 2px 5px;
+            background-color: #e7f4ff;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #2980b9;
+        }
+        
+        .note {
+            background-color: #fef9e7;
+            border-left: 4px solid #f1c40f;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        /* Element-specific styles */
+        mark {
+            background-color: #ffffcc;
+            padding: 0 3px;
+        }
+        
+        time {
+            border-bottom: 1px dashed #3498db;
+        }
+        
+        abbr {
+            text-decoration: underline dotted;
+            cursor: help;
+        }
+        
+        ruby {
+            font-size: 1.2em;
+        }
+        
+        rt {
+            font-size: 0.6em;
+            color: #e74c3c;
+        }
+        
+        .text-direction-demo {
+            padding: 10px;
+            background-color: #eee;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        
+        .highlight-container {
+            background-color: #f8f9fa;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        del {
+            color: #e74c3c;
+            background-color: #ffeeee;
+        }
+        
+        ins {
+            color: #27ae60;
+            background-color: #eefff0;
+            text-decoration: none;
+            border-bottom: 1px solid #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <h1>Semantic Text Tags in HTML</h1>
+    
+    <p>Semantic HTML uses tags that convey meaning about the content they contain, making web pages more accessible and SEO-friendly. This document demonstrates various semantic text tags and their proper usage.</p>
+    
+    <!-- Text Emphasis and Importance Section -->
+    <section id="emphasis">
+        <h2>Text Emphasis and Importance</h2>
+        
+        <div class="example">
+            <h3>The <span class="tag-highlight">&lt;em&gt;</span> Element (Emphasis)</h3>
+            <p>The <span class="tag-highlight">&lt;em&gt;</span> element indicates emphasized text, which screen readers may pronounce with different intonation.</p>
+            
+            <div class="code">
+                &lt;p&gt;I &lt;em&gt;really&lt;/em&gt; need to finish this project today.&lt;/p&gt;
+            </div>
+            
+            <p>Result: I <em>really</em> need to finish this project today.</p>
+        </div>
+        
+        <div class="example">
+            <h3>The <span class="tag-highlight">&lt;strong&gt;</span> Element (Strong Importance)</h3>
+            <p>The <span class="tag-highlight">&lt;strong&gt;</span> element indicates text with strong importance, seriousness, or urgency.</p>
+            
+            <div class="code">
+                &lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; This action cannot be undone.&lt;/p&gt;
+            </div>
+            
+            <p>Result: <strong>Warning:</strong> This action cannot be undone.</p>
+        </div>
+        
+        <div class="comparison">
+            <div class="comparison-item">
+                <h3>Semantic vs Stylistic Elements</h3>
+                <p>HTML includes both semantic elements (<span class="tag-highlight">&lt;strong&gt;</span>, <span class="tag-highlight">&lt;em&gt;</span>) and stylistic elements (<span class="tag-highlight">&lt;b&gt;</span>, <span class="tag-highlight">&lt;i&gt;</span>).</p>
+                
+                <table>
+                    <tr>
+                        <th>Stylistic</th>
+                        <th>Semantic</th>
+                        <th>Purpose</th>
+                    </tr>
+                    <tr>
+                        <td><b>&lt;b&gt;</b></td>
+                        <td><strong>&lt;strong&gt;</strong></td>
+                        <td>Bold vs Strong importance</td>
+                    </tr>
+                    <tr>
+                        <td><i>&lt;i&gt;</i></td>
+                        <td><em>&lt;em&gt;</em></td>
+                        <td>Italic vs Emphasis</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="comparison-item">
+                <h3>Example Usage</h3>
+                
+                <p>Stylistic bold for product name: The new <b>iPhone 15</b> has been released.</p>
+                <p>Semantic strong for warning: <strong>Caution:</strong> Wet floor ahead.</p>
+                <p>Stylistic italic for foreign phrase: She whispered <i>au revoir</i> as she left.</p>
+                <p>Semantic emphasis: You <em>must</em> submit the form by Friday.</p>
+            </div>
+        </div>
+        
+        <div class="note">
+            <p><strong>Best Practice:</strong> Choose semantic elements when you want to convey meaning, not just appearance. Use stylistic elements only when the text doesn't have special importance but needs visual distinction.</p>
+        </div>
+    </section>
+    
+    <!-- Highlighting and Marking Section -->
+    <section id="highlighting">
+        <h2>Text Highlighting and Marking</h2>
+        
+        <div class="example">
+            <h3>The <span class="tag-highlight">&lt;mark&gt;</span> Element</h3>
+            <p>The <span class="tag-highlight">&lt;mark&gt;</span> element represents text that is highlighted for reference or notation purposes.</p>
+            
+            <div class="code">
+                &lt;p&gt;Search results for "HTML": &lt;mark&gt;HTML&lt;/mark&gt; is the standard markup language for documents designed to be displayed in a web browser.&lt;/p&gt;
+            </div>
+            
+            <div class="highlight-container">
+                <p>Search results for "HTML": <mark>HTML</mark> is the standard markup language for documents designed to be displayed in a web browser.</p>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>Common Use Cases for <span class="tag-highlight">&lt;mark&gt;</span></h3>
+            <ul>
+                <li>Highlighting search results: <p>You searched for "<mark>semantic</mark>": Articles about <mark>semantic</mark> HTML are becoming more popular.</p></li>
+                <li>Drawing attention to specific text: <p>The deadline is <mark>next Monday at 5 PM</mark>. Please make a note of it.</p></li>
+                <li>Indicating relevant text in quotes: <p>According to the article, "<mark>90% of users</mark> prefer a responsive design."</p></li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- Subscript and Superscript Section -->
+    <section id="subscript-superscript">
+        <h2>Subscript and Superscript</h2>
+        
+        <div class="comparison">
+            <div class="comparison-item">
+                <h3>The <span class="tag-highlight">&lt;sub&gt;</span> Element (Subscript)</h3>
+                <p>The <span class="tag-highlight">&lt;sub&gt;</span> element renders text as subscript (lowered baseline).</p>
+                
+                <div class="code">
+                    &lt;p&gt;The chemical formula for water is H&lt;sub&gt;2&lt;/sub&gt;O.&lt;/p&gt;
+                </div>
+                
+                <p>Result: The chemical formula for water is H<sub>2</sub>O.</p>
+                
+                <p>Other examples:</p>
+                <ul>
+                    <li>CO<sub>2</sub> (Carbon dioxide)</li>
+                    <li>log<sub>10</sub> (Logarithm base 10)</li>
+                    <li>X<sub>i</sub> (Variable with index)</li>
+                </ul>
+            </div>
+            
+            <div class="comparison-item">
+                <h3>The <span class="tag-highlight">&lt;sup&gt;</span> Element (Superscript)</h3>
+                <p>The <span class="tag-highlight">&lt;sup&gt;</span> element renders text as superscript (raised baseline).</p>
+                
+                <div class="code">
+                    &lt;p&gt;The area of a square is x&lt;sup&gt;2&lt;/sup&gt;.&lt;/p&gt;
+                </div>
+                
+                <p>Result: The area of a square is x<sup>2</sup>.</p>
+                
+                <p>Other examples:</p>
+                <ul>
+                    <li>e = mc<sup>2</sup> (Einstein's equation)</li>
+                    <li>2<sup>8</sup> = 256 (Powers)</li>
+                    <li>3<sup>rd</sup> floor (Ordinals)</li>
+                    <li>Footnote<sup>[1]</sup> (References)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Time and Dates Section -->
+    <section id="time">
+        <h2>Time and Dates</h2>
+        
+        <div class="example">
+            <h3>The <span class="tag-highlight">&lt;time&gt;</span> Element</h3>
+            <p>The <span class="tag-highlight">&lt;time&gt;</span> element represents a specific period in time, with an optional machine-readable format in the <code>datetime</code> attribute.</p>
+            
+            <div class="code">
+                &lt;p&gt;The concert starts at &lt;time datetime="2023-11-18T20:00"&gt;8:00 PM on November 18th&lt;/time&gt;.&lt;/p&gt;
+            </div>
+            
+            <p>Result: The concert starts at <time datetime="2023-11-18T20:00">8:00 PM on November 18th</time>.</p>
+        </div>
+        
+        <div class="example">
+            <h3>Formats for the <code>datetime</code> Attribute</h3>
+            <table>
+                <tr>
+                    <th>Format</th>
+                    <th>Example</th>
+                    <th>Use Case</th>
+                </tr>
+                <tr>
+                    <td>YYYY-MM-DD</td>
+                    <td>2023-11-18</td>
+                    <td>Dates only: <time datetime="2023-11-18">November 18, 2023</time></td>
+                </tr>
+                <tr>
+                    <td>HH:MM:SS</td>
+                    <td>20:00:00</td>
+                    <td>Time only: <time datetime="20:00:00">8:00 PM</time></td>
+                </tr>
+                <tr>
+                    <td>YYYY-MM-DDThh:mm:ss</td>
+                    <td>2023-11-18T20:00:00</td>
+                    <td>Date and time: <time datetime="2023-11-18T20:00:00">8:00 PM, Nov 18, 2023</time></td>
+                </tr>
+                <tr>
+                    <td>YYYY-MM-DDThh:mm:ssZ</td>
+                    <td>2023-11-18T20:00:00Z</td>
+                    <td>UTC time: <time datetime="2023-11-18T20:00:00Z">8:00 PM UTC, Nov 18, 2023</time></td>
+                </tr>
+                <tr>
+                    <td>YYYY-MM-DDThh:mm:ss+hh:mm</td>
+                    <td>2023-11-18T20:00:00-05:00</td>
+                    <td>Time with timezone offset: <time datetime="2023-11-18T20:00:00-05:00">8:00 PM EST, Nov 18, 2023</time></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="note">
+            <p><strong>Benefits of using the <span class="tag-highlight">&lt;time&gt;</span> element:</strong></p>
+            <ul>
+                <li>Helps search engines understand dates and times</li>
+                <li>Makes it possible for browsers to add events to user calendars</li>
+                <li>Allows for consistent formatting of dates across a website</li>
+                <li>Improves accessibility for screen readers</li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- Abbreviations and Definitions Section -->
+    <section id="abbreviations">
+        <h2>Abbreviations and Definitions</h2>
+        
+        <div class="example">
+            <h3>The <span class="tag-highlight">&lt;abbr&gt;</span> Element (Abbreviation)</h3>
+            <p>The <span class="tag-highlight">&lt;abbr&gt;</span> element represents an abbreviation or acronym, with the full form in the <code>title</code> attribute.</p>
+            
+            <div class="code">
+                &lt;p&gt;The &lt;abbr title="World Health Organization"&gt;WHO&lt;/abbr&gt; was founded in 1948.&lt;/p&gt;
+            </div>
+            
+            <p>Result: The <abbr title="World Health Organization">WHO</abbr> was founded in 1948. (Hover over "WHO" to see the full form)</p>
+            
+            <p>More examples:</p>
+            <ul>
+                <li><abbr title="HyperText Markup Language">HTML</abbr></li>
+                <li><abbr title="Cascading Style Sheets">CSS</abbr></li>
+                <li><abbr title="et cetera">etc.</abbr></li>
+                <li><abbr title="Professor">Prof.</abbr> Smith</li>
+            </ul>
+        </div>
+        
+        <div class="example">
+            <h3>The <span class="tag-highlight">&lt;dfn&gt;</span> Element (Definition)</h3>
+            <p>The <span class="tag-highlight">&lt;dfn&gt;</span> element represents the defining instance of a term.</p>
+            
+            <div class="code">
+                &lt;p&gt;&lt;dfn&gt;HTML&lt;/dfn&gt; (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser.&lt;/p&gt;
+            </div>
+            
+            <p>Result: <dfn>HTML</dfn> (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser.</p>
+            
+            <p>You can combine <span class="tag-highlight">&lt;dfn&gt;</span> with <span class="tag-highlight">&lt;abbr&gt;</span>:</p>
+            <div class="code">
+                &lt;p&gt;&lt;dfn&gt;&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;&lt;/dfn&gt; is the standard markup language for web pages.&lt;/p&gt;
+            </div>
+            
+            <p>Result: <dfn><abbr title="HyperText Markup Language">HTML</abbr></dfn> is the standard markup language for web pages.</p>
+        </div>
+    </section>
+    
+    <!-- Changes to Document Section -->
+    <section id="changes">
+        <h2>Changes to Document</h2>
+        
+        <div class="example">
+            <h3>The <span class="tag-highlight">&lt;ins&gt;</span> and <span class="tag-highlight">&lt;del&gt;</span> Elements</h3>
+            <p>These elements mark text that has been added to or removed from a document.</p>
+            
+            <div class="code">
+                &lt;p&gt;The meeting is scheduled for &lt;del&gt;Monday&lt;/del&gt; &lt;ins&gt;Tuesday&lt;/ins&gt; at 3 PM.&lt;/p&gt;
+            </div>
+            
+            <p>Result: The meeting is scheduled for <del>Monday</del> <ins>Tuesday</ins> at 3 PM.</p>
+            
+            <div class="code">
+                &lt;p&gt;The price is &lt;del&gt;$50&lt;/del&gt; &lt;ins&gt;$40&lt;/ins&gt;.&lt;/p&gt;
+            </div>
+            
+            <p>Result: The price is <del>$50</del> <ins>$40</ins>.</p>
+        </div>
+        
+        <div class="example">
+            <h3>Using <code>cite</code> and <code>datetime</code> Attributes</h3>
+            
+            <div class="code">
+                &lt;p&gt;
+                  &lt;del cite="https://example.com/changes" datetime="2023-11-17T13:00"&gt;
+                    This paragraph has been removed due to inaccuracy.
+                  &lt;/del&gt;
+                &lt;/p&gt;
+            </div>
+            
+            <p>
+                <del cite="https://example.com/changes" datetime="2023-11-17T13:00">
+                    This paragraph has been removed due to inaccuracy.
+                </del>
+            </p>
+            
+            <p>
+                <ins cite="https://example.com/revisions" datetime="2023-11-18T09:30">
+                    This paragraph has been added to provide more accurate information.
+                </ins>
+            </p>
+        </div>
+        
+        <div class="note">
+            <p><strong>Use cases for <span class="tag-highlight">&lt;ins&gt;</span> and <span class="tag-highlight">&lt;del&gt;</span>:</strong></p>
+            <ul>
+                <li>Legal documents showing revisions</li>
+                <li>Collaborative editing where changes need to be tracked</li>
+                <li>Price changes or corrections</li>
+                <li>Scheduling updates</li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- Bidirectional Text Section -->
+    <section id="bidirectional">
+        <h2>Bidirectional Text</h2>
+        
+        <div class="example">
+            <h3>The <span class="tag-highlight">&lt;bdi&gt;</span> Element (Bidirectional Isolation)</h3>
+            <p>The <span class="tag-highlight">&lt;bdi&gt;</span> element isolates a span of text that might be formatted in a different direction from the surrounding text.</p>
+            
+            <div class="code">
+                &lt;p&gt;User contributions: &lt;bdi&gt;مرحبا&lt;/bdi&gt; (Arabic) contributed 42 articles.&lt;/p&gt;
+            </div>
+            
+            <div class="text-direction-demo">
+                <p>User contributions: <bdi>مرحبا</bdi> (Arabic) contributed 42 articles.</p>
+            </div>
+            
+            <p>Without <span class="tag-highlight">&lt;bdi&gt;</span>, bidirectional text might affect surrounding text formatting:</p>
+            <div class="text-direction-demo">
+                <p>User contributions: مرحبا (Arabic) contributed 42 articles.</p>
+            </div>
+        </div>
+        
+        <div class="example">
+            <h3>The <span class="tag-highlight">&lt;bdo&gt;</span> Element (Bidirectional Override)</h3>
+            <p>The <span class="tag-highlight">&lt;bdo&gt;</span> element explicitly overrides the default text direction.</p>
+            
+            <div class="code">
+                &lt;p&gt;&lt;bdo dir="rtl"&gt;This text will go from right to left.&lt;/bdo&gt;&lt;/p&gt;
+            </div>
+            
+            <div class="text-direction-demo">
+                <p><bdo dir="rtl">This text will go from right to left.</bdo></p>
+            </div>
+            
+            <div class="code">
+                &lt;p&gt;&lt;bdo dir="ltr"&gt;هذا النص سيذهب من اليسار إلى اليمين.&lt;/bdo&gt;&lt;/p&gt;
+            </div>
+            
+            <div class="text-direction-demo">
+                <p><bdo dir="ltr">هذا النص سيذهب من اليسار إلى اليمين.</bdo></p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ruby Annotations Section -->
+    <section id="ruby">
+        <h2>Ruby Annotations</h2>
+        
+        <div class="example">
+            <h3>The <span class="tag-highlight">&lt;ruby&gt;</span>, <span class="tag-highlight">&lt;rt&gt;</span>, and <span class="tag-highlight">&lt;rp&gt;</span> Elements</h3>
+            <p>Ruby annotations provide pronunciation or meaning for characters, commonly used in East Asian typography.</p>
+            
+            <div class="code">
+                &lt;ruby&gt;
+                  漢 &lt;rt&gt;かん&lt;/rt&gt;
+                  字 &lt;rt&gt;じ&lt;/rt&gt;
+                &lt;/ruby&gt;
+            </div>
+            
+            <p>Result: 
+                <ruby>
+                  漢 <rt>かん</rt>
+                  字 <rt>じ</rt>
+                </ruby>
+            </p>
+            
+            <p>With fallback parentheses for browsers that don't support ruby annotations:</p>
+            
+            <div class="code">
+                &lt;ruby&gt;
+                  漢 &lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;かん&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;
+                  字 &lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;じ&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;
+                &lt;/ruby&gt;
+            </div>
+            
+            <p>Result: 
+                <ruby>
+                  漢 <rp>(</rp><rt>かん</rt><rp>)</rp>
+                  字 <rp>(</rp><rt>じ</rt><rp>)</rp>
+                </ruby>
+            </p>
+        </div>
+        
+        <div class="example">
+            <h3>English Example of Ruby Annotations</h3>
+            
+            <p>Ruby annotations can also be used for English words:</p>
+            
+            <div class="code">
+                &lt;ruby&gt;
+                  pronunciation &lt;rt&gt;prəˌnʌnsiˈeɪʃn&lt;/rt&gt;
+                &lt;/ruby&gt;
+            </div>
+            
+            <p>Result: 
+                <ruby>
+                  pronunciation <rt>prəˌnʌnsiˈeɪʃn</rt>
+                </ruby>
+            </p>
+        </div>
+    </section>
+    
+    <!-- Comprehensive Example Section -->
+    <section id="comprehensive-example">
+        <h2>Comprehensive Example</h2>
+        
+        <div class="example">
+            <h3>Using Multiple Semantic Text Elements Together</h3>
+            
+            <article>
+                <h3>The Evolution of <abbr title="HyperText Markup Language">HTML</abbr></h3>
+                
+                <p>
+                    <dfn>HTML</dfn> is the standard markup language for documents designed to be displayed in a web browser.
+                </p>
+                
+                <p>
+                    The first version was created in <time datetime="1993">1993</time> by 
+                    <strong>Tim Berners-Lee</strong>. Since then, it has evolved significantly.
+                </p>
+                
+                <p>
+                    HTML5, released in <time datetime="2014-10-28">October 2014</time>, added many new features including
+                    the <mark>semantic elements</mark> we're discussing in this document.
+                </p>
+                
+                <p>
+                    The chemical formula for water is H<sub>2</sub>O, and Einstein's famous equation is E=mc<sup>2</sup>.
+                </p>
+                
+                <p>
+                    The latest version was <del datetime="2023-10-15">expected in 2023</del> 
+                    <ins datetime="2023-10-16">released ahead of schedule in 2022</ins>.
+                </p>
+                
+                <p>
+                    Examples of international text: <bdi>مرحبا</bdi> (Arabic), <bdi>שלום</bdi> (Hebrew)
+                </p>
+                
+                <p>
+                    In Japanese, HTML is written as: 
+                    <ruby>
+                        HTML <rt>エイチティーエムエル</rt>
+                    </ruby>
+                </p>
+            </article>
+        </div>
+    </section>
+    
+    <!-- Accessibility Section -->
+    <section id="accessibility">
+        <h2>Accessibility Considerations</h2>
+        
+        <div class="example">
+            <h3>Making Semantic Text Elements Accessible</h3>
+            
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Accessibility Consideration</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;em&gt;</code> and <code>&lt;strong&gt;</code></td>
+                    <td>Screen readers may change voice inflection, providing better context than purely visual elements like <code>&lt;i&gt;</code> and <code>&lt;b&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;abbr&gt;</code></td>
+                    <td>Always include the <code>title</code> attribute to explain abbreviations for users who may not be familiar with them</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;time&gt;</code></td>
+                    <td>The <code>datetime</code> attribute helps assistive technologies interpret dates correctly</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;mark&gt;</code></td>
+                    <td>Don't rely solely on color to indicate highlighted text; the semantic meaning helps screen readers</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code></td>
+                    <td>Ensure the content still makes sense when read sequentially, even with insertions and deletions</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;ruby&gt;</code></td>
+                    <td>Use <code>&lt;rp&gt;</code> elements to provide fallbacks for browsers that don't support ruby annotations</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    
+    <footer>
+        <p>This document demonstrates semantic text tags in HTML.</p>
+        <p><small>&copy; 2023 HTML Tutorial</small></p>
+    </footer>
+</body>
+</html>

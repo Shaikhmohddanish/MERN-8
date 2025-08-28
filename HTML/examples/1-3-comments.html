@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Comments</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 800px;
+        }
+        .comment-example {
+            background-color: #f5f5f5;
+            border-left: 4px solid #666;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        .output {
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        h2 {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML Comments: The Developer's Invisible Notes</h1>
+        <p>Understanding how to use comments in HTML documents</p>
+    </header>
+
+    <main>
+        <!-- This is a comment explaining the section below -->
+        <section>
+            <h2>What Are HTML Comments?</h2>
+            
+            <p>HTML comments are notes that are invisible to users viewing your page in a browser. They help developers by:</p>
+            
+            <ul>
+                <li>Explaining sections of code</li>
+                <li>Making notes for future reference</li>
+                <li>Temporarily disabling code without deleting it</li>
+                <li>Organizing large documents</li>
+                <li>Communicating with team members</li>
+            </ul>
+            
+            <p>Comments are written using the following syntax:</p>
+            
+            <div class="comment-example">
+                &lt;!-- This is an HTML comment --&gt;
+            </div>
+            
+            <p>Everything between <code>&lt;!--</code> and <code>--&gt;</code> is treated as a comment and not displayed on the page.</p>
+        </section>
+
+        <!-- Examples section showcasing different comment uses -->
+        <section>
+            <h2>Comment Examples</h2>
+            
+            <h3>1. Single-line comments</h3>
+            <div class="comment-example">
+                &lt;!-- This is a single-line comment --&gt;
+            </div>
+            
+            <h3>2. Multi-line comments</h3>
+            <div class="comment-example">
+                &lt;!--
+                    This is a multi-line comment.
+                    It can span across several lines.
+                    Use this for longer explanations.
+                --&gt;
+            </div>
+            
+            <h3>3. Commenting out code</h3>
+            <div class="comment-example">
+                &lt;!--
+                &lt;div class="feature"&gt;
+                    &lt;h2&gt;Coming Soon&lt;/h2&gt;
+                    &lt;p&gt;This feature is still in development.&lt;/p&gt;
+                &lt;/div&gt;
+                --&gt;
+            </div>
+            <p class="output">Result: The commented-out code won't be displayed or processed by the browser.</p>
+            
+            <h3>4. Section dividers</h3>
+            <div class="comment-example">
+                &lt;!-- ========== HEADER SECTION ========== --&gt;
+                
+                &lt;header&gt;...&lt;/header&gt;
+                
+                &lt;!-- ========== MAIN CONTENT ========== --&gt;
+                
+                &lt;main&gt;...&lt;/main&gt;
+            </div>
+            
+            <h3>5. Todo notes</h3>
+            <div class="comment-example">
+                &lt;!-- TODO: Add responsive navigation menu --&gt;
+                &lt;nav&gt;...&lt;/nav&gt;
+            </div>
+        </section>
+
+        <!-- Best practices section with do's and don'ts -->
+        <section>
+            <h2>Comment Best Practices</h2>
+            
+            <h3>Do's:</h3>
+            <ul>
+                <li>Use comments to explain complex code sections</li>
+                <li>Comment code that might not be obvious to other developers</li>
+                <li>Use comments to organize large documents into logical sections</li>
+                <li>Keep comments up-to-date when changing code</li>
+                <li>Use consistent commenting style throughout a project</li>
+            </ul>
+            
+            <h3>Don'ts:</h3>
+            <ul>
+                <li>Don't overuse comments for obvious code</li>
+                <li>Don't leave outdated comments that no longer match the code</li>
+                <li>Don't put sensitive information in comments (they're visible in source code)</li>
+                <li>Don't nest comments (comments inside comments don't work in HTML)</li>
+                <li>Don't rely on comments instead of writing clear, self-explanatory code</li>
+            </ul>
+            
+            <div class="comment-example">
+                &lt;!-- This doesn't work: 
+                &lt;!-- Nested comment --&gt;
+                --&gt;
+            </div>
+        </section>
+        
+        <!-- Commenting vs. hiding content section -->
+        <section>
+            <h2>Comments vs. Hidden Content</h2>
+            
+            <p>It's important to understand the difference between HTML comments and other ways to hide content:</p>
+            
+            <table border="1" cellpadding="8" cellspacing="0" width="100%">
+                <tr>
+                    <th>Method</th>
+                    <th>Visible in Browser</th>
+                    <th>Visible in Source Code</th>
+                    <th>Use Case</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;!-- Comments --&gt;</code></td>
+                    <td>No</td>
+                    <td>Yes</td>
+                    <td>Developer notes, documentation</td>
+                </tr>
+                <tr>
+                    <td><code>display: none;</code> (CSS)</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                    <td>Dynamic content that may be shown later</td>
+                </tr>
+                <tr>
+                    <td><code>visibility: hidden;</code> (CSS)</td>
+                    <td>No (but takes up space)</td>
+                    <td>Yes</td>
+                    <td>Elements that should reserve their space</td>
+                </tr>
+                <tr>
+                    <td><code>hidden</code> attribute</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                    <td>Elements that should be hidden by default</td>
+                </tr>
+            </table>
+            
+            <p><strong>Note:</strong> Remember that HTML comments are not secure for hiding sensitive information, as they're still visible to anyone who views your page source.</p>
+        </section>
+    </main>
+
+    <!-- Footer section with copyright notice -->
+    <footer>
+        <hr>
+        <p><small>&copy; 2025 HTML Tutorial. This example demonstrates the use of HTML comments.</small></p>
+    </footer>
+</body>
+</html>

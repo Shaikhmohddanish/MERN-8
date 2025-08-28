@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- 
+    DOCTYPE Declaration:
+    The <!DOCTYPE> declaration must be the first thing in your HTML document, before the <html> tag.
+    It tells the browser which version of HTML the page is using.
+    
+    HTML5 DOCTYPE: <!DOCTYPE html>
+    HTML 4.01 Strict: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+    HTML 4.01 Transitional: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    XHTML 1.0 Strict: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    XHTML 1.0 Transitional: <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Versions and DOCTYPE</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        code { background-color: #f5f5f5; padding: 2px 4px; border-radius: 4px; font-family: monospace; }
+        .example { background-color: #f0f8ff; padding: 15px; border-left: 4px solid #0066cc; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML Versions and DOCTYPE Declarations</h1>
+        <p>Understanding the evolution of HTML and the purpose of DOCTYPE declarations</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>What is a DOCTYPE?</h2>
+            <p>The DOCTYPE declaration is an instruction to the web browser about what version of HTML the page is written in. This helps the browser to render the page correctly.</p>
+            
+            <div class="example">
+                <h3>HTML5 DOCTYPE (Current Standard)</h3>
+                <code>&lt;!DOCTYPE html&gt;</code>
+                <p>This simple declaration is all that's needed for HTML5 documents. It's case-insensitive and triggers standards mode in all modern browsers.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Evolution of HTML and DOCTYPEs</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>HTML Version</th>
+                        <th>Year</th>
+                        <th>DOCTYPE Example</th>
+                        <th>Key Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HTML 2.0</td>
+                        <td>1995</td>
+                        <td><code>&lt;!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN"&gt;</code></td>
+                        <td>Basic structure, forms, tables</td>
+                    </tr>
+                    <tr>
+                        <td>HTML 3.2</td>
+                        <td>1997</td>
+                        <td><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"&gt;</code></td>
+                        <td>Scripts, applets, text flow around images</td>
+                    </tr>
+                    <tr>
+                        <td>HTML 4.01 Strict</td>
+                        <td>1999</td>
+                        <td><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;</code></td>
+                        <td>No presentational elements, strict separation of content and style</td>
+                    </tr>
+                    <tr>
+                        <td>HTML 4.01 Transitional</td>
+                        <td>1999</td>
+                        <td><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</code></td>
+                        <td>Allows deprecated presentational elements</td>
+                    </tr>
+                    <tr>
+                        <td>XHTML 1.0 Strict</td>
+                        <td>2000</td>
+                        <td><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</code></td>
+                        <td>XML-based reformulation of HTML 4.01, stricter syntax rules</td>
+                    </tr>
+                    <tr>
+                        <td>HTML5</td>
+                        <td>2014</td>
+                        <td><code>&lt;!DOCTYPE html&gt;</code></td>
+                        <td>Simplified DOCTYPE, semantic elements, multimedia support, APIs</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Why DOCTYPE Matters</h2>
+            <ul>
+                <li><strong>Rendering Mode:</strong> Without a DOCTYPE, browsers use "quirks mode" which emulates non-standard behaviors from older browsers</li>
+                <li><strong>Standards Compliance:</strong> Helps ensure your page is interpreted according to web standards</li>
+                <li><strong>Validation:</strong> Required for HTML validation</li>
+                <li><strong>Future Compatibility:</strong> Ensures better compatibility with future browser versions</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>DOCTYPE Best Practices</h2>
+            <ol>
+                <li>Always include a DOCTYPE declaration at the very beginning of your HTML document</li>
+                <li>For modern web development, use the HTML5 DOCTYPE: <code>&lt;!DOCTYPE html&gt;</code></li>
+                <li>The DOCTYPE is not case sensitive but conventionally written in uppercase</li>
+                <li>There should be no spaces before the DOCTYPE declaration</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p><small>This document demonstrates the use of HTML5 DOCTYPE and explains the evolution of HTML versions.</small></p>
+    </footer>
+</body>
+</html>

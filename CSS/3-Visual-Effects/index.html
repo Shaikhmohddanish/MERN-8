@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Visual Effects</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1>CSS Visual Effects</h1>
+        <p>Examples of various CSS visual effects and enhancements</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#colors">Colors & Backgrounds</a></li>
+            <li><a href="#gradients">Gradients</a></li>
+            <li><a href="#shadows">Shadows</a></li>
+            <li><a href="#transparency">Transparency</a></li>
+            <li><a href="#filters">Filters</a></li>
+            <li><a href="#transforms">Transforms</a></li>
+            <li><a href="#transitions">Transitions</a></li>
+            <li><a href="#animations">Animations</a></li>
+            <li><a href="#clipping">Clipping & Masking</a></li>
+            <li><a href="#examples">Practical Examples</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Colors and Backgrounds Section -->
+        <section id="colors" class="section">
+            <h2>Colors and Backgrounds</h2>
+            
+            <div class="example-container">
+                <h3>Color Models</h3>
+                <div class="color-models">
+                    <div class="color-sample hex-color">Hexadecimal: #0066CC</div>
+                    <div class="color-sample rgb-color">RGB: rgb(0, 102, 204)</div>
+                    <div class="color-sample rgba-color">RGBA: rgba(0, 102, 204, 0.5)</div>
+                    <div class="color-sample hsl-color">HSL: hsl(210, 100%, 40%)</div>
+                    <div class="color-sample hsla-color">HSLA: hsla(210, 100%, 40%, 0.5)</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.hex-color {
+    background-color: #0066cc;
+    color: white;
+}
+
+.rgb-color {
+    background-color: rgb(0, 102, 204);
+    color: white;
+}
+
+.rgba-color {
+    background-color: rgba(0, 102, 204, 0.5);
+    color: white;
+}
+
+.hsl-color {
+    background-color: hsl(210, 100%, 40%);
+    color: white;
+}
+
+.hsla-color {
+    background-color: hsla(210, 100%, 40%, 0.5);
+    color: white;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Background Images</h3>
+                <div class="bg-examples">
+                    <div class="bg-image bg-basic">Basic Background Image</div>
+                    <div class="bg-image bg-cover">Background Size: Cover</div>
+                    <div class="bg-image bg-contain">Background Size: Contain</div>
+                    <div class="bg-image bg-repeat">Background Repeat</div>
+                    <div class="bg-image bg-position">Background Position</div>
+                    <div class="bg-image bg-fixed">Background Fixed (Scroll to see effect)</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.bg-basic {
+    background-image: url('path/to/image.jpg');
+}
+
+.bg-cover {
+    background-image: url('path/to/image.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-contain {
+    background-image: url('path/to/image.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg-repeat {
+    background-image: url('path/to/small-pattern.jpg');
+    background-repeat: repeat;
+}
+
+.bg-position {
+    background-image: url('path/to/image.jpg');
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+
+.bg-fixed {
+    background-image: url('path/to/image.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Multiple Backgrounds</h3>
+                <div class="multiple-bg">
+                    Multiple Background Layers
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.multiple-bg {
+    background: 
+        url('path/to/overlay.png') no-repeat center / 80%,
+        linear-gradient(to right, rgba(0, 102, 204, 0.8), rgba(0, 204, 255, 0.8)),
+        url('path/to/background.jpg') no-repeat center / cover;
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gradients Section -->
+        <section id="gradients" class="section">
+            <h2>Gradients</h2>
+            
+            <div class="example-container">
+                <h3>Linear Gradients</h3>
+                <div class="gradient-examples">
+                    <div class="gradient linear-basic">Basic Linear</div>
+                    <div class="gradient linear-angle">45° Angle</div>
+                    <div class="gradient linear-direction">To Bottom Right</div>
+                    <div class="gradient linear-multi">Multiple Colors</div>
+                    <div class="gradient linear-stops">Color Stops</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.linear-basic {
+    background: linear-gradient(#0066cc, #00ccff);
+}
+
+.linear-angle {
+    background: linear-gradient(45deg, #0066cc, #00ccff);
+}
+
+.linear-direction {
+    background: linear-gradient(to bottom right, #0066cc, #00ccff);
+}
+
+.linear-multi {
+    background: linear-gradient(#0066cc, #00ccff, #0066cc);
+}
+
+.linear-stops {
+    background: linear-gradient(#0066cc 0%, #00ccff 50%, #0066cc 100%);
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Radial Gradients</h3>
+                <div class="gradient-examples">
+                    <div class="gradient radial-basic">Basic Radial</div>
+                    <div class="gradient radial-circle">Circle</div>
+                    <div class="gradient radial-position">Positioned</div>
+                    <div class="gradient radial-size">Different Sizes</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.radial-basic {
+    background: radial-gradient(#0066cc, #00ccff);
+}
+
+.radial-circle {
+    background: radial-gradient(circle, #0066cc, #00ccff);
+}
+
+.radial-position {
+    background: radial-gradient(circle at top right, #0066cc, #00ccff);
+}
+
+.radial-size {
+    background: radial-gradient(circle closest-side at center, #0066cc, #00ccff);
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Conic Gradients</h3>
+                <div class="gradient-examples">
+                    <div class="gradient conic-basic">Basic Conic</div>
+                    <div class="gradient conic-angle">From 45°</div>
+                    <div class="gradient conic-position">Custom Position</div>
+                    <div class="gradient conic-pie">Pie Chart Effect</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.conic-basic {
+    background: conic-gradient(#0066cc, #00ccff, #0066cc);
+}
+
+.conic-angle {
+    background: conic-gradient(from 45deg, #0066cc, #00ccff, #0066cc);
+}
+
+.conic-position {
+    background: conic-gradient(at 70% 30%, #0066cc, #00ccff, #0066cc);
+}
+
+.conic-pie {
+    background: conic-gradient(
+        #0066cc 0deg 90deg,
+        #00ccff 90deg 180deg,
+        #cc0066 180deg 270deg,
+        #66cc00 270deg 360deg
+    );
+    border-radius: 50%;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Repeating Gradients</h3>
+                <div class="gradient-examples">
+                    <div class="gradient repeating-linear">Repeating Linear</div>
+                    <div class="gradient repeating-radial">Repeating Radial</div>
+                    <div class="gradient repeating-conic">Repeating Conic</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.repeating-linear {
+    background: repeating-linear-gradient(
+        45deg,
+        #0066cc,
+        #0066cc 10px,
+        #00ccff 10px,
+        #00ccff 20px
+    );
+}
+
+.repeating-radial {
+    background: repeating-radial-gradient(
+        circle,
+        #0066cc,
+        #0066cc 10px,
+        #00ccff 10px,
+        #00ccff 20px
+    );
+}
+
+.repeating-conic {
+    background: repeating-conic-gradient(
+        #0066cc 0deg 15deg,
+        #00ccff 15deg 30deg
+    );
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shadows Section -->
+        <section id="shadows" class="section">
+            <h2>Shadows</h2>
+            
+            <div class="example-container">
+                <h3>Box Shadow</h3>
+                <div class="shadow-examples">
+                    <div class="shadow-box basic-shadow">Basic Shadow</div>
+                    <div class="shadow-box spread-shadow">With Spread</div>
+                    <div class="shadow-box inset-shadow">Inset Shadow</div>
+                    <div class="shadow-box multiple-shadow">Multiple Shadows</div>
+                    <div class="shadow-box colored-shadow">Colored Shadow</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.basic-shadow {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.spread-shadow {
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.inset-shadow {
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.multiple-shadow {
+    box-shadow: 
+        5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.colored-shadow {
+    box-shadow: 5px 5px 15px rgba(0, 102, 204, 0.7);
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Text Shadow</h3>
+                <div class="text-shadow-examples">
+                    <h4 class="text-shadow-basic">Basic Text Shadow</h4>
+                    <h4 class="text-shadow-hard">Hard Shadow</h4>
+                    <h4 class="text-shadow-multiple">Multiple Shadows</h4>
+                    <h4 class="text-shadow-glow">Glow Effect</h4>
+                    <h4 class="text-shadow-3d">3D Text Effect</h4>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.text-shadow-basic {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.text-shadow-hard {
+    text-shadow: 3px 3px 0 #0066cc;
+}
+
+.text-shadow-multiple {
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        -1px -1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.text-shadow-glow {
+    text-shadow: 0 0 10px rgba(0, 102, 204, 0.8);
+}
+
+.text-shadow-3d {
+    text-shadow: 
+        1px 1px 0 #ccc,
+        2px 2px 0 #c9c9c9,
+        3px 3px 0 #bbb,
+        4px 4px 0 #b9b9b9,
+        5px 5px 0 #aaa;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Drop Shadow Filter</h3>
+                <div class="drop-shadow-examples">
+                    <img src="https://picsum.photos/id/1015/200/200" alt="Mountain landscape" class="drop-shadow-basic">
+                    <div class="text-with-hole drop-shadow-shape">
+                        Text with transparent parts
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.drop-shadow-basic {
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+}
+
+.text-with-hole {
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(45deg, #0066cc, #00ccff);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.drop-shadow-shape {
+    filter: drop-shadow(3px 3px 5px rgba(0, 102, 204, 0.7));
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transparency Section -->
+        <section id="transparency" class="section">
+            <h2>Opacity and Transparency</h2>
+            
+            <div class="example-container">
+                <h3>Opacity Property</h3>
+                <div class="opacity-examples">
+                    <div class="opacity-box opacity-100">100% Opacity</div>
+                    <div class="opacity-box opacity-75">75% Opacity</div>
+                    <div class="opacity-box opacity-50">50% Opacity</div>
+                    <div class="opacity-box opacity-25">25% Opacity</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.opacity-100 {
+    opacity: 1;
+}
+
+.opacity-75 {
+    opacity: 0.75;
+}
+
+.opacity-50 {
+    opacity: 0.5;
+}
+
+.opacity-25 {
+    opacity: 0.25;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Alpha Channel in Colors</h3>
+                <div class="alpha-examples">
+                    <div class="alpha-box alpha-bg">
+                        Background with Alpha
+                    </div>
+                    <div class="alpha-box alpha-text">
+                        Text with Alpha
+                    </div>
+                    <div class="alpha-box alpha-border">
+                        Border with Alpha
+                    </div>
+                    <div class="alpha-box alpha-all">
+                        All with Alpha
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.alpha-bg {
+    background-color: rgba(0, 102, 204, 0.5);
+}
+
+.alpha-text {
+    color: rgba(0, 102, 204, 0.5);
+}
+
+.alpha-border {
+    border: 5px solid rgba(0, 102, 204, 0.5);
+}
+
+.alpha-all {
+    background-color: rgba(0, 102, 204, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    border: 5px solid rgba(255, 255, 255, 0.3);
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section id="filters" class="section">
+            <h2>Filters</h2>
+            
+            <div class="example-container">
+                <h3>Filter Effects</h3>
+                <div class="filter-examples">
+                    <div class="filter-item">
+                        <img src="https://picsum.photos/id/1018/200/200" alt="Nature" class="original">
+                        <p>Original</p>
+                    </div>
+                    <div class="filter-item">
+                        <img src="https://picsum.photos/id/1018/200/200" alt="Nature" class="filter-blur">
+                        <p>Blur</p>
+                    </div>
+                    <div class="filter-item">
+                        <img src="https://picsum.photos/id/1018/200/200" alt="Nature" class="filter-brightness">
+                        <p>Brightness</p>
+                    </div>
+                    <div class="filter-item">
+                        <img src="https://picsum.photos/id/1018/200/200" alt="Nature" class="filter-contrast">
+                        <p>Contrast</p>
+                    </div>
+                    <div class="filter-item">
+                        <img src="https://picsum.photos/id/1018/200/200" alt="Nature" class="filter-grayscale">
+                        <p>Grayscale</p>
+                    </div>
+                    <div class="filter-item">
+                        <img src="https://picsum.photos/id/1018/200/200" alt="Nature" class="filter-hue-rotate">
+                        <p>Hue Rotate</p>
+                    </div>
+                    <div class="filter-item">
+                        <img src="https://picsum.photos/id/1018/200/200" alt="Nature" class="filter-invert">
+                        <p>Invert</p>
+                    </div>
+                    <div class="filter-item">
+                        <img src="https://picsum.photos/id/1018/200/200" alt="Nature" class="filter-saturate">
+                        <p>Saturate</p>
+                    </div>
+                    <div class="filter-item">
+                        <img src="https://picsum.photos/id/1018/200/200" alt="Nature" class="filter-sepia">
+                        <p>Sepia</p>
+                    </div>
+                    <div class="filter-item">
+                        <img src="https://picsum.photos/id/1018/200/200" alt="Nature" class="filter-multiple">
+                        <p>Multiple Filters</p>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.filter-blur {
+    filter: blur(5px);
+}
+
+.filter-brightness {
+    filter: brightness(150%);
+}
+
+.filter-contrast {
+    filter: contrast(200%);
+}
+
+.filter-grayscale {
+    filter: grayscale(100%);
+}
+
+.filter-hue-rotate {
+    filter: hue-rotate(90deg);
+}
+
+.filter-invert {
+    filter: invert(100%);
+}
+
+.filter-saturate {
+    filter: saturate(200%);
+}
+
+.filter-sepia {
+    filter: sepia(100%);
+}
+
+.filter-multiple {
+    filter: brightness(120%) contrast(120%) saturate(120%);
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Blend Modes</h3>
+                <div class="blend-examples">
+                    <div class="blend-item bg-blend-multiply">
+                        <p>Background Blend: Multiply</p>
+                    </div>
+                    <div class="blend-item bg-blend-screen">
+                        <p>Background Blend: Screen</p>
+                    </div>
+                    <div class="blend-item bg-blend-overlay">
+                        <p>Background Blend: Overlay</p>
+                    </div>
+                    
+                    <div class="blend-container">
+                        <div class="mix-blend-item mix-blend-difference">
+                            <p>Mix Blend: Difference</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.bg-blend-multiply {
+    background-image: url('path/to/image.jpg');
+    background-color: #0066cc;
+    background-blend-mode: multiply;
+}
+
+.bg-blend-screen {
+    background-image: url('path/to/image.jpg');
+    background-color: #0066cc;
+    background-blend-mode: screen;
+}
+
+.bg-blend-overlay {
+    background-image: url('path/to/image.jpg');
+    background-color: #0066cc;
+    background-blend-mode: overlay;
+}
+
+.blend-container {
+    background-image: linear-gradient(45deg, #0066cc, #00ccff);
+    padding: 20px;
+}
+
+.mix-blend-difference {
+    background-color: white;
+    mix-blend-mode: difference;
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transforms Section -->
+        <section id="transforms" class="section">
+            <h2>Transformations</h2>
+            
+            <div class="example-container">
+                <h3>2D Transforms</h3>
+                <div class="transform-examples">
+                    <div class="transform-item original-transform">
+                        <div class="transform-box">Original</div>
+                    </div>
+                    <div class="transform-item translate-transform">
+                        <div class="transform-box">Translate</div>
+                    </div>
+                    <div class="transform-item scale-transform">
+                        <div class="transform-box">Scale</div>
+                    </div>
+                    <div class="transform-item rotate-transform">
+                        <div class="transform-box">Rotate</div>
+                    </div>
+                    <div class="transform-item skew-transform">
+                        <div class="transform-box">Skew</div>
+                    </div>
+                    <div class="transform-item multiple-transform">
+                        <div class="transform-box">Multiple</div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.translate-transform .transform-box {
+    transform: translate(20px, 20px);
+}
+
+.scale-transform .transform-box {
+    transform: scale(1.5);
+}
+
+.rotate-transform .transform-box {
+    transform: rotate(45deg);
+}
+
+.skew-transform .transform-box {
+    transform: skew(10deg, 10deg);
+}
+
+.multiple-transform .transform-box {
+    transform: translate(20px, 20px) rotate(45deg) scale(1.2);
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>3D Transforms</h3>
+                <div class="transform-examples">
+                    <div class="transform-item rotateX-transform">
+                        <div class="transform-box">Rotate X</div>
+                    </div>
+                    <div class="transform-item rotateY-transform">
+                        <div class="transform-box">Rotate Y</div>
+                    </div>
+                    <div class="transform-item translateZ-transform">
+                        <div class="transform-box">Translate Z</div>
+                    </div>
+                    <div class="transform-item perspective-transform">
+                        <div class="transform-box">Perspective</div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.rotateX-transform .transform-box {
+    transform: rotateX(45deg);
+}
+
+.rotateY-transform .transform-box {
+    transform: rotateY(45deg);
+}
+
+.translateZ-transform .transform-box {
+    transform: perspective(500px) translateZ(50px);
+}
+
+.perspective-transform .transform-box {
+    transform: perspective(500px) rotateY(45deg);
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Transform Origin</h3>
+                <div class="transform-examples">
+                    <div class="transform-item origin-center">
+                        <div class="transform-box">Origin: Center</div>
+                    </div>
+                    <div class="transform-item origin-topleft">
+                        <div class="transform-box">Origin: Top Left</div>
+                    </div>
+                    <div class="transform-item origin-bottomright">
+                        <div class="transform-box">Origin: Bottom Right</div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.origin-center .transform-box {
+    transform-origin: center;
+    transform: rotate(45deg);
+}
+
+.origin-topleft .transform-box {
+    transform-origin: top left;
+    transform: rotate(45deg);
+}
+
+.origin-bottomright .transform-box {
+    transform-origin: bottom right;
+    transform: rotate(45deg);
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transitions Section -->
+        <section id="transitions" class="section">
+            <h2>Transitions</h2>
+            
+            <div class="example-container">
+                <h3>Basic Transitions</h3>
+                <div class="transition-examples">
+                    <div class="transition-box transition-color">
+                        <p>Hover Me</p>
+                        <p>Color Transition</p>
+                    </div>
+                    <div class="transition-box transition-transform">
+                        <p>Hover Me</p>
+                        <p>Transform Transition</p>
+                    </div>
+                    <div class="transition-box transition-multiple">
+                        <p>Hover Me</p>
+                        <p>Multiple Properties</p>
+                    </div>
+                    <div class="transition-box transition-all">
+                        <p>Hover Me</p>
+                        <p>All Properties</p>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.transition-color {
+    background-color: #f0f0f0;
+    transition: background-color 0.5s ease;
+}
+
+.transition-color:hover {
+    background-color: #0066cc;
+    color: white;
+}
+
+.transition-transform {
+    transition: transform 0.3s ease-in-out;
+}
+
+.transition-transform:hover {
+    transform: scale(1.1);
+}
+
+.transition-multiple {
+    transition: 
+        background-color 0.5s ease,
+        transform 0.3s ease-in-out;
+}
+
+.transition-multiple:hover {
+    background-color: #0066cc;
+    color: white;
+    transform: scale(1.1);
+}
+
+.transition-all {
+    transition: all 0.5s ease;
+}
+
+.transition-all:hover {
+    background-color: #0066cc;
+    color: white;
+    transform: scale(1.1);
+    border-radius: 20px;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Timing Functions</h3>
+                <div class="timing-examples">
+                    <div class="timing-function-box ease-box">
+                        <p>ease</p>
+                    </div>
+                    <div class="timing-function-box linear-box">
+                        <p>linear</p>
+                    </div>
+                    <div class="timing-function-box ease-in-box">
+                        <p>ease-in</p>
+                    </div>
+                    <div class="timing-function-box ease-out-box">
+                        <p>ease-out</p>
+                    </div>
+                    <div class="timing-function-box ease-in-out-box">
+                        <p>ease-in-out</p>
+                    </div>
+                    <div class="timing-function-box cubic-bezier-box">
+                        <p>cubic-bezier</p>
+                    </div>
+                    <div class="timing-function-box steps-box">
+                        <p>steps</p>
+                    </div>
+                </div>
+                <button id="timing-button" class="demo-button">Run Animation</button>
+                <div class="code-container">
+                    <pre><code>
+.ease-box {
+    transition-timing-function: ease;
+}
+
+.linear-box {
+    transition-timing-function: linear;
+}
+
+.ease-in-box {
+    transition-timing-function: ease-in;
+}
+
+.ease-out-box {
+    transition-timing-function: ease-out;
+}
+
+.ease-in-out-box {
+    transition-timing-function: ease-in-out;
+}
+
+.cubic-bezier-box {
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.steps-box {
+    transition-timing-function: steps(5, jump-start);
+}
+
+/* All boxes */
+.timing-function-box {
+    transition-property: transform;
+    transition-duration: 2s;
+}
+
+.timing-function-box.animate {
+    transform: translateX(250px);
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animations Section -->
+        <section id="animations" class="section">
+            <h2>Animations</h2>
+            
+            <div class="example-container">
+                <h3>Basic Animations</h3>
+                <div class="animation-examples">
+                    <div class="animation-box fade-in">
+                        Fade In
+                    </div>
+                    <div class="animation-box slide-in">
+                        Slide In
+                    </div>
+                    <div class="animation-box pulse">
+                        Pulse
+                    </div>
+                    <div class="animation-box color-change">
+                        Color Change
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 2s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.slide-in {
+    animation: slideIn 1.5s ease;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes colorChange {
+    0% { background-color: #0066cc; }
+    25% { background-color: #cc0066; }
+    50% { background-color: #66cc00; }
+    75% { background-color: #cc6600; }
+    100% { background-color: #0066cc; }
+}
+
+.color-change {
+    animation: colorChange 8s infinite;
+    color: white;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Animation Properties</h3>
+                <div class="animation-properties">
+                    <div class="animation-box delay-animation">
+                        Delayed Animation
+                    </div>
+                    <div class="animation-box iteration-animation">
+                        Iteration Count (3)
+                    </div>
+                    <div class="animation-box direction-animation">
+                        Alternate Direction
+                    </div>
+                    <div class="animation-box fill-animation">
+                        Forwards Fill Mode
+                    </div>
+                    <div class="animation-box play-state-animation">
+                        Hover to Pause
+                    </div>
+                </div>
+                <button id="reset-animations" class="demo-button">Reset Animations</button>
+                <div class="code-container">
+                    <pre><code>
+.delay-animation {
+    animation: slideIn 1.5s ease 1s;
+}
+
+.iteration-animation {
+    animation: pulse 1s ease 3;
+}
+
+.direction-animation {
+    animation: slideIn 2s ease infinite alternate;
+}
+
+.fill-animation {
+    animation: fadeIn 2s ease forwards;
+}
+
+.play-state-animation {
+    animation: colorChange 4s infinite;
+}
+
+.play-state-animation:hover {
+    animation-play-state: paused;
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clipping and Masking Section -->
+        <section id="clipping" class="section">
+            <h2>Clipping and Masking</h2>
+            
+            <div class="example-container">
+                <h3>Clip Path</h3>
+                <div class="clip-examples">
+                    <div class="clip-item clip-circle">
+                        <img src="https://picsum.photos/id/1019/300/200" alt="Nature" class="clip-image">
+                        <p>Circle</p>
+                    </div>
+                    <div class="clip-item clip-ellipse">
+                        <img src="https://picsum.photos/id/1019/300/200" alt="Nature" class="clip-image">
+                        <p>Ellipse</p>
+                    </div>
+                    <div class="clip-item clip-polygon">
+                        <img src="https://picsum.photos/id/1019/300/200" alt="Nature" class="clip-image">
+                        <p>Polygon</p>
+                    </div>
+                    <div class="clip-item clip-inset">
+                        <img src="https://picsum.photos/id/1019/300/200" alt="Nature" class="clip-image">
+                        <p>Inset</p>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.clip-circle .clip-image {
+    clip-path: circle(40% at center);
+}
+
+.clip-ellipse .clip-image {
+    clip-path: ellipse(40% 30% at center);
+}
+
+.clip-polygon .clip-image {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.clip-inset .clip-image {
+    clip-path: inset(10% 20% 10% 20% round 20px);
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Animated Clip Path</h3>
+                <div class="animated-clip-container">
+                    <div class="animated-clip-item">
+                        <img src="https://picsum.photos/id/1043/300/200" alt="Nature" class="animated-clip-image">
+                        <div class="animated-clip-overlay">Hover Me</div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.animated-clip-image {
+    clip-path: circle(0% at center);
+    transition: clip-path 0.5s ease;
+}
+
+.animated-clip-item:hover .animated-clip-image {
+    clip-path: circle(75% at center);
+}
+
+.animated-clip-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 102, 204, 0.7);
+    color: white;
+    font-weight: bold;
+    transition: opacity 0.5s ease;
+}
+
+.animated-clip-item:hover .animated-clip-overlay {
+    opacity: 0;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Masking</h3>
+                <div class="mask-examples">
+                    <div class="mask-item gradient-mask">
+                        <div class="mask-content">Gradient Mask</div>
+                    </div>
+                    <div class="mask-item image-mask">
+                        <div class="mask-content">Image Mask</div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.gradient-mask .mask-content {
+    mask-image: linear-gradient(to bottom, black, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.image-mask .mask-content {
+    mask-image: url('path/to/mask.png');
+    -webkit-mask-image: url('path/to/mask.png');
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Examples Section -->
+        <section id="examples" class="section">
+            <h2>Practical Examples</h2>
+            
+            <div class="example-container">
+                <h3>Gradient Button with Hover Effect</h3>
+                <div class="practical-examples">
+                    <button class="gradient-button">Hover Me</button>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.gradient-button {
+    padding: 12px 24px;
+    background: linear-gradient(to right, #0066cc, #00ccff);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.gradient-button:hover {
+    background: linear-gradient(to right, #00ccff, #0066cc);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gradient-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Animated Card Flip</h3>
+                <div class="practical-examples">
+                    <div class="card-container">
+                        <div class="card">
+                            <div class="card-front">
+                                <h3>Front Side</h3>
+                                <p>Hover to flip</p>
+                            </div>
+                            <div class="card-back">
+                                <h3>Back Side</h3>
+                                <p>Card flipped!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.card-container {
+    perspective: 1000px;
+    width: 300px;
+    height: 200px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.card-container:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-front {
+    background-color: #0066cc;
+    color: white;
+}
+
+.card-back {
+    background-color: #00ccff;
+    color: white;
+    transform: rotateY(180deg);
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Animated Loading Spinner</h3>
+                <div class="practical-examples">
+                    <div class="spinner-container">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 102, 204, 0.2);
+    border-radius: 50%;
+    border-top-color: #0066cc;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Animated Notification Badge</h3>
+                <div class="practical-examples">
+                    <div class="notification-badge" data-count="5">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItYmVsbCI+PHBhdGggZD0iTTE4IDhBNiA2IDAgMCAwIDYgOGMwIDctMyA5LTMgOWgxOHMtMy0yLTMtOSI+PC9wYXRoPjxwYXRoIGQ9Ik0xMyAyMWE2IDYgMCAwIDEgLTMgMCI+PC9wYXRoPjwvc3ZnPg==" alt="Notification" width="30" height="30">
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.notification-badge {
+    position: relative;
+    display: inline-block;
+}
+
+.notification-badge::after {
+    content: attr(data-count);
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #cc0000;
+    color: white;
+    border-radius: 50%;
+    padding: 0.25em 0.6em;
+    font-size: 12px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7);
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 10px rgba(204, 0, 0, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(204, 0, 0, 0);
+    }
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Image Gallery with Hover Effects</h3>
+                <div class="practical-examples">
+                    <div class="gallery">
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/id/1015/300/200" alt="Nature">
+                            <div class="gallery-caption">Mountain Lake</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/id/1016/300/200" alt="Nature">
+                            <div class="gallery-caption">Misty Mountains</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://picsum.photos/id/1018/300/200" alt="Nature">
+                            <div class="gallery-caption">Mountain Range</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>This is part of the CSS Visual Effects module.</p>
+        <p>Next, we'll explore Responsive Design in CSS.</p>
+    </footer>
+
+    <script>
+        // For Timing Functions Demo
+        document.getElementById('timing-button').addEventListener('click', function() {
+            const boxes = document.querySelectorAll('.timing-function-box');
+            
+            // Reset all animations first
+            boxes.forEach(box => {
+                box.classList.remove('animate');
+            });
+            
+            // Force reflow
+            void document.querySelector('.timing-examples').offsetWidth;
+            
+            // Add animation class
+            boxes.forEach(box => {
+                box.classList.add('animate');
+            });
+        });
+        
+        // Reset Animations
+        document.getElementById('reset-animations').addEventListener('click', function() {
+            const animationBoxes = document.querySelectorAll('.animation-properties .animation-box');
+            
+            // Remove and re-add the elements to restart animations
+            animationBoxes.forEach(box => {
+                const parent = box.parentNode;
+                const clone = box.cloneNode(true);
+                parent.replaceChild(clone, box);
+            });
+        });
+    </script>
+</body>
+</html>

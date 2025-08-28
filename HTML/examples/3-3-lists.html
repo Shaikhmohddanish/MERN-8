@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Lists: Ordered, Unordered, and Definition Lists</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        .demo-section {
+            margin: 20px 0 40px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+        
+        .code-example {
+            background-color: #f0f0f0;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        .output {
+            background-color: #fff;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .note {
+            background-color: #e7f4ff;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* Custom list styles for demonstrations */
+        .custom-list-demo ul {
+            list-style-type: square;
+        }
+        
+        .custom-list-demo ol {
+            list-style-type: lower-roman;
+        }
+        
+        .custom-image-bullets ul {
+            list-style-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="%233498db"/></svg>');
+        }
+        
+        .custom-counter {
+            counter-reset: section;
+        }
+        
+        .custom-counter li::before {
+            counter-increment: section;
+            content: "Section " counter(section) ": ";
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .custom-colors ol {
+            padding-left: 20px;
+        }
+        
+        .custom-colors li {
+            padding: 5px;
+            margin: 5px 0;
+        }
+        
+        .custom-colors li:nth-child(1) {
+            background-color: #d6eaf8;
+        }
+        
+        .custom-colors li:nth-child(2) {
+            background-color: #d5f5e3;
+        }
+        
+        .custom-colors li:nth-child(3) {
+            background-color: #fdebd0;
+        }
+        
+        .multi-col-list ul {
+            column-count: 3;
+            column-gap: 20px;
+        }
+        
+        .multi-col-list li {
+            break-inside: avoid;
+            page-break-inside: avoid;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML Lists: Ordered, Unordered, and Definition Lists</h1>
+    
+    <p>HTML provides three main types of lists to organize and structure content. Each type serves different purposes and can be styled and nested to create complex information hierarchies.</p>
+    
+    <!-- Unordered Lists Section -->
+    <div class="demo-section">
+        <h2>Unordered Lists</h2>
+        
+        <p>Unordered lists (<code>&lt;ul&gt;</code>) are used when the order of items doesn't matter. Each item is preceded by a bullet point or another marker.</p>
+        
+        <h3>Basic Unordered List</h3>
+        
+        <div class="code-example">
+&lt;ul&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+    &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;
+        </div>
+        
+        <div class="output">
+            <ul>
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+            </ul>
+        </div>
+        
+        <h3>Unordered List with Different Bullet Types</h3>
+        
+        <p>You can change the bullet style using CSS:</p>
+        
+        <div class="code-example">
+&lt;ul style="list-style-type: disc;"&gt;
+    &lt;li&gt;Disc bullet (default)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul style="list-style-type: circle;"&gt;
+    &lt;li&gt;Circle bullet&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul style="list-style-type: square;"&gt;
+    &lt;li&gt;Square bullet&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ul style="list-style-type: none;"&gt;
+    &lt;li&gt;No bullet&lt;/li&gt;
+&lt;/ul&gt;
+        </div>
+        
+        <div class="output">
+            <ul style="list-style-type: disc;">
+                <li>Disc bullet (default)</li>
+            </ul>
+            
+            <ul style="list-style-type: circle;">
+                <li>Circle bullet</li>
+            </ul>
+            
+            <ul style="list-style-type: square;">
+                <li>Square bullet</li>
+            </ul>
+            
+            <ul style="list-style-type: none;">
+                <li>No bullet</li>
+            </ul>
+        </div>
+        
+        <h3>Common Uses for Unordered Lists</h3>
+        
+        <ul>
+            <li>Navigation menus</li>
+            <li>Feature lists</li>
+            <li>Product specifications</li>
+            <li>Collections of related items</li>
+            <li>Checklists</li>
+        </ul>
+        
+        <div class="note">
+            <p><strong>Best Practice:</strong> Use unordered lists when the sequence of items doesn't matter and there's no numerical or chronological relationship between them.</p>
+        </div>
+    </div>
+    
+    <!-- Ordered Lists Section -->
+    <div class="demo-section">
+        <h2>Ordered Lists</h2>
+        
+        <p>Ordered lists (<code>&lt;ol&gt;</code>) are used when the sequence of items is important. Items are automatically numbered.</p>
+        
+        <h3>Basic Ordered List</h3>
+        
+        <div class="code-example">
+&lt;ol&gt;
+    &lt;li&gt;First step&lt;/li&gt;
+    &lt;li&gt;Second step&lt;/li&gt;
+    &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;
+        </div>
+        
+        <div class="output">
+            <ol>
+                <li>First step</li>
+                <li>Second step</li>
+                <li>Third step</li>
+            </ol>
+        </div>
+        
+        <h3>Ordered List with Different Numbering Types</h3>
+        
+        <p>The <code>type</code> attribute specifies the type of marker:</p>
+        
+        <div class="code-example">
+&lt;ol type="1"&gt;
+    &lt;li&gt;Default decimal numbers (1, 2, 3)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol type="A"&gt;
+    &lt;li&gt;Uppercase letters (A, B, C)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol type="a"&gt;
+    &lt;li&gt;Lowercase letters (a, b, c)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol type="I"&gt;
+    &lt;li&gt;Uppercase Roman numerals (I, II, III)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ol type="i"&gt;
+    &lt;li&gt;Lowercase Roman numerals (i, ii, iii)&lt;/li&gt;
+&lt;/ol&gt;
+        </div>
+        
+        <div class="output">
+            <ol type="1">
+                <li>Default decimal numbers (1, 2, 3)</li>
+            </ol>
+            
+            <ol type="A">
+                <li>Uppercase letters (A, B, C)</li>
+            </ol>
+            
+            <ol type="a">
+                <li>Lowercase letters (a, b, c)</li>
+            </ol>
+            
+            <ol type="I">
+                <li>Uppercase Roman numerals (I, II, III)</li>
+            </ol>
+            
+            <ol type="i">
+                <li>Lowercase Roman numerals (i, ii, iii)</li>
+            </ol>
+        </div>
+        
+        <h3>Starting from a Specific Number</h3>
+        
+        <p>The <code>start</code> attribute specifies the start value of the list:</p>
+        
+        <div class="code-example">
+&lt;ol start="5"&gt;
+    &lt;li&gt;This item starts at 5&lt;/li&gt;
+    &lt;li&gt;This item is number 6&lt;/li&gt;
+    &lt;li&gt;This item is number 7&lt;/li&gt;
+&lt;/ol&gt;
+        </div>
+        
+        <div class="output">
+            <ol start="5">
+                <li>This item starts at 5</li>
+                <li>This item is number 6</li>
+                <li>This item is number 7</li>
+            </ol>
+        </div>
+        
+        <h3>Reversed Counting</h3>
+        
+        <p>The <code>reversed</code> attribute specifies that the list order should be descending:</p>
+        
+        <div class="code-example">
+&lt;ol reversed&gt;
+    &lt;li&gt;This will be item 3&lt;/li&gt;
+    &lt;li&gt;This will be item 2&lt;/li&gt;
+    &lt;li&gt;This will be item 1&lt;/li&gt;
+&lt;/ol&gt;
+        </div>
+        
+        <div class="output">
+            <ol reversed>
+                <li>This will be item 3</li>
+                <li>This will be item 2</li>
+                <li>This will be item 1</li>
+            </ol>
+        </div>
+        
+        <h3>Common Uses for Ordered Lists</h3>
+        
+        <ul>
+            <li>Step-by-step instructions</li>
+            <li>Tutorials</li>
+            <li>Recipes</li>
+            <li>Rankings or leaderboards</li>
+            <li>Outlines with hierarchical numbering</li>
+        </ul>
+        
+        <div class="note">
+            <p><strong>Best Practice:</strong> Use ordered lists when the sequence matters, such as in instructions, rankings, or any content where items need to be followed in a specific order.</p>
+        </div>
+    </div>
+    
+    <!-- Definition Lists Section -->
+    <div class="demo-section">
+        <h2>Definition Lists</h2>
+        
+        <p>Definition lists (<code>&lt;dl&gt;</code>) are used to display name-value pairs. Each pair consists of a term (<code>&lt;dt&gt;</code>) and its description (<code>&lt;dd&gt;</code>).</p>
+        
+        <h3>Basic Definition List</h3>
+        
+        <div class="code-example">
+&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;HyperText Markup Language, the standard language for creating web pages.&lt;/dd&gt;
+    
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Cascading Style Sheets, used for describing the presentation of a document.&lt;/dd&gt;
+    
+    &lt;dt&gt;JavaScript&lt;/dt&gt;
+    &lt;dd&gt;A programming language that enables interactive web pages.&lt;/dd&gt;
+&lt;/dl&gt;
+        </div>
+        
+        <div class="output">
+            <dl>
+                <dt>HTML</dt>
+                <dd>HyperText Markup Language, the standard language for creating web pages.</dd>
+                
+                <dt>CSS</dt>
+                <dd>Cascading Style Sheets, used for describing the presentation of a document.</dd>
+                
+                <dt>JavaScript</dt>
+                <dd>A programming language that enables interactive web pages.</dd>
+            </dl>
+        </div>
+        
+        <h3>Multiple Terms or Multiple Descriptions</h3>
+        
+        <p>A definition list can have multiple terms for one description or multiple descriptions for one term:</p>
+        
+        <div class="code-example">
+&lt;dl&gt;
+    &lt;dt&gt;WWW&lt;/dt&gt;
+    &lt;dt&gt;World Wide Web&lt;/dt&gt;
+    &lt;dd&gt;A system of interlinked hypertext documents accessed via the Internet.&lt;/dd&gt;
+    
+    &lt;dt&gt;HTML5&lt;/dt&gt;
+    &lt;dd&gt;The latest version of the HTML standard.&lt;/dd&gt;
+    &lt;dd&gt;Introduced new elements like &lt;code&gt;article&lt;/code&gt;, &lt;code&gt;section&lt;/code&gt;, and &lt;code&gt;video&lt;/code&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+        </div>
+        
+        <div class="output">
+            <dl>
+                <dt>WWW</dt>
+                <dt>World Wide Web</dt>
+                <dd>A system of interlinked hypertext documents accessed via the Internet.</dd>
+                
+                <dt>HTML5</dt>
+                <dd>The latest version of the HTML standard.</dd>
+                <dd>Introduced new elements like <code>article</code>, <code>section</code>, and <code>video</code>.</dd>
+            </dl>
+        </div>
+        
+        <h3>Styled Definition List</h3>
+        
+        <p>Definition lists can be styled with CSS to create various layouts:</p>
+        
+        <div class="output">
+            <dl style="display: grid; grid-template-columns: 100px 1fr; grid-gap: 10px; align-items: start;">
+                <dt style="font-weight: bold; color: #3498db; grid-column: 1;">HTML</dt>
+                <dd style="margin: 0; grid-column: 2;">HyperText Markup Language, the standard language for creating web pages.</dd>
+                
+                <dt style="font-weight: bold; color: #3498db; grid-column: 1;">CSS</dt>
+                <dd style="margin: 0; grid-column: 2;">Cascading Style Sheets, used for describing the presentation of a document.</dd>
+                
+                <dt style="font-weight: bold; color: #3498db; grid-column: 1;">JavaScript</dt>
+                <dd style="margin: 0; grid-column: 2;">A programming language that enables interactive web pages.</dd>
+            </dl>
+        </div>
+        
+        <h3>Common Uses for Definition Lists</h3>
+        
+        <ul>
+            <li>Glossaries and dictionaries</li>
+            <li>FAQ sections</li>
+            <li>Metadata display</li>
+            <li>Product specifications</li>
+            <li>Contact information</li>
+        </ul>
+        
+        <div class="note">
+            <p><strong>Best Practice:</strong> Use definition lists when you have terms and descriptions that belong together, such as in glossaries, dictionaries, or metadata displays.</p>
+        </div>
+    </div>
+    
+    <!-- Nested Lists Section -->
+    <div class="demo-section">
+        <h2>Nested Lists</h2>
+        
+        <p>Lists can be nested within other lists to create hierarchical structures.</p>
+        
+        <h3>Nested Unordered Lists</h3>
+        
+        <div class="code-example">
+&lt;ul&gt;
+    &lt;li&gt;Main item 1&lt;/li&gt;
+    &lt;li&gt;Main item 2
+        &lt;ul&gt;
+            &lt;li&gt;Sub-item 2.1&lt;/li&gt;
+            &lt;li&gt;Sub-item 2.2
+                &lt;ul&gt;
+                    &lt;li&gt;Sub-sub-item 2.2.1&lt;/li&gt;
+                    &lt;li&gt;Sub-sub-item 2.2.2&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Main item 3&lt;/li&gt;
+&lt;/ul&gt;
+        </div>
+        
+        <div class="output">
+            <ul>
+                <li>Main item 1</li>
+                <li>Main item 2
+                    <ul>
+                        <li>Sub-item 2.1</li>
+                        <li>Sub-item 2.2
+                            <ul>
+                                <li>Sub-sub-item 2.2.1</li>
+                                <li>Sub-sub-item 2.2.2</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Main item 3</li>
+            </ul>
+        </div>
+        
+        <h3>Nested Ordered and Unordered Lists</h3>
+        
+        <div class="code-example">
+&lt;ol&gt;
+    &lt;li&gt;First step
+        &lt;ul&gt;
+            &lt;li&gt;Important note about step 1&lt;/li&gt;
+            &lt;li&gt;Another note about step 1&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Second step
+        &lt;ul&gt;
+            &lt;li&gt;Important note about step 2&lt;/li&gt;
+            &lt;li&gt;Another note about step 2&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;
+        </div>
+        
+        <div class="output">
+            <ol>
+                <li>First step
+                    <ul>
+                        <li>Important note about step 1</li>
+                        <li>Another note about step 1</li>
+                    </ul>
+                </li>
+                <li>Second step
+                    <ul>
+                        <li>Important note about step 2</li>
+                        <li>Another note about step 2</li>
+                    </ul>
+                </li>
+                <li>Third step</li>
+            </ol>
+        </div>
+        
+        <h3>Complex Nested List Example: Table of Contents</h3>
+        
+        <div class="output">
+            <ol>
+                <li>Introduction
+                    <ol type="a">
+                        <li>Background</li>
+                        <li>Purpose of the Document</li>
+                        <li>Scope and Limitations</li>
+                    </ol>
+                </li>
+                <li>Methodology
+                    <ol type="a">
+                        <li>Research Design</li>
+                        <li>Data Collection
+                            <ol type="i">
+                                <li>Primary Sources</li>
+                                <li>Secondary Sources</li>
+                            </ol>
+                        </li>
+                        <li>Analysis Techniques</li>
+                    </ol>
+                </li>
+                <li>Findings and Results</li>
+                <li>Conclusion and Recommendations</li>
+            </ol>
+        </div>
+        
+        <div class="note">
+            <p><strong>Best Practice:</strong> Don't nest lists too deeply (3-4 levels max) as it can become difficult to read and understand. Consider using a different structure if you need more complex hierarchies.</p>
+        </div>
+    </div>
+    
+    <!-- Advanced List Styling Section -->
+    <div class="demo-section">
+        <h2>Advanced List Styling with CSS</h2>
+        
+        <p>CSS offers powerful ways to customize the appearance of lists beyond the basic styles.</p>
+        
+        <h3>Custom Bullet Points</h3>
+        
+        <div class="code-example">
+/* Using list-style-type with different values */
+ul.custom-bullets {
+    list-style-type: '→ ';
+}
+        </div>
+        
+        <div class="output">
+            <ul style="list-style-type: '→ ';">
+                <li>Custom arrow bullet point</li>
+                <li>Another item with custom bullet</li>
+                <li>A third item with custom bullet</li>
+            </ul>
+        </div>
+        
+        <h3>Image Bullets</h3>
+        
+        <div class="code-example">
+/* Using list-style-image */
+ul.image-bullets {
+    list-style-image: url('path-to-image.png');
+}
+        </div>
+        
+        <div class="output custom-image-bullets">
+            <ul>
+                <li>Item with image bullet</li>
+                <li>Another item with image bullet</li>
+                <li>A third item with image bullet</li>
+            </ul>
+        </div>
+        
+        <h3>Custom Counters</h3>
+        
+        <div class="code-example">
+/* Using CSS counters for custom numbering */
+ol.custom-counter {
+    list-style-type: none;
+    counter-reset: item;
+}
+
+ol.custom-counter li:before {
+    counter-increment: item;
+    content: "Item " counter(item) ": ";
+    font-weight: bold;
+    color: #3498db;
+}
+        </div>
+        
+        <div class="output">
+            <ol class="custom-counter" style="list-style-type: none; counter-reset: item; padding-left: 0;">
+                <li style="margin-bottom: 5px;">
+                    <span style="counter-increment: item; content: 'Item ' counter(item) ': '; font-weight: bold; color: #3498db;">Item 1: </span>
+                    First custom counter item
+                </li>
+                <li style="margin-bottom: 5px;">
+                    <span style="counter-increment: item; font-weight: bold; color: #3498db;">Item 2: </span>
+                    Second custom counter item
+                </li>
+                <li style="margin-bottom: 5px;">
+                    <span style="counter-increment: item; font-weight: bold; color: #3498db;">Item 3: </span>
+                    Third custom counter item
+                </li>
+            </ol>
+        </div>
+        
+        <h3>Multi-Column Lists</h3>
+        
+        <div class="code-example">
+/* Creating multi-column lists */
+ul.multi-column {
+    column-count: 3;
+    column-gap: 20px;
+}
+
+ul.multi-column li {
+    break-inside: avoid;
+}
+        </div>
+        
+        <div class="output multi-col-list">
+            <ul>
+                <li>Item 1 in the first column</li>
+                <li>Item 2 in the first column</li>
+                <li>Item 3 moving to second column</li>
+                <li>Item 4 in the second column</li>
+                <li>Item 5 in the second column</li>
+                <li>Item 6 moving to third column</li>
+                <li>Item 7 in the third column</li>
+                <li>Item 8 in the third column</li>
+                <li>Item 9 still in the third column</li>
+            </ul>
+        </div>
+        
+        <h3>Horizontal Lists (for Navigation)</h3>
+        
+        <div class="code-example">
+/* Creating horizontal navigation lists */
+ul.horizontal-nav {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.horizontal-nav li {
+    float: left;
+}
+
+ul.horizontal-nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.horizontal-nav li a:hover {
+    background-color: #111;
+}
+        </div>
+        
+        <div class="output">
+            <ul style="list-style-type: none; padding: 0; overflow: hidden; background-color: #333; margin: 0;">
+                <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="#">Home</a></li>
+                <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="#">Products</a></li>
+                <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="#">Services</a></li>
+                <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="#">About</a></li>
+                <li style="float: left;"><a style="display: block; color: white; text-align: center; padding: 14px 16px; text-decoration: none;" href="#">Contact</a></li>
+            </ul>
+            <div style="clear: both; margin-top: 10px;"></div>
+        </div>
+        
+        <div class="note">
+            <p><strong>Best Practice:</strong> While CSS styling can make lists visually appealing, always ensure that the underlying HTML structure remains semantic and accessible.</p>
+        </div>
+    </div>
+    
+    <!-- Practical Examples Section -->
+    <div class="demo-section">
+        <h2>Practical Examples</h2>
+        
+        <h3>Recipe Instructions</h3>
+        
+        <div class="output">
+            <h4>Classic Chocolate Chip Cookies</h4>
+            
+            <h5>Ingredients:</h5>
+            <ul>
+                <li>2 1/4 cups all-purpose flour</li>
+                <li>1 teaspoon baking soda</li>
+                <li>1 teaspoon salt</li>
+                <li>1 cup (2 sticks) butter, softened</li>
+                <li>3/4 cup granulated sugar</li>
+                <li>3/4 cup packed brown sugar</li>
+                <li>2 large eggs</li>
+                <li>2 teaspoons vanilla extract</li>
+                <li>2 cups semi-sweet chocolate chips</li>
+            </ul>
+            
+            <h5>Instructions:</h5>
+            <ol>
+                <li>Preheat oven to 375°F (190°C).</li>
+                <li>Combine flour, baking soda, and salt in a small bowl.</li>
+                <li>Beat butter, granulated sugar, and brown sugar in a large mixing bowl until creamy.
+                    <ul>
+                        <li>Use a hand mixer on medium speed for best results.</li>
+                        <li>Beat for approximately 2-3 minutes until fluffy.</li>
+                    </ul>
+                </li>
+                <li>Add eggs one at a time, beating well after each addition.</li>
+                <li>Add vanilla extract.</li>
+                <li>Gradually beat in flour mixture.</li>
+                <li>Stir in chocolate chips.</li>
+                <li>Drop rounded tablespoons of dough onto ungreased baking sheets.</li>
+                <li>Bake for 9-11 minutes or until golden brown.</li>
+                <li>Cool on baking sheets for 2 minutes, then remove to wire racks to cool completely.</li>
+            </ol>
+        </div>
+        
+        <h3>Product Features List</h3>
+        
+        <div class="output">
+            <h4>Professional DSLR Camera Model X200</h4>
+            
+            <h5>Key Features:</h5>
+            <ul>
+                <li><strong>High-Resolution Sensor:</strong> 24.2 MP full-frame CMOS sensor</li>
+                <li><strong>Advanced Autofocus:</strong> 61-point AF system with 41 cross-type points</li>
+                <li><strong>Impressive Speed:</strong> 10 fps continuous shooting</li>
+                <li><strong>Superb Video:</strong> 4K video recording at 30p/24p</li>
+                <li><strong>Connectivity:</strong> Built-in Wi-Fi, NFC, and Bluetooth</li>
+            </ul>
+            
+            <h5>What's in the Box:</h5>
+            <ul style="list-style-type: square;">
+                <li>X200 Camera Body</li>
+                <li>Rechargeable Battery Pack</li>
+                <li>Battery Charger</li>
+                <li>Neck Strap</li>
+                <li>USB Cable</li>
+                <li>User Manual</li>
+            </ul>
+        </div>
+        
+        <h3>FAQ using Definition List</h3>
+        
+        <div class="output">
+            <h4>Frequently Asked Questions</h4>
+            
+            <dl>
+                <dt><strong>How do I reset my password?</strong></dt>
+                <dd>
+                    <p>To reset your password, follow these steps:</p>
+                    <ol>
+                        <li>Click on the "Forgot Password" link on the login page</li>
+                        <li>Enter your email address</li>
+                        <li>Check your email for a password reset link</li>
+                        <li>Click the link and follow the instructions to create a new password</li>
+                    </ol>
+                </dd>
+                
+                <dt><strong>What payment methods do you accept?</strong></dt>
+                <dd>
+                    <p>We accept the following payment methods:</p>
+                    <ul>
+                        <li>Credit/Debit Cards (Visa, MasterCard, American Express)</li>
+                        <li>PayPal</li>
+                        <li>Bank Transfer</li>
+                        <li>Apple Pay</li>
+                        <li>Google Pay</li>
+                    </ul>
+                </dd>
+                
+                <dt><strong>How long does shipping take?</strong></dt>
+                <dd>
+                    <p>Shipping times vary depending on your location:</p>
+                    <ul>
+                        <li>Domestic: 2-3 business days</li>
+                        <li>Europe: 5-7 business days</li>
+                        <li>Asia: 7-10 business days</li>
+                        <li>Rest of World: 10-14 business days</li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    
+    <!-- Best Practices Section -->
+    <div class="demo-section">
+        <h2>Best Practices for HTML Lists</h2>
+        
+        <ol>
+            <li><strong>Choose the appropriate list type</strong> based on your content's nature:
+                <ul>
+                    <li>Use unordered lists when order doesn't matter</li>
+                    <li>Use ordered lists when sequence is important</li>
+                    <li>Use definition lists for name-value pairs</li>
+                </ul>
+            </li>
+            <li><strong>Keep list items concise</strong> for better readability</li>
+            <li><strong>Use consistent grammatical structure</strong> for all items in a list:
+                <ul>
+                    <li>All phrases</li>
+                    <li>All full sentences</li>
+                    <li>All should begin with the same part of speech (e.g., all verbs)</li>
+                </ul>
+            </li>
+            <li><strong>Limit nesting depth</strong> to 3-4 levels maximum</li>
+            <li><strong>Use CSS for styling</strong> rather than deprecated HTML attributes</li>
+            <li><strong>Ensure proper list semantics</strong> for accessibility:
+                <ul>
+                    <li>Screen readers announce the list type and the number of items</li>
+                    <li>They also announce the item number or bullet for each entry</li>
+                </ul>
+            </li>
+            <li><strong>Don't use lists solely for indentation</strong> or layout purposes</li>
+            <li><strong>Consider using lists for navigation menus</strong> as they provide proper semantic structure</li>
+        </ol>
+    </div>
+    
+    <footer>
+        <p>This document demonstrates HTML lists: ordered, unordered, and definition lists.</p>
+        <p><small>&copy; 2025 HTML Tutorial</small></p>
+    </footer>
+</body>
+</html>

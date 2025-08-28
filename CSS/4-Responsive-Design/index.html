@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Responsive Design</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1>CSS Responsive Design</h1>
+        <p>Techniques for building websites that work on all devices</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#media-queries">Media Queries</a></li>
+            <li><a href="#responsive-units">Responsive Units</a></li>
+            <li><a href="#mobile-first">Mobile-First</a></li>
+            <li><a href="#fluid-layouts">Fluid Layouts</a></li>
+            <li><a href="#responsive-images">Responsive Images</a></li>
+            <li><a href="#responsive-typography">Responsive Typography</a></li>
+            <li><a href="#responsive-components">Responsive Components</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Media Queries Section -->
+        <section id="media-queries" class="section">
+            <h2>Media Queries</h2>
+            
+            <div class="example-container">
+                <h3>Basic Media Query</h3>
+                <div class="breakpoint-indicator">
+                    <div class="indicator-label">Current Breakpoint:</div>
+                    <div class="current-breakpoint"></div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+/* Extra small devices (phones) */
+.current-breakpoint::after {
+    content: "Extra Small (< 576px)";
+}
+
+/* Small devices (tablets) */
+@media (min-width: 576px) {
+    .current-breakpoint::after {
+        content: "Small (≥ 576px)";
+    }
+}
+
+/* Medium devices (desktops) */
+@media (min-width: 768px) {
+    .current-breakpoint::after {
+        content: "Medium (≥ 768px)";
+    }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 992px) {
+    .current-breakpoint::after {
+        content: "Large (≥ 992px)";
+    }
+}
+
+/* Extra large devices */
+@media (min-width: 1200px) {
+    .current-breakpoint::after {
+        content: "Extra Large (≥ 1200px)";
+    }
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    Resize your browser window to see the breakpoint indicator change. This demonstrates how media queries can detect the viewport size and apply different styles accordingly.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Media Query Features</h3>
+                <div class="media-feature-examples">
+                    <div class="orientation-demo">
+                        <h4>Orientation Detection</h4>
+                        <div class="orientation-indicator"></div>
+                    </div>
+                    
+                    <div class="aspect-ratio-demo">
+                        <h4>Aspect Ratio Demo</h4>
+                        <div class="ratio-container">
+                            <div class="ratio-box wide">Wide Display</div>
+                            <div class="ratio-box square">Square Display</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+/* Detect orientation */
+.orientation-indicator::after {
+    content: "Landscape orientation detected";
+}
+
+@media (orientation: portrait) {
+    .orientation-indicator::after {
+        content: "Portrait orientation detected";
+    }
+}
+
+/* Aspect ratio media queries */
+.ratio-box.wide {
+    display: none;
+}
+
+.ratio-box.square {
+    display: none;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .ratio-box.wide {
+        display: flex;
+    }
+}
+
+@media (aspect-ratio: 1/1) {
+    .ratio-box.square {
+        display: flex;
+    }
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive Units Section -->
+        <section id="responsive-units" class="section">
+            <h2>Responsive Units</h2>
+            
+            <div class="example-container">
+                <h3>Relative vs Absolute Units</h3>
+                <div class="units-comparison">
+                    <div class="unit-example absolute-unit">
+                        <h4>Absolute Units (px)</h4>
+                        <p>This text is sized in pixels (fixed size).</p>
+                        <div class="unit-box">200px × 100px</div>
+                    </div>
+                    <div class="unit-example relative-unit">
+                        <h4>Relative Units (em)</h4>
+                        <p>This text is sized in em (relative to parent).</p>
+                        <div class="unit-box">10em × 5em</div>
+                    </div>
+                    <div class="unit-example rem-unit">
+                        <h4>Root Relative Units (rem)</h4>
+                        <p>This text is sized in rem (relative to root).</p>
+                        <div class="unit-box">10rem × 5rem</div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.absolute-unit p {
+    font-size: 16px;
+}
+
+.absolute-unit .unit-box {
+    width: 200px;
+    height: 100px;
+}
+
+.relative-unit p {
+    font-size: 1em; /* 1em = parent's font size */
+}
+
+.relative-unit .unit-box {
+    width: 10em; /* 10 × parent's font size */
+    height: 5em; /* 5 × parent's font size */
+}
+
+.rem-unit p {
+    font-size: 1rem; /* 1rem = root element's font size */
+}
+
+.rem-unit .unit-box {
+    width: 10rem; /* 10 × root font size */
+    height: 5rem; /* 5 × root font size */
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    Resize your browser window or change the font size in your browser settings to see how different units respond.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Viewport Units</h3>
+                <div class="viewport-units-demo">
+                    <div class="vw-box">50vw × 25vh</div>
+                    <div class="vh-box">25vw × 50vh</div>
+                    <div class="vmin-box">50vmin × 50vmin</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.vw-box {
+    width: 50vw; /* 50% of viewport width */
+    height: 25vh; /* 25% of viewport height */
+}
+
+.vh-box {
+    width: 25vw; /* 25% of viewport width */
+    height: 50vh; /* 50% of viewport height */
+}
+
+.vmin-box {
+    width: 50vmin; /* 50% of the smaller viewport dimension */
+    height: 50vmin; /* 50% of the smaller viewport dimension */
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    Viewport units size elements relative to the viewport dimensions. Resize your browser to see how these boxes adapt.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>CSS Calc()</h3>
+                <div class="calc-demo">
+                    <div class="calc-box">calc(50% - 20px)</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.calc-box {
+    width: calc(50% - 20px);
+    height: calc(20vh + 100px);
+    padding: calc(1rem + 5px);
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    The calc() function lets you perform calculations to determine CSS property values, combining different units.
+                </p>
+            </div>
+        </section>
+
+        <!-- Mobile-First Section -->
+        <section id="mobile-first" class="section">
+            <h2>Mobile-First Approach</h2>
+            
+            <div class="example-container">
+                <h3>Mobile-First vs Desktop-First</h3>
+                <div class="approach-comparison">
+                    <div class="approach-example mobile-first">
+                        <h4>Mobile-First Approach</h4>
+                        <div class="responsive-element">
+                            <div class="element-content">
+                                <p>This element uses mobile-first media queries</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="approach-example desktop-first">
+                        <h4>Desktop-First Approach</h4>
+                        <div class="responsive-element">
+                            <div class="element-content">
+                                <p>This element uses desktop-first media queries</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+/* Mobile-First Approach */
+.mobile-first .responsive-element {
+    background-color: #f8d7da; /* Base style for mobile */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Enhance for larger screens */
+@media (min-width: 768px) {
+    .mobile-first .responsive-element {
+        background-color: #d1ecf1;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Desktop-First Approach */
+.desktop-first .responsive-element {
+    background-color: #d1ecf1; /* Base style for desktop */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+/* Simplify for smaller screens */
+@media (max-width: 767px) {
+    .desktop-first .responsive-element {
+        background-color: #f8d7da;
+        padding: 10px;
+        display: block;
+    }
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    Mobile-first starts with base styles for mobile devices and enhances for larger screens, while desktop-first does the opposite.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Progressive Enhancement Example</h3>
+                <div class="progressive-enhancement">
+                    <div class="feature-card">
+                        <h4>Basic Card</h4>
+                        <p>Content that all devices get</p>
+                        <button>Action</button>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+/* Base styles for all devices */
+.feature-card {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Medium screens get subtle enhancements */
+@media (min-width: 768px) {
+    .feature-card {
+        padding: 1.5rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Large screens get more enhancements */
+@media (min-width: 992px) {
+    .feature-card {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 1rem;
+        align-items: center;
+    }
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    Progressive enhancement ensures all users get a functional experience, while users with more capable devices get enhanced features.
+                </p>
+            </div>
+        </section>
+
+        <!-- Fluid Layouts Section -->
+        <section id="fluid-layouts" class="section">
+            <h2>Fluid Layouts</h2>
+            
+            <div class="example-container">
+                <h3>Percentage-based Layout</h3>
+                <div class="percentage-layout">
+                    <div class="percent-container">
+                        <div class="percent-column col-25">25%</div>
+                        <div class="percent-column col-50">50%</div>
+                        <div class="percent-column col-25">25%</div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.percent-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.percent-column {
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.col-25 {
+    width: 25%;
+    background-color: #d1ecf1;
+}
+
+.col-50 {
+    width: 50%;
+    background-color: #fff3cd;
+}
+
+/* On small screens, make all columns full width */
+@media (max-width: 768px) {
+    .percent-column {
+        width: 100%;
+    }
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Flexbox Fluid Layout</h3>
+                <div class="flexbox-layout">
+                    <div class="flex-container">
+                        <div class="flex-item">Flex Item 1</div>
+                        <div class="flex-item">Flex Item 2</div>
+                        <div class="flex-item">Flex Item 3</div>
+                        <div class="flex-item">Flex Item 4</div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.flex-item {
+    flex: 1 1 200px; /* grow, shrink, basis */
+    min-width: 0; /* prevent items from overflowing */
+    background-color: #d1ecf1;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    Flexbox makes it easy to create fluid layouts where items can grow and shrink as needed.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>CSS Grid Fluid Layout</h3>
+                <div class="grid-layout">
+                    <div class="grid-container">
+                        <div class="grid-item">Grid Item 1</div>
+                        <div class="grid-item">Grid Item 2</div>
+                        <div class="grid-item">Grid Item 3</div>
+                        <div class="grid-item">Grid Item 4</div>
+                        <div class="grid-item">Grid Item 5</div>
+                        <div class="grid-item">Grid Item 6</div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.grid-item {
+    background-color: #d1ecf1;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    CSS Grid with auto-fill and minmax creates a responsive grid that automatically adjusts the number of columns based on available space.
+                </p>
+            </div>
+        </section>
+
+        <!-- Responsive Images Section -->
+        <section id="responsive-images" class="section">
+            <h2>Responsive Images</h2>
+            
+            <div class="example-container">
+                <h3>Basic Responsive Image</h3>
+                <div class="responsive-image-example">
+                    <img src="https://picsum.photos/id/1015/1000/600" alt="Responsive image example" class="basic-responsive-img">
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.basic-responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    This simple technique ensures images never exceed their container width while maintaining their aspect ratio.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Art Direction with picture Element</h3>
+                <div class="picture-example">
+                    <picture>
+                        <source media="(min-width: 992px)" srcset="https://picsum.photos/id/1018/1000/300">
+                        <source media="(min-width: 576px)" srcset="https://picsum.photos/id/1018/800/400">
+                        <img src="https://picsum.photos/id/1018/400/400" alt="Responsive image with art direction" class="art-direction-img">
+                    </picture>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+&lt;picture&gt;
+    &lt;source media="(min-width: 992px)" srcset="large-landscape.jpg"&gt;
+    &lt;source media="(min-width: 576px)" srcset="medium-landscape.jpg"&gt;
+    &lt;img src="small-square.jpg" alt="Responsive image with art direction"&gt;
+&lt;/picture&gt;
+                    </code></pre>
+                </div>
+                <p class="description">
+                    The picture element allows you to specify different images for different screen sizes, not just different resolutions of the same image.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Responsive Video</h3>
+                <div class="video-example">
+                    <div class="responsive-video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.responsive-video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.responsive-video-container iframe,
+.responsive-video-container object,
+.responsive-video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    This technique maintains the aspect ratio of videos regardless of screen size using a percentage-based padding trick.
+                </p>
+            </div>
+        </section>
+
+        <!-- Responsive Typography Section -->
+        <section id="responsive-typography" class="section">
+            <h2>Responsive Typography</h2>
+            
+            <div class="example-container">
+                <h3>Fluid Typography with Viewport Units</h3>
+                <div class="fluid-typography">
+                    <h1 class="fluid-heading">Fluid Heading</h1>
+                    <p class="fluid-text">This paragraph uses fluid typography that scales smoothly with the viewport size.</p>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.fluid-heading {
+    font-size: calc(1.5rem + 2vw);
+    /* Base size (1.5rem) + viewport-based scaling (2vw) */
+}
+
+.fluid-text {
+    font-size: calc(1rem + 0.5vw);
+    /* Base size (1rem) + viewport-based scaling (0.5vw) */
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    Fluid typography uses calc() with a combination of fixed (rem) and viewport-relative (vw) units to create text that scales smoothly.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Media Query-Based Typography</h3>
+                <div class="mq-typography">
+                    <h1 class="mq-heading">Media Query Heading</h1>
+                    <p class="mq-text">This text uses different font sizes at different breakpoints.</p>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+/* Base size for mobile */
+.mq-heading {
+    font-size: 1.75rem;
+}
+
+.mq-text {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Medium devices */
+@media (min-width: 768px) {
+    .mq-heading {
+        font-size: 2.25rem;
+    }
+    
+    .mq-text {
+        font-size: 1.125rem;
+    }
+}
+
+/* Large devices */
+@media (min-width: 992px) {
+    .mq-heading {
+        font-size: 2.75rem;
+    }
+    
+    .mq-text {
+        font-size: 1.25rem;
+        line-height: 1.6;
+    }
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    Using media queries for typography gives you precise control at each breakpoint, but creates "jumps" when resizing the browser.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Responsive Line Length</h3>
+                <div class="line-length-example">
+                    <p class="optimal-reading">This paragraph demonstrates optimal line length for reading. Generally, 45-75 characters per line (including spaces) is considered ideal for readability. Too short and the eye has to travel back too frequently. Too long and it becomes difficult to track from the end of one line to the beginning of the next.</p>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.optimal-reading {
+    max-width: 65ch; /* 65 characters width */
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .optimal-reading {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    The "ch" unit represents the width of the "0" character in the current font, making it perfect for controlling line length.
+                </p>
+            </div>
+        </section>
+
+        <!-- Responsive Components Section -->
+        <section id="responsive-components" class="section">
+            <h2>Responsive Components</h2>
+            
+            <div class="example-container">
+                <h3>Responsive Navigation</h3>
+                <div class="responsive-nav-example">
+                    <nav class="demo-nav">
+                        <div class="nav-brand">Logo</div>
+                        <button class="nav-toggle">☰</button>
+                        <div class="nav-links">
+                            <a href="#">Home</a>
+                            <a href="#">About</a>
+                            <a href="#">Services</a>
+                            <a href="#">Contact</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+/* Base styles (mobile) */
+.demo-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #333;
+    color: white;
+}
+
+.nav-toggle {
+    display: block; /* Visible on mobile */
+}
+
+.nav-links {
+    display: none; /* Hidden by default on mobile */
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-links a {
+    padding: 0.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+    .nav-toggle {
+        display: none; /* Hidden on desktop */
+    }
+    
+    .nav-links {
+        display: flex;
+        width: auto;
+        margin-top: 0;
+    }
+    
+    .nav-links a {
+        margin-left: 1rem;
+    }
+}
+                    </code></pre>
+                </div>
+                <button class="demo-button" id="toggle-nav">Toggle Mobile Menu</button>
+                <p class="description">
+                    This pattern shows a common responsive navigation that transforms from a horizontal menu on desktop to a toggle menu on mobile.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Responsive Card Layout</h3>
+                <div class="responsive-cards">
+                    <div class="card">
+                        <img src="https://picsum.photos/id/1011/300/200" alt="Card image">
+                        <div class="card-body">
+                            <h4>Card Title 1</h4>
+                            <p>Card content goes here, providing details about this specific item.</p>
+                            <button class="card-btn">Action</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://picsum.photos/id/1035/300/200" alt="Card image">
+                        <div class="card-body">
+                            <h4>Card Title 2</h4>
+                            <p>Card content goes here, providing details about this specific item.</p>
+                            <button class="card-btn">Action</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://picsum.photos/id/1040/300/200" alt="Card image">
+                        <div class="card-body">
+                            <h4>Card Title 3</h4>
+                            <p>Card content goes here, providing details about this specific item.</p>
+                            <button class="card-btn">Action</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.responsive-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.25rem;
+    background: white;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* On very small screens, cards stack vertically */
+@media (max-width: 350px) {
+    .responsive-cards {
+        grid-template-columns: 1fr;
+    }
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    This responsive card layout uses CSS Grid with auto-fill and minmax to create a fluid grid of cards that automatically adjust to the screen size.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Responsive Table</h3>
+                <div class="responsive-table-container">
+                    <table class="responsive-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Name">John Doe</td>
+                                <td data-label="Email">john@example.com</td>
+                                <td data-label="Phone">(123) 456-7890</td>
+                                <td data-label="Status">Active</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Name">Jane Smith</td>
+                                <td data-label="Email">jane@example.com</td>
+                                <td data-label="Phone">(456) 789-0123</td>
+                                <td data-label="Status">Inactive</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Name">Robert Johnson</td>
+                                <td data-label="Email">robert@example.com</td>
+                                <td data-label="Phone">(789) 012-3456</td>
+                                <td data-label="Status">Pending</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+/* Desktop table styles */
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.responsive-table th,
+.responsive-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.responsive-table th {
+    background-color: #f5f5f5;
+}
+
+/* Mobile table styles */
+@media (max-width: 768px) {
+    .responsive-table thead {
+        display: none; /* Hide table header */
+    }
+    
+    .responsive-table, 
+    .responsive-table tbody, 
+    .responsive-table tr, 
+    .responsive-table td {
+        display: block;
+        width: 100%;
+    }
+    
+    .responsive-table tr {
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 0.5rem;
+    }
+    
+    .responsive-table td {
+        display: flex;
+        justify-content: space-between;
+        text-align: right;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .responsive-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-align: left;
+    }
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    Tables can be challenging on small screens. This technique transforms a traditional table into a card-like layout on mobile devices.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>This is part of the CSS Responsive Design module.</p>
+        <p>Next, we'll explore CSS Best Practices.</p>
+    </footer>
+
+    <script>
+        // Toggle mobile navigation demo
+        document.getElementById('toggle-nav').addEventListener('click', function() {
+            const navLinks = document.querySelector('.demo-nav .nav-links');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Additional interactivity can be added here
+    </script>
+</body>
+</html>

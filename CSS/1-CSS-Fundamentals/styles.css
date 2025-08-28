@@ -1,0 +1,431 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+h1 {
+    color: #0066cc;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #0066cc;
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 5px;
+    margin: 30px 0 20px;
+}
+
+h3 {
+    margin: 20px 0 10px;
+    color: #444;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.example-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+code {
+    display: block;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    margin: 15px 0;
+    white-space: pre-wrap;
+    color: #333;
+    border-left: 4px solid #0066cc;
+}
+
+.note {
+    font-style: italic;
+    color: #666;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+/* Specific Examples Styles */
+
+/* External CSS Example */
+.external-example {
+    color: #0066cc;
+    background-color: #e6f2ff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Element Selector Example */
+p.element-selector-example {
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Class Selector Example */
+.highlight {
+    background-color: #ffffcc;
+    padding: 10px;
+    border-left: 4px solid #ffcc00;
+    margin: 10px 0;
+}
+
+/* ID Selector Example */
+#unique-element {
+    background-color: #e6ffe6;
+    border: 2px solid #66cc66;
+    padding: 15px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Combinatorial Selectors Example */
+.article-example {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+article p {
+    font-style: italic;
+}
+
+article > p {
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 5px;
+}
+
+/* Pseudo-classes Example */
+.pseudo-class-container {
+    margin: 15px 0;
+}
+
+.hover-example {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hover-example:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pseudo-list {
+    list-style-position: inside;
+    margin: 15px 0;
+    padding: 0;
+}
+
+.pseudo-list li {
+    padding: 5px 0;
+}
+
+.pseudo-list li:first-child {
+    font-weight: bold;
+    color: #0066cc;
+}
+
+.pseudo-list li:last-child {
+    font-weight: bold;
+    color: #cc0066;
+}
+
+/* Box Model Example */
+.box-model-example {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid #666;
+    margin: 30px;
+    background-color: #f0f0f0;
+    text-align: center;
+    line-height: 100px;
+}
+
+.box-model-labels {
+    position: relative;
+    width: 320px;
+    height: 170px;
+    margin-bottom: 20px;
+}
+
+.margin-label, .border-label, .padding-label, .content-label {
+    position: absolute;
+    font-size: 12px;
+}
+
+.margin-label {
+    top: 5px;
+    left: 5px;
+    color: #999;
+}
+
+.border-label {
+    top: 35px;
+    left: 35px;
+    color: #666;
+}
+
+.padding-label {
+    top: 60px;
+    left: 60px;
+    color: #333;
+}
+
+.content-label {
+    top: 85px;
+    left: 85px;
+    color: #000;
+}
+
+/* Border-box Example */
+.border-box-example {
+    box-sizing: border-box;
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid #666;
+    margin: 30px;
+    background-color: #e6f2ff;
+    text-align: center;
+    line-height: 60px;
+}
+
+/* Font Examples */
+.font-examples {
+    margin: 15px 0;
+}
+
+.font-example-1 {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.font-example-2 {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.font-example-3 {
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.font-example-4 {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    padding: 10px;
+}
+
+/* Text Examples */
+.text-examples {
+    margin: 15px 0;
+}
+
+.text-example-1 {
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    padding: 5px;
+}
+
+.text-example-2 {
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.text-example-3 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.text-example-4 {
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.text-example-5 {
+    word-spacing: 10px;
+    margin-bottom: 10px;
+}
+
+/* Color Examples */
+.color-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.color-example {
+    padding: 10px;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.color-name {
+    background-color: red;
+}
+
+.hex-color {
+    background-color: #00cc00;
+}
+
+.rgb-color {
+    background-color: rgb(0, 0, 255);
+}
+
+.rgba-color {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.hsl-color {
+    background-color: hsl(270, 100%, 50%);
+}
+
+.hsla-color {
+    background-color: hsla(180, 100%, 50%, 0.5);
+}
+
+/* Unit Examples */
+.unit-examples {
+    margin: 15px 0;
+}
+
+.px-example {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.pt-example {
+    font-size: 12pt;
+    margin-bottom: 10px;
+}
+
+.inch-example {
+    width: 1in;
+    background-color: #f0f0f0;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.cm-example {
+    width: 2.54cm;
+    background-color: #e6f2ff;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+/* Relative Units */
+.relative-unit-container {
+    margin: 15px 0;
+}
+
+.percent-example {
+    width: 80%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.em-container {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.em-example {
+    font-size: 1.5em; /* 1.5 × 16px = 24px */
+    background-color: #f5f5f5;
+    padding: 5px;
+}
+
+.rem-example {
+    font-size: 1.5rem; /* 1.5 × root font-size */
+    background-color: #f5f5f5;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.viewport-units {
+    margin: 15px 0;
+}
+
+.vw-example {
+    width: 10vw;
+    background-color: #e6ffe6;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.vh-example {
+    height: 5vh;
+    background-color: #ffe6e6;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+/* Specificity Examples */
+.specificity-examples {
+    margin: 15px 0;
+}
+
+/* Least specific */
+p.spec-example {
+    color: blue;
+    padding: 15px;
+    background-color: #f5f5f5;
+}
+
+/* More specific */
+.spec-example {
+    color: green;
+}
+
+/* Even more specific */
+#spec-id {
+    color: red;
+}

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Fundamentals</title>
+    <!-- External CSS (Recommended method) -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Internal CSS Example -->
+    <style>
+        /* This is an example of internal CSS */
+        .internal-example {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border: 1px dashed #999;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS Fundamentals - Examples</h1>
+        <p>This page demonstrates the CSS concepts explained in the course.</p>
+    </header>
+    
+    <main>
+        <section id="css-methods">
+            <h2>CSS Implementation Methods</h2>
+            
+            <!-- Example of inline CSS -->
+            <div class="example-container">
+                <h3>Inline CSS</h3>
+                <p style="color: red; font-weight: bold; border-bottom: 2px solid red;">
+                    This paragraph uses inline CSS through the style attribute.
+                </p>
+                <code>&lt;p style="color: red; font-weight: bold; border-bottom: 2px solid red;"&gt;...&lt;/p&gt;</code>
+            </div>
+            
+            <!-- Example of internal CSS -->
+            <div class="example-container">
+                <h3>Internal CSS</h3>
+                <div class="internal-example">
+                    This div is styled using internal CSS in the &lt;style&gt; tag in the document head.
+                </div>
+                <code>
+                    &lt;style&gt;<br>
+                    &nbsp;&nbsp;.internal-example {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;background-color: #f0f0f0;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;padding: 15px;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;border: 1px dashed #999;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;margin-bottom: 20px;<br>
+                    &nbsp;&nbsp;}<br>
+                    &lt;/style&gt;
+                </code>
+            </div>
+            
+            <!-- Example of external CSS -->
+            <div class="example-container">
+                <h3>External CSS</h3>
+                <p class="external-example">
+                    This paragraph is styled using the external CSS file (styles.css).
+                </p>
+                <code>
+                    &lt;link rel="stylesheet" href="styles.css"&gt;<br><br>
+                    /* In styles.css */<br>
+                    .external-example {<br>
+                    &nbsp;&nbsp;color: #0066cc;<br>
+                    &nbsp;&nbsp;background-color: #e6f2ff;<br>
+                    &nbsp;&nbsp;padding: 10px;<br>
+                    &nbsp;&nbsp;border-radius: 5px;<br>
+                    }
+                </code>
+            </div>
+        </section>
+        
+        <section id="selectors">
+            <h2>CSS Selectors</h2>
+            
+            <div class="example-container">
+                <h3>Element Selector</h3>
+                <p class="element-selector-example">This paragraph is styled using an element selector.</p>
+                <code>
+                    p.element-selector-example {<br>
+                    &nbsp;&nbsp;color: #333;<br>
+                    &nbsp;&nbsp;line-height: 1.6;<br>
+                    }
+                </code>
+            </div>
+            
+            <div class="example-container">
+                <h3>Class Selector</h3>
+                <div class="highlight">This div has the class "highlight" and is styled accordingly.</div>
+                <code>
+                    .highlight {<br>
+                    &nbsp;&nbsp;background-color: #ffffcc;<br>
+                    &nbsp;&nbsp;padding: 10px;<br>
+                    &nbsp;&nbsp;border-left: 4px solid #ffcc00;<br>
+                    }
+                </code>
+            </div>
+            
+            <div class="example-container">
+                <h3>ID Selector</h3>
+                <div id="unique-element">This div has a unique ID and is styled using an ID selector.</div>
+                <code>
+                    #unique-element {<br>
+                    &nbsp;&nbsp;background-color: #e6ffe6;<br>
+                    &nbsp;&nbsp;border: 2px solid #66cc66;<br>
+                    &nbsp;&nbsp;padding: 15px;<br>
+                    &nbsp;&nbsp;text-align: center;<br>
+                    }
+                </code>
+            </div>
+            
+            <div class="example-container">
+                <h3>Combinatorial Selectors</h3>
+                <article class="article-example">
+                    <h4>Article Title</h4>
+                    <p>This is a paragraph inside an article.</p>
+                    <p>This is another paragraph in the same article.</p>
+                    <div>
+                        <p>This paragraph is nested inside a div inside the article.</p>
+                    </div>
+                </article>
+                <code>
+                    /* Descendant selector */<br>
+                    article p {<br>
+                    &nbsp;&nbsp;font-style: italic;<br>
+                    }<br><br>
+                    
+                    /* Child selector */<br>
+                    article > p {<br>
+                    &nbsp;&nbsp;border-bottom: 1px dotted #ccc;<br>
+                    }
+                </code>
+            </div>
+            
+            <div class="example-container">
+                <h3>Pseudo-classes</h3>
+                <div class="pseudo-class-container">
+                    <button class="hover-example">Hover over me</button>
+                    <ul class="pseudo-list">
+                        <li>First item (with :first-child styling)</li>
+                        <li>Second item</li>
+                        <li>Third item</li>
+                        <li>Fourth item</li>
+                        <li>Fifth item (with :last-child styling)</li>
+                    </ul>
+                </div>
+                <code>
+                    .hover-example:hover {<br>
+                    &nbsp;&nbsp;background-color: #4CAF50;<br>
+                    &nbsp;&nbsp;color: white;<br>
+                    }<br><br>
+                    
+                    .pseudo-list li:first-child {<br>
+                    &nbsp;&nbsp;font-weight: bold;<br>
+                    &nbsp;&nbsp;color: #0066cc;<br>
+                    }<br><br>
+                    
+                    .pseudo-list li:last-child {<br>
+                    &nbsp;&nbsp;font-weight: bold;<br>
+                    &nbsp;&nbsp;color: #cc0066;<br>
+                    }
+                </code>
+            </div>
+        </section>
+        
+        <section id="box-model">
+            <h2>CSS Box Model</h2>
+            
+            <div class="example-container">
+                <h3>Standard Box Model</h3>
+                <div class="box-model-example">
+                    Content
+                </div>
+                <div class="box-model-labels">
+                    <div class="margin-label">Margin (30px)</div>
+                    <div class="border-label">Border (5px)</div>
+                    <div class="padding-label">Padding (20px)</div>
+                    <div class="content-label">Content (200px × 100px)</div>
+                </div>
+                <code>
+                    .box-model-example {<br>
+                    &nbsp;&nbsp;width: 200px;<br>
+                    &nbsp;&nbsp;height: 100px;<br>
+                    &nbsp;&nbsp;padding: 20px;<br>
+                    &nbsp;&nbsp;border: 5px solid #666;<br>
+                    &nbsp;&nbsp;margin: 30px;<br>
+                    &nbsp;&nbsp;background-color: #f0f0f0;<br>
+                    &nbsp;&nbsp;text-align: center;<br>
+                    }
+                </code>
+                <p class="note">Total width = 200px (content) + 40px (padding) + 10px (border) + 60px (margin) = 310px</p>
+            </div>
+            
+            <div class="example-container">
+                <h3>Box-sizing: Border-box</h3>
+                <div class="border-box-example">
+                    Content
+                </div>
+                <code>
+                    .border-box-example {<br>
+                    &nbsp;&nbsp;box-sizing: border-box;<br>
+                    &nbsp;&nbsp;width: 200px;<br>
+                    &nbsp;&nbsp;height: 100px;<br>
+                    &nbsp;&nbsp;padding: 20px;<br>
+                    &nbsp;&nbsp;border: 5px solid #666;<br>
+                    &nbsp;&nbsp;margin: 30px;<br>
+                    &nbsp;&nbsp;background-color: #e6f2ff;<br>
+                    &nbsp;&nbsp;text-align: center;<br>
+                    }
+                </code>
+                <p class="note">Total width = 200px (includes content, padding, and border) + 60px (margin) = 260px</p>
+            </div>
+        </section>
+        
+        <section id="text-formatting">
+            <h2>Text Formatting</h2>
+            
+            <div class="example-container">
+                <h3>Font Properties</h3>
+                <div class="font-examples">
+                    <p class="font-example-1">This text uses Arial, 16px, normal weight.</p>
+                    <p class="font-example-2">This text uses Georgia, 18px, bold weight.</p>
+                    <p class="font-example-3">This text uses Courier New, 14px, italic style.</p>
+                    <p class="font-example-4">This text demonstrates line-height (1.8).</p>
+                </div>
+                <code>
+                    .font-example-1 {<br>
+                    &nbsp;&nbsp;font-family: Arial, sans-serif;<br>
+                    &nbsp;&nbsp;font-size: 16px;<br>
+                    &nbsp;&nbsp;font-weight: normal;<br>
+                    }<br><br>
+                    
+                    .font-example-2 {<br>
+                    &nbsp;&nbsp;font-family: Georgia, serif;<br>
+                    &nbsp;&nbsp;font-size: 18px;<br>
+                    &nbsp;&nbsp;font-weight: bold;<br>
+                    }<br><br>
+                    
+                    .font-example-3 {<br>
+                    &nbsp;&nbsp;font-family: "Courier New", monospace;<br>
+                    &nbsp;&nbsp;font-size: 14px;<br>
+                    &nbsp;&nbsp;font-style: italic;<br>
+                    }<br><br>
+                    
+                    .font-example-4 {<br>
+                    &nbsp;&nbsp;font-family: Arial, sans-serif;<br>
+                    &nbsp;&nbsp;font-size: 16px;<br>
+                    &nbsp;&nbsp;line-height: 1.8;<br>
+                    }
+                </code>
+            </div>
+            
+            <div class="example-container">
+                <h3>Text Properties</h3>
+                <div class="text-examples">
+                    <p class="text-example-1">Text with center alignment</p>
+                    <p class="text-example-2">Text with text-decoration: underline</p>
+                    <p class="text-example-3">Text with text-transform: uppercase</p>
+                    <p class="text-example-4">Text with increased letter-spacing</p>
+                    <p class="text-example-5">Text with increased word-spacing</p>
+                </div>
+                <code>
+                    .text-example-1 {<br>
+                    &nbsp;&nbsp;text-align: center;<br>
+                    }<br><br>
+                    
+                    .text-example-2 {<br>
+                    &nbsp;&nbsp;text-decoration: underline;<br>
+                    }<br><br>
+                    
+                    .text-example-3 {<br>
+                    &nbsp;&nbsp;text-transform: uppercase;<br>
+                    }<br><br>
+                    
+                    .text-example-4 {<br>
+                    &nbsp;&nbsp;letter-spacing: 3px;<br>
+                    }<br><br>
+                    
+                    .text-example-5 {<br>
+                    &nbsp;&nbsp;word-spacing: 10px;<br>
+                    }
+                </code>
+            </div>
+        </section>
+        
+        <section id="colors">
+            <h2>Colors in CSS</h2>
+            
+            <div class="example-container">
+                <h3>Color Formats</h3>
+                <div class="color-examples">
+                    <div class="color-example color-name">Color Name: red</div>
+                    <div class="color-example hex-color">Hexadecimal: #00cc00</div>
+                    <div class="color-example rgb-color">RGB: rgb(0, 0, 255)</div>
+                    <div class="color-example rgba-color">RGBA: rgba(255, 0, 0, 0.5)</div>
+                    <div class="color-example hsl-color">HSL: hsl(270, 100%, 50%)</div>
+                    <div class="color-example hsla-color">HSLA: hsla(180, 100%, 50%, 0.5)</div>
+                </div>
+                <code>
+                    .color-name {<br>
+                    &nbsp;&nbsp;background-color: red;<br>
+                    }<br><br>
+                    
+                    .hex-color {<br>
+                    &nbsp;&nbsp;background-color: #00cc00;<br>
+                    }<br><br>
+                    
+                    .rgb-color {<br>
+                    &nbsp;&nbsp;background-color: rgb(0, 0, 255);<br>
+                    }<br><br>
+                    
+                    .rgba-color {<br>
+                    &nbsp;&nbsp;background-color: rgba(255, 0, 0, 0.5);<br>
+                    }<br><br>
+                    
+                    .hsl-color {<br>
+                    &nbsp;&nbsp;background-color: hsl(270, 100%, 50%);<br>
+                    }<br><br>
+                    
+                    .hsla-color {<br>
+                    &nbsp;&nbsp;background-color: hsla(180, 100%, 50%, 0.5);<br>
+                    }
+                </code>
+            </div>
+        </section>
+        
+        <section id="units">
+            <h2>CSS Units</h2>
+            
+            <div class="example-container">
+                <h3>Absolute Units</h3>
+                <div class="unit-examples">
+                    <div class="px-example">Text sized in pixels (16px)</div>
+                    <div class="pt-example">Text sized in points (12pt)</div>
+                    <div class="inch-example">Box with width in inches (1in)</div>
+                    <div class="cm-example">Box with width in centimeters (2.54cm)</div>
+                </div>
+                <code>
+                    .px-example {<br>
+                    &nbsp;&nbsp;font-size: 16px;<br>
+                    }<br><br>
+                    
+                    .pt-example {<br>
+                    &nbsp;&nbsp;font-size: 12pt;<br>
+                    }<br><br>
+                    
+                    .inch-example {<br>
+                    &nbsp;&nbsp;width: 1in;<br>
+                    &nbsp;&nbsp;background-color: #f0f0f0;<br>
+                    &nbsp;&nbsp;padding: 5px;<br>
+                    }<br><br>
+                    
+                    .cm-example {<br>
+                    &nbsp;&nbsp;width: 2.54cm;<br>
+                    &nbsp;&nbsp;background-color: #e6f2ff;<br>
+                    &nbsp;&nbsp;padding: 5px;<br>
+                    }
+                </code>
+            </div>
+            
+            <div class="example-container">
+                <h3>Relative Units</h3>
+                <div class="relative-unit-container">
+                    <div class="percent-example">This div is 80% width of its parent</div>
+                    <div class="em-container">
+                        Base text (16px)
+                        <div class="em-example">This text is 1.5em (relative to parent)</div>
+                    </div>
+                    <div class="rem-example">This text is 1.5rem (relative to root)</div>
+                    <div class="viewport-units">
+                        <div class="vw-example">10vw width (10% of viewport width)</div>
+                        <div class="vh-example">5vh height (5% of viewport height)</div>
+                    </div>
+                </div>
+                <code>
+                    .percent-example {<br>
+                    &nbsp;&nbsp;width: 80%;<br>
+                    &nbsp;&nbsp;background-color: #f0f0f0;<br>
+                    &nbsp;&nbsp;padding: 10px;<br>
+                    }<br><br>
+                    
+                    .em-container {<br>
+                    &nbsp;&nbsp;font-size: 16px;<br>
+                    }<br><br>
+                    
+                    .em-example {<br>
+                    &nbsp;&nbsp;font-size: 1.5em; /* 1.5 × 16px = 24px */<br>
+                    }<br><br>
+                    
+                    .rem-example {<br>
+                    &nbsp;&nbsp;font-size: 1.5rem; /* 1.5 × root font-size */<br>
+                    }<br><br>
+                    
+                    .vw-example {<br>
+                    &nbsp;&nbsp;width: 10vw;<br>
+                    &nbsp;&nbsp;background-color: #e6ffe6;<br>
+                    &nbsp;&nbsp;padding: 5px;<br>
+                    }<br><br>
+                    
+                    .vh-example {<br>
+                    &nbsp;&nbsp;height: 5vh;<br>
+                    &nbsp;&nbsp;background-color: #ffe6e6;<br>
+                    &nbsp;&nbsp;padding: 5px;<br>
+                    }
+                </code>
+            </div>
+        </section>
+        
+        <section id="specificity">
+            <h2>Specificity and the Cascade</h2>
+            
+            <div class="example-container">
+                <h3>Specificity Examples</h3>
+                <div class="specificity-examples">
+                    <p class="spec-example" id="spec-id" style="border-bottom: 2px dashed purple;">
+                        This paragraph has multiple styles applied with different specificity:
+                        <br>- Element selector (p)
+                        <br>- Class selector (.spec-example)
+                        <br>- ID selector (#spec-id)
+                        <br>- Inline style (style attribute)
+                    </p>
+                </div>
+                <code>
+                    /* Least specific */<br>
+                    p {<br>
+                    &nbsp;&nbsp;color: blue;<br>
+                    }<br><br>
+                    
+                    /* More specific */<br>
+                    .spec-example {<br>
+                    &nbsp;&nbsp;color: green;<br>
+                    }<br><br>
+                    
+                    /* Even more specific */<br>
+                    #spec-id {<br>
+                    &nbsp;&nbsp;color: red;<br>
+                    }<br><br>
+                    
+                    /* Most specific (inline) */<br>
+                    &lt;p style="border-bottom: 2px dashed purple;"&gt;
+                </code>
+                <p class="note">The color of the text is determined by the most specific selector (ID selector in this case).</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>This is part of the CSS Fundamentals module. Next, we'll explore Layout Techniques.</p>
+    </footer>
+</body>
+</html>

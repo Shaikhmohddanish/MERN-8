@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Best Practices</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1>CSS Best Practices</h1>
+        <p>Writing maintainable, scalable, and efficient CSS</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#naming-conventions">Naming Conventions</a></li>
+            <li><a href="#css-architecture">CSS Architecture</a></li>
+            <li><a href="#performance">Performance</a></li>
+            <li><a href="#compatibility">Compatibility</a></li>
+            <li><a href="#variables">CSS Variables</a></li>
+            <li><a href="#preprocessors">Preprocessors</a></li>
+            <li><a href="#frameworks">Frameworks</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Naming Conventions Section -->
+        <section id="naming-conventions" class="section">
+            <h2>Organization and Naming Conventions</h2>
+            
+            <div class="example-container">
+                <h3>BEM Methodology</h3>
+                <div class="bem-example">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Standard Card</h3>
+                        </div>
+                        <div class="card__body">
+                            <p class="card__content">This is a standard card using BEM naming convention.</p>
+                        </div>
+                        <div class="card__footer">
+                            <button class="card__button">Action</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card card--featured">
+                        <div class="card__header">
+                            <h3 class="card__title">Featured Card</h3>
+                        </div>
+                        <div class="card__body">
+                            <p class="card__content">This is a featured card with modifier class.</p>
+                        </div>
+                        <div class="card__footer">
+                            <button class="card__button card__button--primary">Action</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+/* Block */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Elements */
+.card__header {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.card__body {
+  padding: 1rem;
+}
+
+.card__footer {
+  padding: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.card__button {
+  padding: 0.5rem 1rem;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Modifiers */
+.card--featured {
+  border: 2px solid gold;
+}
+
+.card__button--primary {
+  background-color: #0066cc;
+  color: white;
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    BEM (Block, Element, Modifier) is a naming convention that creates clear, strict relationships between HTML and CSS. The naming follows the pattern <code>block__element--modifier</code>.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>SMACSS Organization</h3>
+                <div class="smacss-example">
+                    <div class="example-panel">
+                        <h4>SMACSS Categories:</h4>
+                        <ul class="smacss-list">
+                            <li class="smacss-list__item">
+                                <span class="smacss-category">Base</span>
+                                <code>body, p, h1, a {}</code>
+                            </li>
+                            <li class="smacss-list__item">
+                                <span class="smacss-category">Layout</span>
+                                <code>.l-header, .l-sidebar {}</code>
+                            </li>
+                            <li class="smacss-list__item">
+                                <span class="smacss-category">Module</span>
+                                <code>.nav, .btn, .card {}</code>
+                            </li>
+                            <li class="smacss-list__item">
+                                <span class="smacss-category">State</span>
+                                <code>.is-active, .is-hidden {}</code>
+                            </li>
+                            <li class="smacss-list__item">
+                                <span class="smacss-category">Theme</span>
+                                <code>.theme-dark, .theme-light {}</code>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="example-panel">
+                        <h4>SMACSS Examples:</h4>
+                        <div class="smacss-demo">
+                            <!-- Layout example -->
+                            <div class="l-container">
+                                <!-- Module example -->
+                                <div class="box">
+                                    <h5 class="box-title">Default Box</h5>
+                                </div>
+                                
+                                <!-- Module with state -->
+                                <div class="box is-highlighted">
+                                    <h5 class="box-title">Highlighted State</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+/* Layout */
+.l-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Module */
+.box {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.box-title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* State */
+.is-highlighted {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    SMACSS (Scalable and Modular Architecture for CSS) is a style guide that categorizes CSS rules to help create more structured code.
+                </p>
+            </div>
+        </section>
+
+        <!-- CSS Architecture Section -->
+        <section id="css-architecture" class="section">
+            <h2>CSS Architecture</h2>
+            
+            <div class="example-container">
+                <h3>ITCSS (Inverted Triangle CSS)</h3>
+                <div class="itcss-example">
+                    <div class="itcss-triangle">
+                        <div class="itcss-layer itcss-settings">Settings</div>
+                        <div class="itcss-layer itcss-tools">Tools</div>
+                        <div class="itcss-layer itcss-generic">Generic</div>
+                        <div class="itcss-layer itcss-elements">Elements</div>
+                        <div class="itcss-layer itcss-objects">Objects</div>
+                        <div class="itcss-layer itcss-components">Components</div>
+                        <div class="itcss-layer itcss-utilities">Utilities</div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+/* 1. Settings - Variables and config */
+:root {
+  --primary-color: #0066cc;
+  --font-size-base: 16px;
+}
+
+/* 2. Tools - Mixins and functions */
+@mixin center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3. Generic - Reset and normalize */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 4. Elements - Bare HTML elements */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* 5. Objects - Class-based selectors for patterns */
+.o-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* 6. Components - Specific UI components */
+.c-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* 7. Utilities - Helpers and overrides */
+.u-text-center {
+  text-align: center !important;
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    ITCSS organizes CSS by specificity and reach, from broad (settings) to narrow (utilities). This helps manage the cascade and avoid specificity issues.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Atomic CSS</h3>
+                <div class="atomic-example">
+                    <div class="example-comparison">
+                        <div class="comparison-column">
+                            <h4>Traditional Approach</h4>
+                            <div class="traditional-card">
+                                <div class="traditional-card-title">Card Title</div>
+                                <p class="traditional-card-content">Card content goes here...</p>
+                                <button class="traditional-card-button">Action</button>
+                            </div>
+                            <div class="code-snippet">
+                                <pre>.traditional-card {
+  margin: 20px;
+  padding: 15px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+.traditional-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.traditional-card-content {
+  margin-bottom: 15px;
+}
+.traditional-card-button {
+  padding: 5px 10px;
+  background: blue;
+  color: white;
+}</pre>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-column">
+                            <h4>Atomic Approach</h4>
+                            <div class="m-20 p-15 bg-white shadow rad-4">
+                                <div class="fs-18 fw-bold mb-10">Card Title</div>
+                                <p class="mb-15">Card content goes here...</p>
+                                <button class="p-5-10 bg-blue text-white">Action</button>
+                            </div>
+                            <div class="code-snippet">
+                                <pre>.m-20 { margin: 20px; }
+.p-15 { padding: 15px; }
+.bg-white { background: white; }
+.shadow { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.rad-4 { border-radius: 4px; }
+.fs-18 { font-size: 18px; }
+.fw-bold { font-weight: bold; }
+.mb-10 { margin-bottom: 10px; }
+.mb-15 { margin-bottom: 15px; }
+.p-5-10 { padding: 5px 10px; }
+.bg-blue { background: blue; }
+.text-white { color: white; }</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="description">
+                    Atomic CSS uses small, single-purpose classes. Instead of creating semantic classes for each component, you apply multiple utility classes directly to HTML elements.
+                </p>
+            </div>
+        </section>
+
+        <!-- Performance Section -->
+        <section id="performance" class="section">
+            <h2>Performance Optimization</h2>
+            
+            <div class="example-container">
+                <h3>Selector Efficiency</h3>
+                <div class="selector-example">
+                    <div class="selector-comparison">
+                        <div class="selector-column">
+                            <h4>Inefficient Selectors</h4>
+                            <div class="code-snippet inefficient">
+                                <pre>/* Descendant selectors with high depth */
+.header .navigation ul li a {
+  color: blue;
+}
+
+/* Universal selector with descendant */
+.content * {
+  line-height: 1.5;
+}
+
+/* Inefficient child selector */
+div > div > div > p {
+  margin: 10px;
+}</pre>
+                            </div>
+                        </div>
+                        
+                        <div class="selector-column">
+                            <h4>Efficient Selectors</h4>
+                            <div class="code-snippet efficient">
+                                <pre>/* Direct class instead of deep nesting */
+.nav-link {
+  color: blue;
+}
+
+/* Targeted element selection */
+.content-text {
+  line-height: 1.5;
+}
+
+/* Simplified selector */
+.deep-paragraph {
+  margin: 10px;
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="description">
+                    CSS selectors are read from right to left by browsers. Simpler, more specific selectors are more efficient than complex, deeply nested ones.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Reflows and Repaints</h3>
+                <div class="reflow-example">
+                    <div class="example-comparison">
+                        <div class="comparison-column">
+                            <h4>Causes Reflow (Expensive)</h4>
+                            <div class="animation-demo reflow-animation">
+                                <div class="moving-element reflow-element">Reflow Animation</div>
+                                <button class="demo-button animate-reflow">Animate</button>
+                            </div>
+                            <div class="code-snippet">
+                                <pre>.reflow-element {
+  position: relative;
+  left: 0;
+  top: 0;
+  transition: left 1s, top 1s;
+}
+
+.reflow-element.animate {
+  left: 100px;
+  top: 50px;
+}</pre>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-column">
+                            <h4>Uses Transform (Efficient)</h4>
+                            <div class="animation-demo transform-animation">
+                                <div class="moving-element transform-element">Transform Animation</div>
+                                <button class="demo-button animate-transform">Animate</button>
+                            </div>
+                            <div class="code-snippet">
+                                <pre>.transform-element {
+  transition: transform 1s;
+}
+
+.transform-element.animate {
+  transform: translate(100px, 50px);
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="description">
+                    Changes to layout properties (like width, height, position) cause reflows, which are computationally expensive. Using transform and opacity for animations is more efficient.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>CSS Containment</h3>
+                <div class="containment-example">
+                    <div class="contain-demo">
+                        <div class="contain-none">
+                            <h4>Without Containment</h4>
+                            <div class="demo-content">
+                                <p>Changes here can cause full document reflow</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contain-strict">
+                            <h4>With Containment</h4>
+                            <div class="demo-content">
+                                <p>Changes here are isolated</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+/* Containing element updates to improve performance */
+.contain-strict {
+  contain: content;
+  /* or more specific: */
+  contain: layout paint;
+}
+
+/* This tells the browser that the internal layout of this 
+   element is independent of the rest of the page, allowing 
+   the browser to optimize rendering. */
+                    </code></pre>
+                </div>
+                <p class="description">
+                    The contain property informs the browser that an element's content is independent of the rest of the page, enabling performance optimizations.
+                </p>
+            </div>
+        </section>
+
+        <!-- Compatibility Section -->
+        <section id="compatibility" class="section">
+            <h2>Browser Compatibility</h2>
+            
+            <div class="example-container">
+                <h3>Vendor Prefixes</h3>
+                <div class="prefix-example">
+                    <div class="prefix-demo">
+                        <div class="prefix-box">
+                            With vendor prefixes for maximum compatibility
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.prefix-box {
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  /* Safari, Chrome */
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);     /* Firefox */
+  -ms-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);      /* Internet Explorer */
+  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);       /* Opera */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);          /* Standard */
+  
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* Modern approach: Use Autoprefixer instead! */
+                    </code></pre>
+                </div>
+                <p class="description">
+                    Vendor prefixes ensure compatibility with older browsers. Tools like Autoprefixer can automatically add these prefixes based on browser support data.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Feature Queries (@supports)</h3>
+                <div class="feature-query-example">
+                    <div class="supports-demo">
+                        <div class="fallback-layout">
+                            <div class="fallback-item">Item 1</div>
+                            <div class="fallback-item">Item 2</div>
+                            <div class="fallback-item">Item 3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+/* Base styles that work everywhere */
+.fallback-layout {
+  overflow: hidden;
+}
+
+.fallback-item {
+  float: left;
+  width: 33.33%;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+/* Enhanced layout with CSS Grid when supported */
+@supports (display: grid) {
+  .fallback-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    overflow: visible;
+  }
+  
+  .fallback-item {
+    float: none;
+    width: auto;
+    background-color: #d1ecf1;
+  }
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    Feature queries (@supports) let you apply styles conditionally based on browser support for specific CSS features.
+                </p>
+            </div>
+        </section>
+
+        <!-- CSS Variables Section -->
+        <section id="variables" class="section">
+            <h2>CSS Variables (Custom Properties)</h2>
+            
+            <div class="example-container">
+                <h3>Using CSS Variables</h3>
+                <div class="variables-example">
+                    <div class="theme-switcher">
+                        <button class="theme-button light-theme-btn active">Light Theme</button>
+                        <button class="theme-button dark-theme-btn">Dark Theme</button>
+                    </div>
+                    
+                    <div class="theme-demo">
+                        <div class="theme-header">
+                            <h3>Theme Demo</h3>
+                        </div>
+                        <div class="theme-content">
+                            <p>This content uses CSS variables for theming.</p>
+                            <button class="theme-button">Action Button</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+:root {
+  /* Default theme (light) */
+  --primary-color: #0066cc;
+  --text-color: #333;
+  --background-color: #fff;
+  --secondary-background: #f5f5f5;
+  --border-color: #ddd;
+}
+
+/* Dark theme variables */
+.dark-theme {
+  --primary-color: #66b0ff;
+  --text-color: #f0f0f0;
+  --background-color: #333;
+  --secondary-background: #444;
+  --border-color: #555;
+}
+
+/* Using the variables */
+.theme-demo {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+}
+
+.theme-header {
+  background-color: var(--secondary-background);
+}
+
+.theme-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    CSS Variables (Custom Properties) allow you to define reusable values that can be changed at runtime, enabling theming and dynamic styling.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Responsive Variables</h3>
+                <div class="responsive-variables">
+                    <div class="responsive-variable-demo">
+                        <h4>Resize the browser to see changes</h4>
+                        <div class="variable-box">
+                            <div class="variable-item">This element uses responsive variables</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+:root {
+  /* Base variables */
+  --spacing-unit: 8px;
+  --font-size-base: 16px;
+  --container-width: 100%;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  :root {
+    --spacing-unit: 12px;
+    --font-size-base: 18px;
+    --container-width: 750px;
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 992px) {
+  :root {
+    --spacing-unit: 16px;
+    --font-size-base: 20px;
+    --container-width: 970px;
+  }
+}
+
+/* Using the variables */
+.variable-box {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: calc(var(--spacing-unit) * 2);
+}
+
+.variable-item {
+  font-size: var(--font-size-base);
+  padding: var(--spacing-unit);
+  background-color: #d1ecf1;
+  border-radius: calc(var(--spacing-unit) / 2);
+}
+                    </code></pre>
+                </div>
+                <p class="description">
+                    You can change CSS variable values within media queries to create responsive designs that adapt to different screen sizes.
+                </p>
+            </div>
+        </section>
+
+        <!-- Preprocessors Section -->
+        <section id="preprocessors" class="section">
+            <h2>CSS Preprocessors</h2>
+            
+            <div class="example-container">
+                <h3>Sass Features</h3>
+                <div class="sass-example">
+                    <div class="sass-features">
+                        <div class="feature-card">
+                            <h4>Variables</h4>
+                            <div class="code-snippet">
+                                <pre>$primary-color: #0066cc;
+$spacing: 16px;
+
+.button {
+  background: $primary-color;
+  padding: $spacing;
+}</pre>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>Nesting</h4>
+                            <div class="code-snippet">
+                                <pre>.navbar {
+  background: #333;
+  
+  ul {
+    margin: 0;
+    
+    li {
+      display: inline-block;
+      
+      a {
+        color: white;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}</pre>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>Mixins</h4>
+                            <div class="code-snippet">
+                                <pre>@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-box {
+  @include flex-center;
+  height: 200px;
+}</pre>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>Functions</h4>
+                            <div class="code-snippet">
+                                <pre>@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+h1 {
+  font-size: calculateRem(32px);
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="description">
+                    Sass is a CSS preprocessor that adds features like variables, nesting, mixins, and functions to make CSS more maintainable and powerful.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Output Comparison</h3>
+                <div class="output-comparison">
+                    <div class="comparison-column">
+                        <h4>Sass/SCSS Input</h4>
+                        <div class="code-snippet">
+                            <pre>$primary: #0066cc;
+$secondary: #ff6600;
+$padding-base: 15px;
+
+@mixin box-shadow($opacity) {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, $opacity);
+}
+
+.button {
+  padding: $padding-base;
+  
+  &.primary {
+    background-color: $primary;
+    color: white;
+    @include box-shadow(0.3);
+  }
+  
+  &.secondary {
+    background-color: $secondary;
+    color: white;
+    @include box-shadow(0.2);
+  }
+}</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-column">
+                        <h4>Compiled CSS Output</h4>
+                        <div class="code-snippet">
+                            <pre>.button {
+  padding: 15px;
+}
+
+.button.primary {
+  background-color: #0066cc;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.button.secondary {
+  background-color: #ff6600;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}</pre>
+                        </div>
+                    </div>
+                </div>
+                <p class="description">
+                    CSS preprocessors compile to standard CSS that browsers can understand. The compiled output is what gets served to the browser.
+                </p>
+            </div>
+        </section>
+
+        <!-- Frameworks Section -->
+        <section id="frameworks" class="section">
+            <h2>CSS Frameworks</h2>
+            
+            <div class="example-container">
+                <h3>Framework Comparison</h3>
+                <div class="framework-comparison">
+                    <div class="framework-table-container">
+                        <table class="framework-table">
+                            <thead>
+                                <tr>
+                                    <th>Framework</th>
+                                    <th>Approach</th>
+                                    <th>File Size</th>
+                                    <th>Learning Curve</th>
+                                    <th>Customization</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Bootstrap</td>
+                                    <td>Component-based</td>
+                                    <td>~140KB minified</td>
+                                    <td>Low</td>
+                                    <td>Moderate</td>
+                                </tr>
+                                <tr>
+                                    <td>Tailwind CSS</td>
+                                    <td>Utility-first</td>
+                                    <td>~10KB (purged)</td>
+                                    <td>Medium</td>
+                                    <td>High</td>
+                                </tr>
+                                <tr>
+                                    <td>Bulma</td>
+                                    <td>Component-based</td>
+                                    <td>~100KB minified</td>
+                                    <td>Low</td>
+                                    <td>High</td>
+                                </tr>
+                                <tr>
+                                    <td>Foundation</td>
+                                    <td>Component-based</td>
+                                    <td>~120KB minified</td>
+                                    <td>Medium</td>
+                                    <td>High</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <p class="description">
+                    CSS frameworks provide pre-built components and styles. Each has its own approach, advantages, and trade-offs.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>Framework Examples</h3>
+                <div class="framework-examples">
+                    <div class="framework-column">
+                        <h4>Bootstrap Example</h4>
+                        <div class="code-snippet">
+                            <pre>&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-md-6"&gt;
+      &lt;div class="card"&gt;
+        &lt;div class="card-body"&gt;
+          &lt;h5 class="card-title"&gt;Card Title&lt;/h5&gt;
+          &lt;p class="card-text"&gt;Card content&lt;/p&gt;
+          &lt;a href="#" class="btn btn-primary"&gt;Button&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="framework-column">
+                        <h4>Tailwind CSS Example</h4>
+                        <div class="code-snippet">
+                            <pre>&lt;div class="container mx-auto px-4"&gt;
+  &lt;div class="flex flex-wrap -mx-4"&gt;
+    &lt;div class="w-full md:w-1/2 px-4"&gt;
+      &lt;div class="bg-white rounded-lg shadow p-6"&gt;
+        &lt;h5 class="text-xl font-bold mb-2"&gt;Card Title&lt;/h5&gt;
+        &lt;p class="text-gray-700 mb-4"&gt;Card content&lt;/p&gt;
+        &lt;a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"&gt;Button&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+                <p class="description">
+                    Component-based frameworks like Bootstrap use semantic class names, while utility-first frameworks like Tailwind CSS use atomic classes that describe styles directly.
+                </p>
+            </div>
+
+            <div class="example-container">
+                <h3>When to Use a Framework</h3>
+                <div class="framework-decision">
+                    <div class="decision-panel">
+                        <h4>Pros of Using a Framework</h4>
+                        <ul class="decision-list">
+                            <li>Faster development time</li>
+                            <li>Consistent UI components</li>
+                            <li>Built-in responsive design</li>
+                            <li>Cross-browser compatibility</li>
+                            <li>Community support and documentation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="decision-panel">
+                        <h4>Cons of Using a Framework</h4>
+                        <ul class="decision-list">
+                            <li>Increased file size</li>
+                            <li>Generic design (unless heavily customized)</li>
+                            <li>Learning curve for framework-specific classes</li>
+                            <li>Potential for unused CSS</li>
+                            <li>Less control over implementation details</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="description">
+                    Consider using a framework for rapid prototyping, consistent UI, or when working with a team. For unique designs or performance-critical sites, a custom approach might be better.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>This is part of the CSS Best Practices module.</p>
+        <p>Thanks for completing the CSS learning course!</p>
+    </footer>
+
+    <script>
+        // Theme switcher demo
+        document.querySelector('.light-theme-btn').addEventListener('click', function() {
+            document.querySelector('.theme-demo').classList.remove('dark-theme');
+            document.querySelector('.light-theme-btn').classList.add('active');
+            document.querySelector('.dark-theme-btn').classList.remove('active');
+        });
+        
+        document.querySelector('.dark-theme-btn').addEventListener('click', function() {
+            document.querySelector('.theme-demo').classList.add('dark-theme');
+            document.querySelector('.dark-theme-btn').classList.add('active');
+            document.querySelector('.light-theme-btn').classList.remove('active');
+        });
+        
+        // Animation demos
+        document.querySelector('.animate-reflow').addEventListener('click', function() {
+            const element = document.querySelector('.reflow-element');
+            element.classList.toggle('animate');
+        });
+        
+        document.querySelector('.animate-transform').addEventListener('click', function() {
+            const element = document.querySelector('.transform-element');
+            element.classList.toggle('animate');
+        });
+    </script>
+</body>
+</html>

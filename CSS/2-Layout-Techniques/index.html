@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layout Techniques</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1>CSS Layout Techniques</h1>
+        <p>Examples of different CSS layout methods</p>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#display">Display Property</a></li>
+            <li><a href="#positioning">Positioning</a></li>
+            <li><a href="#float">Float</a></li>
+            <li><a href="#flexbox">Flexbox</a></li>
+            <li><a href="#grid">CSS Grid</a></li>
+            <li><a href="#responsive">Responsive Layouts</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Display Property Section -->
+        <section id="display" class="section">
+            <h2>Display Property</h2>
+            
+            <div class="example-container">
+                <h3>Block Elements</h3>
+                <div class="display-example">
+                    <div class="block-element">Block element 1</div>
+                    <div class="block-element">Block element 2</div>
+                    <div class="block-element">Block element 3</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.block-element {
+    display: block;
+    width: 80%;
+    height: 50px;
+    margin: 10px auto;
+    background-color: #e6f2ff;
+    border: 1px solid #0066cc;
+    text-align: center;
+    line-height: 50px;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Inline Elements</h3>
+                <div class="display-example">
+                    <span class="inline-element">Inline element 1</span>
+                    <span class="inline-element">Inline element 2</span>
+                    <span class="inline-element">Inline element 3</span>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.inline-element {
+    display: inline;
+    padding: 10px;
+    background-color: #ffe6e6;
+    border: 1px solid #cc0066;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Inline-Block Elements</h3>
+                <div class="display-example">
+                    <span class="inline-block-element">Inline-block 1</span>
+                    <span class="inline-block-element">Inline-block 2</span>
+                    <span class="inline-block-element">Inline-block 3</span>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.inline-block-element {
+    display: inline-block;
+    width: 120px;
+    height: 80px;
+    margin: 10px;
+    background-color: #e6ffe6;
+    border: 1px solid #66cc66;
+    text-align: center;
+    line-height: 80px;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>None (Hidden)</h3>
+                <div class="display-example">
+                    <button id="toggle-button">Toggle Visibility</button>
+                    <div id="toggle-element" class="block-element">This element can be hidden</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+#toggle-element.hidden {
+    display: none;
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Positioning Section -->
+        <section id="positioning" class="section">
+            <h2>CSS Positioning</h2>
+            
+            <div class="example-container">
+                <h3>Static Positioning (Default)</h3>
+                <div class="position-example static-example">
+                    <div class="position-box static-box">Static</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.static-box {
+    position: static;
+    /* top, right, bottom, left have no effect */
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Relative Positioning</h3>
+                <div class="position-example relative-example">
+                    <div class="position-box relative-reference">Reference</div>
+                    <div class="position-box relative-box">Relative</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.relative-box {
+    position: relative;
+    top: 20px;
+    left: 40px;
+    background-color: #ffe6e6;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Absolute Positioning</h3>
+                <div class="position-example absolute-example">
+                    <div class="position-box absolute-box">Absolute</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.absolute-example {
+    position: relative; /* Container needs to be positioned */
+}
+
+.absolute-box {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #e6ffe6;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Fixed Positioning</h3>
+                <p>Check the bottom-right corner of the viewport for a fixed element.</p>
+                <div class="code-container">
+                    <pre><code>
+.fixed-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(255, 204, 0, 0.8);
+    z-index: 100;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Sticky Positioning</h3>
+                <div class="sticky-example">
+                    <div class="sticky-header">Sticky Header (scroll down to see the effect)</div>
+                    <div class="sticky-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Curabitur in lectus vitae elit facilisis rhoncus.</p>
+                        <p>Donec vitae justo nec elit feugiat commodo.</p>
+                        <p>Vivamus eget ex auctor, lobortis elit ac, varius urna.</p>
+                        <p>Aenean consequat neque vitae ipsum finibus, in vehicula tortor vestibulum.</p>
+                        <p>Cras at turpis dictum, pharetra ante eu, ullamcorper est.</p>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: #0066cc;
+    color: white;
+    padding: 10px;
+    z-index: 10;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Z-Index</h3>
+                <div class="z-index-example">
+                    <div class="z-box z-box-1">Z-Index: 1</div>
+                    <div class="z-box z-box-2">Z-Index: 2</div>
+                    <div class="z-box z-box-3">Z-Index: 3</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.z-box {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.z-box-1 {
+    background-color: rgba(255, 0, 0, 0.7);
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+}
+
+.z-box-2 {
+    background-color: rgba(0, 255, 0, 0.7);
+    top: 40px;
+    left: 40px;
+    z-index: 2;
+}
+
+.z-box-3 {
+    background-color: rgba(0, 0, 255, 0.7);
+    top: 60px;
+    left: 60px;
+    z-index: 3;
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Float Section -->
+        <section id="float" class="section">
+            <h2>Floating Elements</h2>
+            
+            <div class="example-container">
+                <h3>Basic Float</h3>
+                <div class="float-example">
+                    <div class="float-left">Float Left</div>
+                    <div class="float-right">Float Right</div>
+                    <div class="clear-both"></div>
+                    <p class="float-text">This text comes after the floated elements. The clear-both div ensures that this text appears below the floated elements rather than beside them.</p>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.float-left {
+    float: left;
+    width: 48%;
+    height: 100px;
+    background-color: #e6f2ff;
+    border: 1px solid #0066cc;
+    text-align: center;
+    line-height: 100px;
+}
+
+.float-right {
+    float: right;
+    width: 48%;
+    height: 100px;
+    background-color: #ffe6e6;
+    border: 1px solid #cc0066;
+    text-align: center;
+    line-height: 100px;
+}
+
+.clear-both {
+    clear: both;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Clearfix Technique</h3>
+                <div class="clearfix-example">
+                    <div class="float-item">Float Item 1</div>
+                    <div class="float-item">Float Item 2</div>
+                    <div class="float-item">Float Item 3</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.clearfix-example {
+    border: 2px dashed #999;
+    padding: 10px;
+}
+
+.clearfix-example::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.float-item {
+    float: left;
+    width: 30%;
+    margin: 0 1.5%;
+    height: 80px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 80px;
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flexbox Section -->
+        <section id="flexbox" class="section">
+            <h2>Flexbox Layout</h2>
+            
+            <div class="example-container">
+                <h3>Basic Flex Container</h3>
+                <div class="flex-example basic-flex">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.basic-flex {
+    display: flex;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.flex-item {
+    padding: 20px;
+    background-color: #e6f2ff;
+    border: 1px solid #0066cc;
+    margin: 5px;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Flex Direction</h3>
+                <div class="flex-controls">
+                    <button class="flex-control-btn" data-prop="flex-direction" data-value="row">Row</button>
+                    <button class="flex-control-btn" data-prop="flex-direction" data-value="row-reverse">Row Reverse</button>
+                    <button class="flex-control-btn" data-prop="flex-direction" data-value="column">Column</button>
+                    <button class="flex-control-btn" data-prop="flex-direction" data-value="column-reverse">Column Reverse</button>
+                </div>
+                <div class="flex-example direction-flex">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+                <div class="code-container">
+                    <pre><code id="direction-code">
+.direction-flex {
+    display: flex;
+    flex-direction: row;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Justify Content</h3>
+                <div class="flex-controls">
+                    <button class="flex-control-btn" data-prop="justify-content" data-value="flex-start">Flex Start</button>
+                    <button class="flex-control-btn" data-prop="justify-content" data-value="flex-end">Flex End</button>
+                    <button class="flex-control-btn" data-prop="justify-content" data-value="center">Center</button>
+                    <button class="flex-control-btn" data-prop="justify-content" data-value="space-between">Space Between</button>
+                    <button class="flex-control-btn" data-prop="justify-content" data-value="space-around">Space Around</button>
+                    <button class="flex-control-btn" data-prop="justify-content" data-value="space-evenly">Space Evenly</button>
+                </div>
+                <div class="flex-example justify-flex">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                </div>
+                <div class="code-container">
+                    <pre><code id="justify-code">
+.justify-flex {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Align Items</h3>
+                <div class="flex-controls">
+                    <button class="flex-control-btn" data-prop="align-items" data-value="stretch">Stretch</button>
+                    <button class="flex-control-btn" data-prop="align-items" data-value="flex-start">Flex Start</button>
+                    <button class="flex-control-btn" data-prop="align-items" data-value="flex-end">Flex End</button>
+                    <button class="flex-control-btn" data-prop="align-items" data-value="center">Center</button>
+                    <button class="flex-control-btn" data-prop="align-items" data-value="baseline">Baseline</button>
+                </div>
+                <div class="flex-example align-flex">
+                    <div class="flex-item" style="height: 40px;">Short</div>
+                    <div class="flex-item" style="height: 60px;">Medium</div>
+                    <div class="flex-item" style="height: 80px;">Tall</div>
+                </div>
+                <div class="code-container">
+                    <pre><code id="align-code">
+.align-flex {
+    display: flex;
+    align-items: stretch;
+    height: 120px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Flex Wrap</h3>
+                <div class="flex-controls">
+                    <button class="flex-control-btn" data-prop="flex-wrap" data-value="nowrap">No Wrap</button>
+                    <button class="flex-control-btn" data-prop="flex-wrap" data-value="wrap">Wrap</button>
+                    <button class="flex-control-btn" data-prop="flex-wrap" data-value="wrap-reverse">Wrap Reverse</button>
+                </div>
+                <div class="flex-example wrap-flex">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                    <div class="flex-item">Item 4</div>
+                    <div class="flex-item">Item 5</div>
+                    <div class="flex-item">Item 6</div>
+                    <div class="flex-item">Item 7</div>
+                    <div class="flex-item">Item 8</div>
+                </div>
+                <div class="code-container">
+                    <pre><code id="wrap-code">
+.wrap-flex {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.wrap-flex .flex-item {
+    width: 100px;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Flex Item Properties</h3>
+                <div class="flex-example item-flex">
+                    <div class="flex-item grow-0">Grow: 0<br>Basis: auto</div>
+                    <div class="flex-item grow-1">Grow: 1<br>Basis: auto</div>
+                    <div class="flex-item grow-2">Grow: 2<br>Basis: auto</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.item-flex {
+    display: flex;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.grow-0 {
+    flex-grow: 0;
+    background-color: #ffe6e6;
+}
+
+.grow-1 {
+    flex-grow: 1;
+    background-color: #e6ffe6;
+}
+
+.grow-2 {
+    flex-grow: 2;
+    background-color: #e6f2ff;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Order Property</h3>
+                <div class="flex-example order-flex">
+                    <div class="flex-item order-3">Display Order: 3<br>HTML Order: 1</div>
+                    <div class="flex-item order-1">Display Order: 1<br>HTML Order: 2</div>
+                    <div class="flex-item order-2">Display Order: 2<br>HTML Order: 3</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.order-flex {
+    display: flex;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.order-1 {
+    order: 1;
+    background-color: #ffe6e6;
+}
+
+.order-2 {
+    order: 2;
+    background-color: #e6ffe6;
+}
+
+.order-3 {
+    order: 3;
+    background-color: #e6f2ff;
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS Grid Section -->
+        <section id="grid" class="section">
+            <h2>CSS Grid Layout</h2>
+            
+            <div class="example-container">
+                <h3>Basic Grid</h3>
+                <div class="grid-example basic-grid">
+                    <div class="grid-item">Item 1</div>
+                    <div class="grid-item">Item 2</div>
+                    <div class="grid-item">Item 3</div>
+                    <div class="grid-item">Item 4</div>
+                    <div class="grid-item">Item 5</div>
+                    <div class="grid-item">Item 6</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.basic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.grid-item {
+    padding: 20px;
+    background-color: #e6f2ff;
+    border: 1px solid #0066cc;
+    text-align: center;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Grid Template Areas</h3>
+                <div class="grid-example areas-grid">
+                    <div class="grid-item header-area">Header</div>
+                    <div class="grid-item sidebar-area">Sidebar</div>
+                    <div class="grid-item content-area">Main Content</div>
+                    <div class="grid-item footer-area">Footer</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.areas-grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+    grid-gap: 10px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+    height: 300px;
+}
+
+.header-area {
+    grid-area: header;
+    background-color: #ffcccc;
+}
+
+.sidebar-area {
+    grid-area: sidebar;
+    background-color: #ccffcc;
+}
+
+.content-area {
+    grid-area: content;
+    background-color: #ccccff;
+}
+
+.footer-area {
+    grid-area: footer;
+    background-color: #ffffcc;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Grid Item Placement</h3>
+                <div class="grid-example placement-grid">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item item-span">3 (spans 2 columns and 2 rows)</div>
+                    <div class="grid-item">4</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item">6</div>
+                    <div class="grid-item">7</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.placement-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    grid-gap: 10px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.item-span {
+    grid-column: 2 / 4;
+    grid-row: 1 / 3;
+    background-color: #ffcc99;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Grid Functions and Keywords</h3>
+                <div class="grid-example functions-grid">
+                    <div class="grid-item">Min: 100px</div>
+                    <div class="grid-item">Auto</div>
+                    <div class="grid-item">1fr</div>
+                    <div class="grid-item">Min: 100px</div>
+                    <div class="grid-item">Auto</div>
+                    <div class="grid-item">1fr</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.functions-grid {
+    display: grid;
+    grid-template-columns: minmax(100px, auto) auto 1fr;
+    grid-template-rows: repeat(2, 100px);
+    grid-gap: 10px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Auto-fill and Auto-fit</h3>
+                <div class="grid-example autofill-grid">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item">6</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.autofill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 10px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive Layouts Section -->
+        <section id="responsive" class="section">
+            <h2>Responsive Layouts</h2>
+            
+            <div class="example-container">
+                <h3>Media Queries</h3>
+                <div class="responsive-example media-query-example">
+                    <div class="responsive-element">
+                        Resize the browser window to see this change
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.responsive-element {
+    padding: 20px;
+    background-color: #e6f2ff;
+    border: 1px solid #0066cc;
+    text-align: center;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+    .responsive-element {
+        background-color: #ffe6e6;
+        border-color: #cc0066;
+    }
+}
+
+/* Medium screens */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .responsive-element {
+        background-color: #e6ffe6;
+        border-color: #66cc66;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1025px) {
+    .responsive-element {
+        background-color: #e6f2ff;
+        border-color: #0066cc;
+    }
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Responsive Flexbox Layout</h3>
+                <div class="responsive-example flex-responsive">
+                    <div class="responsive-card">Card 1</div>
+                    <div class="responsive-card">Card 2</div>
+                    <div class="responsive-card">Card 3</div>
+                    <div class="responsive-card">Card 4</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.flex-responsive {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.responsive-card {
+    flex: 1 0 100%;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Medium screens */
+@media (min-width: 600px) {
+    .responsive-card {
+        flex: 1 0 calc(50% - 20px);
+    }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+    .responsive-card {
+        flex: 1 0 calc(25% - 20px);
+    }
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Responsive Grid Layout</h3>
+                <div class="responsive-example grid-responsive">
+                    <div class="responsive-card">Card 1</div>
+                    <div class="responsive-card">Card 2</div>
+                    <div class="responsive-card">Card 3</div>
+                    <div class="responsive-card">Card 4</div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.grid-responsive {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+/* Medium screens */
+@media (min-width: 600px) {
+    .grid-responsive {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+    .grid-responsive {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Layout Patterns Section -->
+        <section id="patterns" class="section">
+            <h2>Common Layout Patterns</h2>
+            
+            <div class="example-container">
+                <h3>Holy Grail Layout (Flexbox)</h3>
+                <div class="holy-grail-flex">
+                    <header class="hg-header">Header</header>
+                    <div class="hg-main">
+                        <aside class="hg-sidebar-left">Left Sidebar</aside>
+                        <main class="hg-content">Main Content</main>
+                        <aside class="hg-sidebar-right">Right Sidebar</aside>
+                    </div>
+                    <footer class="hg-footer">Footer</footer>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.holy-grail-flex {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+}
+
+.hg-header, .hg-footer {
+    padding: 20px;
+    background-color: #e6f2ff;
+    text-align: center;
+}
+
+.hg-main {
+    display: flex;
+    flex: 1;
+}
+
+.hg-sidebar-left, .hg-sidebar-right {
+    flex: 0 0 20%;
+    padding: 20px;
+    background-color: #ffe6e6;
+}
+
+.hg-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #e6ffe6;
+    text-align: center;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .hg-main {
+        flex-direction: column;
+    }
+    .hg-sidebar-left, .hg-sidebar-right {
+        flex: 0 0 auto;
+    }
+}
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-container">
+                <h3>Card Layout (CSS Grid)</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <h4>Card Title 1</h4>
+                            <p>Card description goes here.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <h4>Card Title 2</h4>
+                            <p>Card description goes here.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <h4>Card Title 3</h4>
+                            <p>Card description goes here.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <pre><code>
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+}
+
+.card {
+    display: grid;
+    grid-template-rows: 120px 1fr;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.card-image {
+    background-color: #0066cc;
+    background-image: linear-gradient(45deg, #0066cc, #66ccff);
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h4 {
+    margin-top: 0;
+    color: #333;
+}
+
+.card-content p {
+    color: #666;
+}
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="fixed-box">Fixed Box</div>
+
+    <footer class="main-footer">
+        <p>This is part of the CSS Layout Techniques module.</p>
+        <p>Next, we'll explore Visual Effects in CSS.</p>
+    </footer>
+
+    <script>
+        // Toggle display: none
+        document.getElementById('toggle-button').addEventListener('click', function() {
+            const element = document.getElementById('toggle-element');
+            element.classList.toggle('hidden');
+        });
+        
+        // Flexbox control buttons
+        document.querySelectorAll('.flex-control-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const property = this.getAttribute('data-prop');
+                const value = this.getAttribute('data-value');
+                
+                // Get the container and code element to update
+                let container, codeElement;
+                
+                if (property === 'flex-direction') {
+                    container = document.querySelector('.direction-flex');
+                    codeElement = document.getElementById('direction-code');
+                } else if (property === 'justify-content') {
+                    container = document.querySelector('.justify-flex');
+                    codeElement = document.getElementById('justify-code');
+                } else if (property === 'align-items') {
+                    container = document.querySelector('.align-flex');
+                    codeElement = document.getElementById('align-code');
+                } else if (property === 'flex-wrap') {
+                    container = document.querySelector('.wrap-flex');
+                    codeElement = document.getElementById('wrap-code');
+                }
+                
+                if (container && codeElement) {
+                    // Update the CSS property
+                    container.style[property] = value;
+                    
+                    // Update the code display
+                    let codeText = codeElement.textContent;
+                    const regex = new RegExp(`${property}: [^;]+;`);
+                    codeText = codeText.replace(regex, `${property}: ${value};`);
+                    codeElement.textContent = codeText;
+                    
+                    // Highlight the active button
+                    document.querySelectorAll(`[data-prop="${property}"]`).forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Set initial active states
+        document.querySelector('[data-prop="flex-direction"][data-value="row"]').classList.add('active');
+        document.querySelector('[data-prop="justify-content"][data-value="flex-start"]').classList.add('active');
+        document.querySelector('[data-prop="align-items"][data-value="stretch"]').classList.add('active');
+        document.querySelector('[data-prop="flex-wrap"][data-value="nowrap"]').classList.add('active');
+    </script>
+</body>
+</html>

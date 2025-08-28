@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preformatted Text and Code in HTML</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        .demo-section {
+            margin: 20px 0 40px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+        
+        .code-example {
+            background-color: #f0f0f0;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        .output {
+            background-color: #fff;
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .note {
+            background-color: #e7f4ff;
+            border-left: 4px solid #3498db;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.4;
+            border: 1px solid #ddd;
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            color: #c0392b;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: inherit;
+            border-radius: 0;
+        }
+        
+        /* Custom styles for specific examples */
+        .rainbow-code {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        
+        .rainbow-code .keyword {
+            color: #c678dd;
+        }
+        
+        .rainbow-code .string {
+            color: #98c379;
+        }
+        
+        .rainbow-code .function {
+            color: #61afef;
+        }
+        
+        .rainbow-code .comment {
+            color: #5c6370;
+            font-style: italic;
+        }
+        
+        .rainbow-code .number {
+            color: #d19a66;
+        }
+        
+        .line-numbers {
+            counter-reset: line;
+        }
+        
+        .line-numbers code {
+            counter-increment: line;
+        }
+        
+        .line-numbers code:before {
+            content: counter(line);
+            display: inline-block;
+            width: 2em;
+            padding-right: 1em;
+            margin-right: 1em;
+            color: #888;
+            border-right: 1px solid #ddd;
+            text-align: right;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        /* ASCII art styles */
+        .ascii-art {
+            line-height: 1.2;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Preformatted Text and Code in HTML</h1>
+    
+    <p>HTML provides specialized elements for displaying preformatted text and code. These elements are essential for technical documentation, tutorials, and any content that requires precise formatting or displays programming code.</p>
+    
+    <!-- Preformatted Text Section -->
+    <div class="demo-section">
+        <h2>Preformatted Text: The <code>&lt;pre&gt;</code> Element</h2>
+        
+        <p>The <code>&lt;pre&gt;</code> element preserves both spaces and line breaks exactly as they appear in the HTML source code. This makes it perfect for displaying content where whitespace is significant.</p>
+        
+        <h3>Basic Preformatted Text</h3>
+        
+        <div class="code-example">
+&lt;pre&gt;
+    This text maintains
+        its exact formatting,
+            including spaces
+        and line breaks.
+&lt;/pre&gt;
+        </div>
+        
+        <div class="output">
+            <pre>
+    This text maintains
+        its exact formatting,
+            including spaces
+        and line breaks.
+            </pre>
+        </div>
+        
+        <p>Notice how the indentation and line breaks in the HTML source are preserved in the browser output. This is different from normal HTML, where multiple whitespace characters are collapsed into a single space.</p>
+        
+        <h3>ASCII Art with Preformatted Text</h3>
+        
+        <p>The <code>&lt;pre&gt;</code> element is perfect for displaying ASCII art:</p>
+        
+        <div class="output">
+            <pre class="ascii-art">
+    .--.
+   |o_o |
+   |:_/ |
+  //   \ \
+ (|     | )
+/'\_   _/`\
+\___)=(___/
+            </pre>
+        </div>
+        
+        <div class="note">
+            <p><strong>Note:</strong> While <code>&lt;pre&gt;</code> preserves whitespace, it still interprets HTML entities and tags. If you need to display HTML tags as text, you'll need to use character entity references (e.g., <code>&amp;lt;</code> for &lt; and <code>&amp;gt;</code> for &gt;) or combine it with the <code>&lt;code&gt;</code> element.</p>
+        </div>
+        
+        <h3>Overflow Handling</h3>
+        
+        <p>When preformatted text is too wide for its container, it can create horizontal scrollbars. You can control this with CSS:</p>
+        
+        <div class="code-example">
+pre {
+    overflow-x: auto; /* Adds horizontal scrollbar when needed */
+    white-space: pre-wrap; /* Allows text to wrap to next line */
+    word-wrap: break-word; /* Breaks long words to prevent overflow */
+}
+        </div>
+        
+        <div class="output">
+            <p>With <code>overflow-x: auto</code>:</p>
+            <pre style="overflow-x: auto; white-space: pre;">
+This is a very long line of text that will extend beyond the width of its container and create a horizontal scrollbar rather than wrapping to the next line. This demonstrates how overflow-x: auto works with preformatted text.
+            </pre>
+            
+            <p>With <code>white-space: pre-wrap</code>:</p>
+            <pre style="white-space: pre-wrap;">
+This is a very long line of text that will wrap to the next line when it reaches the edge of its container. This demonstrates how white-space: pre-wrap works with preformatted text.
+            </pre>
+        </div>
+    </div>
+    
+    <!-- Code Elements Section -->
+    <div class="demo-section">
+        <h2>Code Elements: <code>&lt;code&gt;</code></h2>
+        
+        <p>The <code>&lt;code&gt;</code> element is used to represent computer code. By default, browsers display <code>&lt;code&gt;</code> elements in a monospace font.</p>
+        
+        <h3>Inline Code</h3>
+        
+        <div class="code-example">
+&lt;p&gt;The &lt;code&gt;console.log()&lt;/code&gt; function outputs a message to the console.&lt;/p&gt;
+        </div>
+        
+        <div class="output">
+            <p>The <code>console.log()</code> function outputs a message to the console.</p>
+        </div>
+        
+        <h3>Code Blocks with <code>&lt;pre&gt;</code> and <code>&lt;code&gt;</code></h3>
+        
+        <p>For multi-line code blocks, combine <code>&lt;pre&gt;</code> and <code>&lt;code&gt;</code>:</p>
+        
+        <div class="code-example">
+&lt;pre&gt;&lt;code&gt;
+function greet(name) {
+    console.log("Hello, " + name + "!");
+}
+
+greet("World");
+&lt;/code&gt;&lt;/pre&gt;
+        </div>
+        
+        <div class="output">
+            <pre><code>
+function greet(name) {
+    console.log("Hello, " + name + "!");
+}
+
+greet("World");
+            </code></pre>
+        </div>
+        
+        <div class="note">
+            <p><strong>Best Practice:</strong> The combination of <code>&lt;pre&gt;</code> and <code>&lt;code&gt;</code> is recommended for code blocks. The <code>&lt;pre&gt;</code> preserves formatting, while the <code>&lt;code&gt;</code> adds semantic meaning.</p>
+        </div>
+        
+        <h3>Displaying HTML Code</h3>
+        
+        <p>When displaying HTML code, you need to replace angle brackets with their entity references to prevent the browser from interpreting them as actual HTML tags:</p>
+        
+        <div class="code-example">
+&lt;pre&gt;&lt;code&gt;
+&amp;lt;div class="container"&amp;gt;
+    &amp;lt;h1&amp;gt;Hello, World!&amp;lt;/h1&amp;gt;
+    &amp;lt;p&amp;gt;This is a paragraph.&amp;lt;/p&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+        </div>
+        
+        <div class="output">
+            <pre><code>
+&lt;div class="container"&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;/div&gt;
+            </code></pre>
+        </div>
+    </div>
+    
+    <!-- Syntax Highlighting Section -->
+    <div class="demo-section">
+        <h2>Syntax Highlighting</h2>
+        
+        <p>While HTML doesn't provide built-in syntax highlighting, you can create highlighted code blocks using CSS classes:</p>
+        
+        <div class="output">
+            <pre class="rainbow-code"><code>
+<span class="keyword">function</span> <span class="function">calculateArea</span>(radius) {
+    <span class="comment">// Calculate the area of a circle</span>
+    <span class="keyword">const</span> pi = <span class="number">3.14159</span>;
+    <span class="keyword">return</span> pi * radius * radius;
+}
+
+<span class="keyword">let</span> result = <span class="function">calculateArea</span>(<span class="number">5</span>);
+<span class="function">console.log</span>(<span class="string">"The area is: "</span> + result);
+            </code></pre>
+        </div>
+        
+        <p>For production websites, you might want to use a dedicated syntax highlighting library like Prism.js or Highlight.js.</p>
+        
+        <h3>Line Numbers</h3>
+        
+        <p>Adding line numbers to code blocks can make it easier to reference specific lines:</p>
+        
+        <div class="output">
+            <pre class="line-numbers"><code>function calculateArea(radius) {
+    // Calculate the area of a circle
+    const pi = 3.14159;
+    return pi * radius * radius;
+}
+
+let result = calculateArea(5);
+console.log("The area is: " + result);</code></pre>
+        </div>
+    </div>
+    
+    <!-- Other Code-Related Elements Section -->
+    <div class="demo-section">
+        <h2>Other Code-Related Elements</h2>
+        
+        <p>HTML includes several specialized elements for different types of computer code and inputs:</p>
+        
+        <h3>The <code>&lt;kbd&gt;</code> Element</h3>
+        
+        <p>Represents keyboard input:</p>
+        
+        <div class="code-example">
+&lt;p&gt;Press &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt; to copy the selected text.&lt;/p&gt;
+        </div>
+        
+        <div class="output">
+            <p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy the selected text.</p>
+        </div>
+        
+        <h3>The <code>&lt;samp&gt;</code> Element</h3>
+        
+        <p>Represents sample output from a computer program:</p>
+        
+        <div class="code-example">
+&lt;p&gt;The program returned: &lt;samp&gt;Error: File not found&lt;/samp&gt;&lt;/p&gt;
+        </div>
+        
+        <div class="output">
+            <p>The program returned: <samp>Error: File not found</samp></p>
+        </div>
+        
+        <h3>The <code>&lt;var&gt;</code> Element</h3>
+        
+        <p>Represents a variable in a mathematical expression or programming context:</p>
+        
+        <div class="code-example">
+&lt;p&gt;The area of a circle is calculated using the formula: &lt;var&gt;A&lt;/var&gt; = π&lt;var&gt;r&lt;/var&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+        </div>
+        
+        <div class="output">
+            <p>The area of a circle is calculated using the formula: <var>A</var> = π<var>r</var><sup>2</sup></p>
+        </div>
+        
+        <h3>Combining Elements</h3>
+        
+        <p>These elements can be combined to create rich, semantically accurate documentation:</p>
+        
+        <div class="output">
+            <p>To run the program, type <kbd>python script.py</kbd> in your terminal.</p>
+            <p>If successful, you'll see: <samp>Calculation complete! The area is 78.54</samp></p>
+            <p>This result is based on the equation <var>A</var> = π<var>r</var><sup>2</sup> where <var>r</var> = 5.</p>
+        </div>
+        
+        <h3>Comparison of Code-Related Elements</h3>
+        
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>Purpose</th>
+                <th>Example</th>
+                <th>Output</th>
+            </tr>
+            <tr>
+                <td><code>&lt;code&gt;</code></td>
+                <td>Computer code</td>
+                <td><code>&lt;code&gt;console.log()&lt;/code&gt;</code></td>
+                <td><code>console.log()</code></td>
+            </tr>
+            <tr>
+                <td><code>&lt;pre&gt;</code></td>
+                <td>Preformatted text</td>
+                <td><code>&lt;pre&gt;  indented text&lt;/pre&gt;</code></td>
+                <td><pre>  indented text</pre></td>
+            </tr>
+            <tr>
+                <td><code>&lt;kbd&gt;</code></td>
+                <td>Keyboard input</td>
+                <td><code>&lt;kbd&gt;Ctrl&lt;/kbd&gt;</code></td>
+                <td><kbd>Ctrl</kbd></td>
+            </tr>
+            <tr>
+                <td><code>&lt;samp&gt;</code></td>
+                <td>Program output</td>
+                <td><code>&lt;samp&gt;Hello, World!&lt;/samp&gt;</code></td>
+                <td><samp>Hello, World!</samp></td>
+            </tr>
+            <tr>
+                <td><code>&lt;var&gt;</code></td>
+                <td>Variables</td>
+                <td><code>&lt;var&gt;x&lt;/var&gt;</code></td>
+                <td><var>x</var></td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- Practical Examples Section -->
+    <div class="demo-section">
+        <h2>Practical Examples</h2>
+        
+        <h3>Code Tutorial</h3>
+        
+        <div class="output">
+            <h3>JavaScript Function Tutorial</h3>
+            
+            <p>A function is a block of code designed to perform a particular task. Here's a basic function:</p>
+            
+            <pre><code>
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+            </code></pre>
+            
+            <p>To call this function, you would write:</p>
+            
+            <pre><code>
+let message = greet("Alice");
+console.log(message); // Outputs: Hello, Alice!
+            </code></pre>
+            
+            <p>To run this code in your browser console, press <kbd>F12</kbd> to open Developer Tools, then navigate to the Console tab.</p>
+        </div>
+        
+        <h3>Terminal Commands Example</h3>
+        
+        <div class="output">
+            <h3>Working with Git</h3>
+            
+            <p>To initialize a new Git repository, run:</p>
+            
+            <pre><code>git init</code></pre>
+            
+            <p>To add files to the staging area:</p>
+            
+            <pre><code>git add .</code></pre>
+            
+            <p>To commit your changes:</p>
+            
+            <pre><code>git commit -m "Initial commit"</code></pre>
+            
+            <p>If you make a mistake, you may see an error like:</p>
+            
+            <pre><samp>error: pathspec 'file.txt' did not match any file(s) known to git</samp></pre>
+        </div>
+        
+        <h3>Math Formula Example</h3>
+        
+        <div class="output">
+            <h3>Quadratic Formula</h3>
+            
+            <p>The quadratic formula is used to solve equations in the form <var>ax</var><sup>2</sup> + <var>bx</var> + <var>c</var> = 0, where <var>a</var> ≠ 0.</p>
+            
+            <p>The formula is:</p>
+            
+            <pre style="text-align: center;"><var>x</var> = (-<var>b</var> ± √(<var>b</var><sup>2</sup> - 4<var>ac</var>)) / (2<var>a</var>)</pre>
+            
+            <p>To implement this in JavaScript:</p>
+            
+            <pre><code>
+function solveQuadratic(a, b, c) {
+    const discriminant = b * b - 4 * a * c;
+    
+    if (discriminant < 0) {
+        return "No real solutions";
+    } else if (discriminant === 0) {
+        const x = -b / (2 * a);
+        return `One solution: x = ${x}`;
+    } else {
+        const x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        return `Two solutions: x = ${x1} or x = ${x2}`;
+    }
+}
+            </code></pre>
+        </div>
+    </div>
+    
+    <!-- Accessibility Section -->
+    <div class="demo-section">
+        <h2>Accessibility Considerations</h2>
+        
+        <p>When using preformatted text and code elements, keep these accessibility considerations in mind:</p>
+        
+        <h3>Screen Readers</h3>
+        
+        <ul>
+            <li>Screen readers typically announce when they encounter code elements, providing context to users</li>
+            <li>Preformatted text may be read character by character, which can be confusing for long blocks</li>
+            <li>Adding appropriate context before code blocks helps users understand what follows</li>
+        </ul>
+        
+        <h3>Color Contrast</h3>
+        
+        <ul>
+            <li>If you use syntax highlighting, ensure there's sufficient contrast between the text and background</li>
+            <li>The WCAG recommends a contrast ratio of at least 4.5:1 for normal text</li>
+        </ul>
+        
+        <h3>Scrollable Content</h3>
+        
+        <ul>
+            <li>When making code blocks scrollable, ensure they can be navigated with a keyboard</li>
+            <li>Consider using <code>tabindex="0"</code> to make scrollable containers focusable</li>
+        </ul>
+        
+        <h3>Alternative Formats</h3>
+        
+        <ul>
+            <li>For complex ASCII art, consider providing an alternative description</li>
+            <li>For important code examples, consider explaining the code in plain text as well</li>
+        </ul>
+    </div>
+    
+    <!-- Best Practices Section -->
+    <div class="demo-section">
+        <h2>Best Practices</h2>
+        
+        <ol>
+            <li><strong>Combine <code>&lt;pre&gt;</code> and <code>&lt;code&gt;</code></strong> for code blocks to get both formatting and semantic benefits</li>
+            <li><strong>Escape HTML characters</strong> when displaying HTML code (<code>&amp;lt;</code> for &lt;, <code>&amp;gt;</code> for &gt;)</li>
+            <li><strong>Add line breaks</strong> in your source code to improve readability</li>
+            <li><strong>Consider syntax highlighting</strong> for better readability of code examples</li>
+            <li><strong>Use responsive design techniques</strong> to handle overflow on small screens</li>
+            <li><strong>Use the appropriate semantic element</strong> for the type of content (<code>&lt;kbd&gt;</code>, <code>&lt;samp&gt;</code>, <code>&lt;var&gt;</code>)</li>
+            <li><strong>Provide context</strong> before code blocks to explain what they demonstrate</li>
+            <li><strong>Keep code examples concise</strong> and focused on the concept being explained</li>
+            <li><strong>Consider using line numbers</strong> for longer code blocks or when you need to reference specific lines</li>
+            <li><strong>Test with screen readers</strong> to ensure accessibility</li>
+        </ol>
+    </div>
+    
+    <footer>
+        <p>This document demonstrates preformatted text and code elements in HTML.</p>
+        <p><small>&copy; 2025 HTML Tutorial</small></p>
+    </footer>
+</body>
+</html>

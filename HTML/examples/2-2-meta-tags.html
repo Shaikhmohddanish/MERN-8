@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+        Basic Character Encoding
+        Always include this as the first meta tag for proper text rendering
+        UTF-8 supports virtually all characters and symbols across languages
+    -->
+    <meta charset="UTF-8">
+    
+    <!-- 
+        Viewport Settings
+        Essential for responsive design - controls how the page scales on different devices
+        width=device-width: Sets the width of the viewport to the width of the device
+        initial-scale=1.0: Sets the initial zoom level when the page is first loaded
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 
+        Page Title - shown in browser tabs and search results
+        While not a meta tag, it's a critical part of the document head
+    -->
+    <title>Complete Guide to HTML Meta Tags</title>
+    
+    <!-- 
+        SEO Meta Tags
+        These help search engines understand and index your content properly
+    -->
+    
+    <!-- Description - summarizes page content for search engines (recommended: 150-160 characters) -->
+    <meta name="description" content="A comprehensive guide to HTML meta tags with examples of SEO, social media, and technical meta tags to improve your website's performance and visibility.">
+    
+    <!-- Keywords - less important for SEO now, but still used by some search engines -->
+    <meta name="keywords" content="HTML, meta tags, SEO, Open Graph, Twitter Card, viewport, charset, responsive design">
+    
+    <!-- Author information -->
+    <meta name="author" content="Your Name">
+    
+    <!-- 
+        Robots Control
+        Tells search engines how to handle the page
+        index/noindex: whether to include this page in search results
+        follow/nofollow: whether to crawl links on this page
+        Other values: noarchive, nosnippet, notranslate, noimageindex, etc.
+    -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Specify a canonical URL to prevent duplicate content issues -->
+    <link rel="canonical" href="https://example.com/meta-tags-guide">
+    
+    <!-- 
+        Social Media Meta Tags
+        These control how your content appears when shared on social platforms
+    -->
+    
+    <!-- Open Graph Protocol (used by Facebook, LinkedIn, Pinterest) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Complete Guide to HTML Meta Tags">
+    <meta property="og:description" content="Learn everything about HTML meta tags and how they can improve your website's SEO, social sharing, and more.">
+    <meta property="og:image" content="https://example.com/images/meta-tags-guide.jpg">
+    <meta property="og:image:alt" content="HTML meta tags infographic">
+    <meta property="og:url" content="https://example.com/meta-tags-guide">
+    <meta property="og:site_name" content="Web Development Tutorials">
+    <meta property="article:published_time" content="2025-08-28T09:00:00+00:00">
+    <meta property="article:author" content="https://example.com/author/yourname">
+    
+    <!-- Twitter Card (used by Twitter) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yourusername">
+    <meta name="twitter:creator" content="@yourusername">
+    <meta name="twitter:title" content="Complete Guide to HTML Meta Tags">
+    <meta name="twitter:description" content="Learn everything about HTML meta tags and how they can improve your website's SEO, social sharing, and more.">
+    <meta name="twitter:image" content="https://example.com/images/meta-tags-guide.jpg">
+    <meta name="twitter:image:alt" content="HTML meta tags infographic">
+    
+    <!-- 
+        Technical Meta Tags
+        These affect how browsers handle your page
+    -->
+    
+    <!-- Refresh or redirect the page after a specified time (use with caution) -->
+    <!-- <meta http-equiv="refresh" content="30"> --> <!-- Refresh every 30 seconds -->
+    <!-- <meta http-equiv="refresh" content="5;url=https://example.com/new-page"> --> <!-- Redirect after 5 seconds -->
+    
+    <!-- Specify the default content language (alternative to html lang attribute) -->
+    <meta http-equiv="content-language" content="en-US">
+    
+    <!-- Specify the document mode for Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Control caching of the page -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    
+    <!-- Specify the document's MIME type (rarely needed) -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!-- 
+        Mobile-specific Meta Tags
+        These affect how the page appears and behaves on mobile devices
+    -->
+    
+    <!-- Apple-specific meta tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Meta Tags Guide">
+    
+    <!-- Android-specific meta tags -->
+    <meta name="theme-color" content="#3498db">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Microsoft Windows tiles -->
+    <meta name="msapplication-TileColor" content="#3498db">
+    <meta name="msapplication-TileImage" content="https://example.com/images/ms-tile.png">
+    
+    <!-- 
+        Other Useful Meta Tags
+        These serve various specific purposes
+    -->
+    
+    <!-- Verification codes for search engines and webmaster tools -->
+    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE">
+    <meta name="yandex-verification" content="YOUR_VERIFICATION_CODE">
+    <meta name="msvalidate.01" content="YOUR_VERIFICATION_CODE">
+    
+    <!-- Geographic position (for location-relevant websites) -->
+    <meta name="geo.region" content="US-NY">
+    <meta name="geo.placename" content="New York">
+    <meta name="geo.position" content="40.712776;-74.005974">
+    <meta name="ICBM" content="40.712776, -74.005974">
+    
+    <!-- Page-specific information -->
+    <meta name="subject" content="HTML Meta Tags">
+    <meta name="copyright" content="© 2025 Example.com">
+    <meta name="language" content="English">
+    <meta name="revised" content="Sunday, August 28th, 2025, 5:00 pm">
+    
+    <!-- Styles for this demo page only -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        section {
+            margin-bottom: 40px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+        .note {
+            background-color: #e7f4ff;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Complete Guide to HTML Meta Tags</h1>
+        <p>This page demonstrates various meta tags and their purposes. View the source code to see all meta tags in action.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>What Are Meta Tags?</h2>
+            <p>Meta tags are snippets of HTML code that provide metadata about a webpage. They don't affect the visible content but provide information about the page to browsers and search engines.</p>
+            
+            <div class="note">
+                <p><strong>Note:</strong> Most meta tags are placed within the <code>&lt;head&gt;</code> section of an HTML document.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Essential Meta Tags</h2>
+            <p>These meta tags should be included in virtually every HTML document:</p>
+            
+            <h3>Character Encoding</h3>
+            <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+            <p>Specifies the character encoding for the HTML document. UTF-8 is recommended as it supports characters from all languages.</p>
+            
+            <h3>Viewport Settings</h3>
+            <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+            <p>Controls how the page is scaled and displayed on different devices, essential for responsive design.</p>
+            
+            <h3>Description</h3>
+            <pre><code>&lt;meta name="description" content="A concise summary of the page content."&gt;</code></pre>
+            <p>Provides a brief summary of the page that may appear in search engine results.</p>
+        </section>
+
+        <section>
+            <h2>SEO Meta Tags</h2>
+            <p>These meta tags help improve search engine optimization:</p>
+            
+            <table>
+                <tr>
+                    <th>Meta Tag</th>
+                    <th>Purpose</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;meta name="description" content="..."&gt;</code></td>
+                    <td>Page description for search results</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;meta name="keywords" content="..."&gt;</code></td>
+                    <td>Keywords related to the page (less important now)</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;meta name="robots" content="index, follow"&gt;</code></td>
+                    <td>Instructions for search engine crawlers</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;link rel="canonical" href="..."&gt;</code></td>
+                    <td>Specifies the preferred URL for the page</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;meta name="author" content="..."&gt;</code></td>
+                    <td>Identifies the page author</td>
+                </tr>
+            </table>
+            
+            <h3>Robots Directives</h3>
+            <p>The "robots" meta tag can include these values:</p>
+            <ul>
+                <li><code>index</code>: Allow indexing of the page</li>
+                <li><code>noindex</code>: Prevent indexing of the page</li>
+                <li><code>follow</code>: Allow following links on the page</li>
+                <li><code>nofollow</code>: Prevent following links on the page</li>
+                <li><code>noarchive</code>: Prevent caching of the page</li>
+                <li><code>nosnippet</code>: Prevent displaying a snippet in search results</li>
+                <li><code>notranslate</code>: Prevent translation of the page</li>
+                <li><code>noimageindex</code>: Prevent indexing of images on the page</li>
+            </ul>
+            
+            <pre><code>&lt;meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>Social Media Meta Tags</h2>
+            
+            <h3>Open Graph Protocol (Facebook, LinkedIn, Pinterest)</h3>
+            <p>Open Graph meta tags control how your content appears when shared on Facebook and many other platforms:</p>
+            
+            <pre><code>&lt;meta property="og:type" content="article"&gt;
+&lt;meta property="og:title" content="Your Page Title"&gt;
+&lt;meta property="og:description" content="Your page description"&gt;
+&lt;meta property="og:image" content="https://example.com/image.jpg"&gt;
+&lt;meta property="og:url" content="https://example.com/page"&gt;
+&lt;meta property="og:site_name" content="Your Site Name"&gt;</code></pre>
+            
+            <div class="note">
+                <p><strong>Tip:</strong> The og:image should be at least 1200×630 pixels for best display on high-resolution devices.</p>
+            </div>
+            
+            <h3>Twitter Card (Twitter)</h3>
+            <p>Twitter Card meta tags control how your content appears when shared on Twitter:</p>
+            
+            <pre><code>&lt;meta name="twitter:card" content="summary_large_image"&gt;
+&lt;meta name="twitter:site" content="@yourusername"&gt;
+&lt;meta name="twitter:title" content="Your Page Title"&gt;
+&lt;meta name="twitter:description" content="Your page description"&gt;
+&lt;meta name="twitter:image" content="https://example.com/image.jpg"&gt;</code></pre>
+            
+            <p>Twitter card types include:</p>
+            <ul>
+                <li><code>summary</code>: Standard card with small image</li>
+                <li><code>summary_large_image</code>: Card with large image</li>
+                <li><code>app</code>: Card for mobile apps</li>
+                <li><code>player</code>: Card for video/audio players</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technical and HTTP-Equiv Meta Tags</h2>
+            <p>These meta tags provide instructions to the browser about how to handle the page:</p>
+            
+            <h3>Page Refresh or Redirect</h3>
+            <pre><code>&lt;meta http-equiv="refresh" content="5;url=https://example.com/new-page"&gt;</code></pre>
+            <p>Redirects to a new URL after 5 seconds. Use with caution as it can confuse users.</p>
+            
+            <h3>X-UA-Compatible</h3>
+            <pre><code>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</code></pre>
+            <p>Ensures Internet Explorer uses the latest rendering engine.</p>
+            
+            <h3>Cache Control</h3>
+            <pre><code>&lt;meta http-equiv="cache-control" content="no-cache"&gt;
+&lt;meta http-equiv="expires" content="0"&gt;</code></pre>
+            <p>Controls how the browser caches the page.</p>
+        </section>
+
+        <section>
+            <h2>Mobile-Specific Meta Tags</h2>
+            <p>These meta tags enhance the experience on mobile devices:</p>
+            
+            <h3>Apple Mobile Web App</h3>
+            <pre><code>&lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;
+&lt;meta name="apple-mobile-web-app-status-bar-style" content="black"&gt;
+&lt;meta name="apple-mobile-web-app-title" content="App Title"&gt;</code></pre>
+            <p>Controls how the page behaves when saved to the home screen on iOS devices.</p>
+            
+            <h3>Theme Color</h3>
+            <pre><code>&lt;meta name="theme-color" content="#3498db"&gt;</code></pre>
+            <p>Controls the color of the browser UI on some mobile devices, particularly Android Chrome.</p>
+            
+            <h3>Telephone Format Detection</h3>
+            <pre><code>&lt;meta name="format-detection" content="telephone=no"&gt;</code></pre>
+            <p>Prevents browsers from automatically detecting and formatting phone numbers as clickable links.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>This is a comprehensive example of HTML meta tags. View the source code to see all implemented meta tags.</p>
+        <p><small>&copy; 2025 HTML Tutorial</small></p>
+    </footer>
+</body>
+</html>
