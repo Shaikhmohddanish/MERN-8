@@ -88,8 +88,8 @@ console.log(firstCard.textContent); // "Card 1"
 const allCards = document.querySelectorAll('.card');
 allCards.forEach(card => console.log(card.textContent)); // "Card 1", "Card 2"
 
-// More complex selection
-const submitButton = document.querySelector('form button.submit');
+// Simple combined selector (element + class)
+const blueButton = document.querySelector('button.blue');
 ```
 
 ## DOM Relationships - Navigating Between Elements

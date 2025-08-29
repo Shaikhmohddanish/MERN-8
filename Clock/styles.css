@@ -1,0 +1,97 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.container {
+    text-align: center;
+}
+
+.clock {
+    background-color: #2d2d2d;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    width: 400px;
+}
+
+.clock-face {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hours, #minutes, #seconds {
+    background-color: #3d3d3d;
+    padding: 10px 15px;
+    border-radius: 8px;
+    min-width: 80px;
+    display: inline-block;
+}
+
+.colon {
+    margin: 0 5px;
+    animation: blink 1s infinite;
+}
+
+#am-pm {
+    font-size: 20px;
+    margin-left: 10px;
+    background-color: #444;
+    padding: 5px 8px;
+    border-radius: 5px;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+.date-display {
+    font-size: 18px;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+/* Animation for the blinking colons */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .clock {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .clock-face {
+        font-size: 36px;
+    }
+    
+    #hours, #minutes, #seconds {
+        min-width: 60px;
+        padding: 8px 10px;
+    }
+    
+    #am-pm {
+        font-size: 16px;
+    }
+    
+    .date-display {
+        font-size: 16px;
+    }
+}
