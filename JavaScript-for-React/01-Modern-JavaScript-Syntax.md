@@ -192,20 +192,6 @@ const betterCalculator = {
 console.log(betterCalculator.add(2, 3)); // 5
 ```
 
-### Computed Property Names
-
-```javascript
-const propertyName = 'dynamicKey';
-const actionTypes = {
-  FETCH_START: 'FETCH_START',
-  [propertyName]: 'DYNAMIC_VALUE',
-  [`${propertyName}_EXTENDED`]: 'DYNAMIC_EXTENDED'
-};
-
-console.log(actionTypes); 
-// { FETCH_START: 'FETCH_START', dynamicKey: 'DYNAMIC_VALUE', dynamicKey_EXTENDED: 'DYNAMIC_EXTENDED' }
-```
-
 ## Practice Exercises
 
 ### Exercise 1: Variable Declaration

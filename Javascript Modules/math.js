@@ -1,11 +1,13 @@
 // math.js
-export const PI = 3.14159;
+const PI = 3.14159;
 
 export function add(a, b) {
+  console.log("Add method called");
   return a + b;
 }
 
 export function subtract(a, b) {
+  console.log("Subtract method called");  
   return a - b;
 }
 

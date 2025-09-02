@@ -121,7 +121,7 @@
 // console.log(b); // 1
 
 // Before destructuring
-const user = { name: 'John', age: 30 };
+// const user = { name: 'John', age: 30 };
 // const userName = user.name;
 // const userAge = user.age;
 
@@ -142,8 +142,82 @@ const user = { name: 'John', age: 30 };
 // }
 
 // With destructuring
-function displayUser({ name, age }) {
-  console.log(`Name: ${name}, Age: ${age}`);
-}
+// function displayUser({ name, age }) {
+//   console.log(`Name: ${name}, Age: ${age}`);
+// }
 
-displayUser({ name: 'John', age: 30 });
+// displayUser({ name: 'John', age: 30 });
+
+// const parentDiv = document.getElementById('parent');
+// console.dir(parentDiv);
+
+// const children = parentDiv.children;
+// const firstChild = parentDiv.firstElementChild;
+// console.log(firstChild);
+// console.log(parentDiv);
+// console.log(children);
+
+// const paragraphs = document.querySelectorAll('p');
+// paragraphs.forEach((p,index) => {
+//     console.log(`Paragraph ${index}: ${p.textContent}`);
+// });
+
+// const span = document.querySelector('span');
+// const prevSibling = span.previousElementSibling;
+// console.log(prevSibling.textContent);
+
+// const header = document.getElementById('header');
+// const childElement = header.firstElementChild;
+// const h2Element = childElement.nextElementSibling;
+// h2Element.remove();
+// header.setAttribute("name", "header-name");
+// console.log(header.hasAttribute("name"));
+// header.removeAttribute("class");
+// header.className="my-class2"
+// header.classList.add("my-class2");
+// const existingClasse = header.classList;
+// console.log(existingClasse);
+// let classes = existingClasse.toString();
+// header.className=classes+" my-class2";
+
+
+// const user = document.getElementById("user");
+// const userId = user.dataset.id; // "123"
+// const userRole = user.dataset.role;
+// console.log(userId,userRole);
+// user.dataset.status = "active";
+// header.style.color ="#962c2c";
+// header.style.backgroundColor ="red";
+// header.style.textAlign ="Center";
+// header.style.fontSize = "26px";
+// header.classList.add("text-center", "text-white", "rounded");
+// header.classList.remove("container","rounded");
+// header.classList.add("color-container-black");
+
+{/* <div class="my-class text-center 
+    container" id="my-class-id" 
+    data-id="123">New Element</div> */}
+
+// const divTag = document.getElementById("user");
+
+// const newElement = document.createElement("div");
+// newElement.className ="my-class text-center container";
+// newElement.setAttribute("id","my-class-id");
+// newElement.setAttribute("data-id","123");
+// newElement.textContent="New Element";
+// console.log(newElement);
+// document.body.appendChild(newElement);
+// document.body.insertBefore(newElement,divTag);
+// document.body.insertBefore(newElement, divTag.nextSibling);
+// divTag.remove();
+// let numOfTimesButtonIsClicked = 1;
+// const buttonBtn = document.getElementById("btn");
+// function buttonClickedThenPrint(){
+//     console.log(`Button is clicked 2x! ${numOfTimesButtonIsClicked++}`);
+// }
+// buttonBtn.addEventListener("mouseover", buttonClickedThenPrint);
+
+const divTag = document.getElementById("header");
+divTag.addEventListener("mouseleave", function(event) {
+    console.log(event.screenX,event.screenY);
+});
