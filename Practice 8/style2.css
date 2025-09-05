@@ -1,0 +1,106 @@
+.container{
+    margin-top: 50px;
+}
+
+/* General Styles */
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Event Demo Areas */
+.demo-area {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.inner-element {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: rgba(0, 123, 255, 0.2);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+/* Output Areas */
+.output {
+  min-height: 24px;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Event Cards */
+.event-card {
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.event-card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Event Log */
+.event-log {
+  height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.log-entry {
+  margin-bottom: 5px;
+  padding: 3px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+body.dark-mode .card {
+  background-color: #495057;
+  color: #f8f9fa;
+}
+
+body.dark-mode .demo-area {
+  background-color: #212529;
+  border-color: #495057;
+  color: #f8f9fa;
+}
+
+body.dark-mode .output {
+  color: #adb5bd;
+}
+
+body.dark-mode .event-log {
+  background-color: #212529;
+  border-color: #495057;
+  color: #f8f9fa;
+}
+
+/* Visual Feedback for Events */
+.active-mousedown {
+  background-color: #ff8a65 !important;
+  transform: scale(0.98);
+}
+
+.active-mouseup {
+  background-color: #81c784 !important;
+  transform: scale(1.02);
+}
