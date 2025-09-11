@@ -4,66 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Delivery App</title>
-   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316', // Orange
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="bg-gray-50">
     <!-- Header -->
-    <header class="header">
-        <div class="logo">
-            <div class="logo-icon">🍽️</div>
-            <div class="location">
-                <div>
-                    <div class="location-text">Other</div>
-                    <div class="location-subtext">Tetavli, Kausa, Mumbra, Thane, Mah...</div>
+    <header class="sticky top-0 z-10 bg-white shadow-md px-4 py-4 md:px-8 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="text-3xl">🍽️</div>
+            <div class="flex items-center cursor-pointer">
+                <div class="mr-1">
+                    <div class="font-semibold text-orange-700">Other</div>
+                    <div class="text-xs text-gray-500 max-w-[220px] truncate">Tetavli, Kausa, Mumbra, Thane, Mah...</div>
                 </div>
-                <span>▼</span>
+                <span class="text-primary-500">▼</span>
             </div>
         </div>
         
-        <nav class="nav-items">
-            <a href="#" class="nav-item">
-                <span>🏢</span>
+        <nav class="hidden md:flex items-center space-x-6">
+            <a href="#" class="flex items-center text-gray-700 hover:text-primary-500 transition-colors">
+                <span class="mr-1">🏢</span>
                 <span>Swiggy Corporate</span>
             </a>
-            <a href="#" class="nav-item">
-                <span>🔍</span>
+            <a href="#" class="flex items-center text-gray-700 hover:text-primary-500 transition-colors">
+                <span class="mr-1">🔍</span>
                 <span>Search</span>
             </a>
-            <a href="#" class="nav-item">
-                <span>🎯</span>
+            <a href="#" class="flex items-center text-gray-700 hover:text-primary-500 transition-colors">
+                <span class="mr-1">🎯</span>
                 <span>Offers</span>
-                <span class="badge">NEW</span>
+                <span class="ml-1 bg-primary-500 text-white text-xs px-1 rounded">NEW</span>
             </a>
-            <a href="#" class="nav-item">
-                <span>❓</span>
+            <a href="#" class="flex items-center text-gray-700 hover:text-primary-500 transition-colors">
+                <span class="mr-1">❓</span>
                 <span>Help</span>
             </a>
-            <a href="#" class="nav-item">
-                <span>👤</span>
+            <a href="#" class="flex items-center text-gray-700 hover:text-primary-500 transition-colors">
+                <span class="mr-1">👤</span>
                 <span>Sign In</span>
             </a>
-            <a href="#" class="nav-item">
-                <span>🛒</span>
+            <a href="#" class="flex items-center text-gray-700 hover:text-primary-500 transition-colors">
+                <span class="mr-1">🛒</span>
                 <span>Cart</span>
-                <span class="cart-count">0</span>
+                <span class="ml-1 bg-green-500 text-white text-xs px-1.5 rounded-full">0</span>
             </a>
         </nav>
+        
+        <!-- Mobile menu button (hidden on desktop) -->
+        <button class="md:hidden text-gray-700 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
     </header>
 
     <!-- Main Content -->
-    <main class="container">
+    <main class="max-w-7xl mx-auto px-4 py-8 md:px-8">
+        <!-- Filter options -->
+        <div class="mb-6 flex flex-wrap gap-3">
+            <button id="filter-all" class="px-3 py-1.5 rounded-full text-sm font-medium bg-primary-500 text-white shadow-sm">
+                All Restaurants
+            </button>
+            <button id="filter-rating" class="px-3 py-1.5 rounded-full text-sm font-medium bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 shadow-sm">
+                Rating 4.0+
+            </button>
+            <button id="filter-fast" class="px-3 py-1.5 rounded-full text-sm font-medium bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 shadow-sm">
+                Fast Delivery
+            </button>
+            <button id="filter-offers" class="px-3 py-1.5 rounded-full text-sm font-medium bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 shadow-sm">
+                Offers
+            </button>
+        </div>
+        
+        <!-- Loading state -->
+        <div id="loading" class="py-20 flex flex-col items-center justify-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-500"></div>
+            <p class="mt-4 text-gray-600">Fetching restaurants...</p>
+        </div>
+        
+        <!-- Error state -->
+        <div id="error" class="hidden py-20 flex flex-col items-center justify-center">
+            <div class="text-red-500 text-5xl mb-4">😕</div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Oops! Something went wrong</h3>
+            <p class="text-gray-600 mb-4">We couldn't load the restaurants. Please try again.</p>
+            <button id="retry-button" class="px-4 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors">
+                Retry
+            </button>
+        </div>
+        
         <!-- Restaurants Section -->
-        <section class="restaurants-section">
-            <h2 class="section-title">Top restaurant chains in Mumbai</h2>
-            <div class="restaurants-container">
-                <div id="restaurant-container" class="restaurants-grid">
-                    
-                    
-                    
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Top restaurant chains in Mumbai</h2>
+            <div class="w-full">
+                <div id="restaurant-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Restaurant cards will be added here by JavaScript -->
                 </div>
             </div>
         </section>
+        
+        <!-- No results state -->
+        <div id="no-results" class="hidden py-20 flex flex-col items-center justify-center">
+            <div class="text-gray-400 text-5xl mb-4">🍽️</div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">No restaurants found</h3>
+            <p class="text-gray-600">Try changing your filters or search terms</p>
+        </div>
     </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">FoodApp</h3>
+                    <p class="text-gray-400 text-sm">© 2025 Foodapp Technologies Pvt. Ltd</p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-3">Company</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Team</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Partnerships</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-3">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">Help & Support</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Partner with us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Ride with us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-3">We deliver to:</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">Mumbai</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Delhi</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Bangalore</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">+ 500 cities</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>
